@@ -10,7 +10,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using ODBX.Config;
+using ODBX.Driver;
 using ODBX.Properties;
 
 namespace ODBX.Controls
@@ -18,18 +18,19 @@ namespace ODBX.Controls
     public partial class ControlConnectionBuilder : UserControl
     {
         public delegate void ConfigurationUpdated(object sender, EventArgs args);
+
         public event ConfigurationUpdated ConfigurationUpdatedEvent;
 
         private bool _gotDatabases;
         private bool _gotHosts;
-        private readonly IServerConfig _serverConfig = new SqlServerConfig();
+        
+        public IDriver Driver { get; set; }
 
         public ControlConnectionBuilder()
         {
             InitializeComponent();
             cboAuthentication.SelectedIndex = 0;
             cboServer.SelectedIndex = 0;
-
         }
 
 
@@ -53,7 +54,7 @@ namespace ODBX.Controls
                 {
                     Cursor = Cursors.WaitCursor;
                     cboServer.Items.Clear();
-                    _serverConfig.GetHosts().ForEach(item => cboServer.Items.Add(item));
+                    Driver.Server.GetHosts().ForEach(item => cboServer.Items.Add(item));
                     _gotHosts = true;
                     _gotDatabases = false;
                 }
@@ -76,13 +77,14 @@ namespace ODBX.Controls
                 {
                     Cursor = Cursors.WaitCursor;
                     cboDatabase.Items.Clear();
-                    _serverConfig.GetCatalogs(Configuration).ForEach(item => cboDatabase.Items.Add(item));
+                    Driver.Server.GetCatalogs(Configuration).ForEach(item => cboDatabase.Items.Add(item));
                     _gotHosts = true;
                 }
             }
             catch (Exception ex)
             {
-                Program.HandleException(ParentForm, ex, string.Format(Strings.ErrorEnumerateCatalogs, Configuration.Host));
+                Program.HandleException(ParentForm, ex,
+                                        string.Format(Strings.ErrorEnumerateCatalogs, Configuration.Host));
             }
             finally
             {
@@ -92,11 +94,11 @@ namespace ODBX.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public ConnectionConfiguration Configuration
+        public Connection Configuration
         {
             get
             {
-                var config = new ConnectionConfiguration
+                var config = new Connection
                                  {
                                      Authentication = (AuthenticationMethod) cboAuthentication.SelectedIndex + 1,
                                      Catalog = cboDatabase.Text,
@@ -111,7 +113,7 @@ namespace ODBX.Controls
             {
                 if (value != null)
                 {
-                    cboAuthentication.SelectedIndex = (int)value.Authentication - 1;
+                    cboAuthentication.SelectedIndex = (int) value.Authentication - 1;
                     //cboDriver.SelectedValue = value.
                     cboDatabase.Text = value.Catalog;
                     cboServer.Text = value.Host;
@@ -119,7 +121,7 @@ namespace ODBX.Controls
                     txtPassword.Text = value.Password;
 
                     OnConfigurationUpdated(EventArgs.Empty);
-                }                
+                }
             }
         }
 
@@ -149,6 +151,5 @@ namespace ODBX.Controls
         {
             return Configuration.IsReady;
         }
-
     }
 }

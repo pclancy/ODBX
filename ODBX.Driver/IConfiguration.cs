@@ -1,9 +1,9 @@
 // 
-//    ODBX
+//    ODBX.Driver
 // 	
 //    Copyright (c) 2011 Paul Clancy
 //  
-//    DriverConfiguration.cs
+//    IConfiguration.cs
 //   
 //  
 
@@ -16,5 +16,4 @@ namespace ODBX.Driver
         IList<DriverOption> Options { get; set; }
         IList<DriverOptionCategory> OptionCategories { get; set; }
     }
-
 }

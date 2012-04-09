@@ -88,6 +88,10 @@ namespace ODBX.Forms
 
         private void LoadDriverOptions(IDriver driver)
         {
+
+            ConnectionBuilderSource.Driver = driver;
+            ConnectionBuilderDestination.Driver = driver;
+
             var boldFont = new Font(treeViewOptions.Font, FontStyle.Bold);
 
             treeViewOptions.Nodes.Clear();
@@ -120,6 +124,13 @@ namespace ODBX.Forms
             {
                 LoadDriverOptions((IDriver) cboDriver.SelectedItem);
             }
+        }
+
+        private void ButtonAcceptClick(object sender, EventArgs e)
+        {
+            var driver = (IDriver) cboDriver.SelectedItem;
+
+            driver.BuildComparisonObjects(ConnectionBuilderSource.Configuration);
         }
     }
 }

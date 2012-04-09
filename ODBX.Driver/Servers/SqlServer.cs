@@ -1,9 +1,9 @@
-﻿// 
-//    ODBX
+// 
+//    ODBX.Driver.OpenDBDiff
 // 	
 //    Copyright (c) 2011 Paul Clancy
 //  
-//    SqlServerConfig.cs
+//    SqlServerConnection.cs
 //   
 //  
 
@@ -14,21 +14,22 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace ODBX.Config
+namespace ODBX.Driver.Servers
 {
-    public class SqlServerConfig : IServerConfig
+    public class SqlServer : IServer
     {
-
         public string LastError { get; private set; }
 
-        public bool TestConnection(ConnectionConfiguration configuration)
+        public bool TestConnection(IConnection connection)
         {
             try
             {
-                var connection = new SqlConnection {ConnectionString = configuration.ConnectionString};
-                connection.Open();
-                connection.Close();
-                return true;
+                using (var conn = new SqlConnection { ConnectionString = connection.ConnectionString })
+                {
+                    conn.Open();
+                    conn.Close();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -37,12 +38,12 @@ namespace ODBX.Config
             }
         }
 
-        public List<string> GetCatalogs(ConnectionConfiguration config)
+        public List<string> GetCatalogs(IConnection connection)
         {
-            config.Catalog = "master";
+            connection.Catalog = "master";
 
             var catalogList = new List<string>();
-            using (var conn = new SqlConnection(config.ConnectionString))
+            using (var conn = new SqlConnection(connection.ConnectionString))
             {
                 conn.Open();
                 using (
@@ -69,7 +70,10 @@ namespace ODBX.Config
             return (from DataRow dr in dt.Rows
                     let serverName = dr["ServerName"].ToString()
                     let instanceName = dr["InstanceName"] != null ? dr["InstanceName"].ToString() : null
-                    select string.IsNullOrEmpty(instanceName) ? serverName : string.Format("{0}\\{1}", serverName, instanceName)).ToList();
+                    select
+                        string.IsNullOrEmpty(instanceName)
+                            ? serverName
+                            : string.Format("{0}\\{1}", serverName, instanceName)).ToList();
         }
     }
 }

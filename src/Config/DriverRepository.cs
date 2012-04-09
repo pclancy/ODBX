@@ -26,7 +26,7 @@ namespace ODBX.Config
             {
                 _drivers = new List<IDriver>(new IDriver[]
                                         {
-                                            new FakeDriver(),
+                                            //new FakeDriver(),
                                             new OpenDbDiffDriver()
                                         });
 

@@ -34,6 +34,9 @@
     <Reference Include="DBDiff.Schema">
       <HintPath>depends\DBDiff.Schema.dll</HintPath>
     </Reference>
+    <Reference Include="DBDiff.Schema.SQLServer">
+      <HintPath>depends\DBDiff.Schema.SQLServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

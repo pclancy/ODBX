@@ -54,9 +54,7 @@
     <Compile Include="Config\ConnectionConfiguration.cs" />
     <Compile Include="Config\DriverRepository.cs" />
     <Compile Include="Config\Enums.cs" />
-    <Compile Include="Config\IServerConfig.cs" />
     <Compile Include="Config\ProjectConfiguration.cs" />
-    <Compile Include="Config\SqlServerConfig.cs" />
     <Compile Include="Controls\ControlConnectionBuilder.cs">
       <SubType>UserControl</SubType>
     </Compile>

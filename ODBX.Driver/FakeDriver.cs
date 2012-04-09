@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections.Generic;
+using ODBX.Driver.Servers;
 
 namespace ODBX.Driver
 {
@@ -41,9 +42,46 @@ namespace ODBX.Driver
             get { return _configuration; }
         }
 
+        public IServer Server
+        {
+            get { return new FakeServer(); }
+        }
+
         public Guid Id
         {
             get { return new Guid("{0DF47C45-D084-4C10-8BB2-8B372AF5B882}"); }
+        }
+
+        public void BuildComparisonObjects(IConnection connection)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string LastError { get; private set; }
+
+    }
+
+    public class FakeServer : IServer
+    {
+        public string LastError
+        {
+            get { return string.Empty; }
+        }
+
+        public bool TestConnection(IConnection connection)
+        {
+            return true;
+        }
+
+        public List<string> GetCatalogs(IConnection connection)
+        {
+
+            return new List<string>();
+        }
+
+        public List<string> GetHosts()
+        {
+            return new List<string>();
         }
     }
 

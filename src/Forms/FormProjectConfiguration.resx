@@ -205,7 +205,7 @@
     <value>1</value>
   </data>
   <data name="splitContainerInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>541, 500</value>
+    <value>115, 68</value>
   </data>
   <data name="splitContainerInner.SplitterDistance" type="System.Int32, mscorlib">
     <value>42</value>
@@ -679,10 +679,10 @@
     <value>1</value>
   </data>
   <data name="splitContainerMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>869, 500</value>
+    <value>186, 68</value>
   </data>
   <data name="splitContainerMain.SplitterDistance" type="System.Int32, mscorlib">
-    <value>541</value>
+    <value>115</value>
   </data>
   <data name="splitContainerMain.SplitterWidth" type="System.Int32, mscorlib">
     <value>16</value>

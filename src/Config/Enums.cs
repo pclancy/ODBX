@@ -9,10 +9,5 @@
 
 namespace ODBX.Config
 {
-    public enum AuthenticationMethod
-    {
-        Unknown = 0,
-        Integrated = 1,
-        Basic = 2
-    }
+
 }
