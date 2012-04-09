@@ -11,7 +11,8 @@
     <RootNamespace>ODBX</RootNamespace>
     <AssemblyName>ODBX</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -37,8 +38,9 @@
     <Reference Include="Ascend.Windows.Forms">
       <HintPath>..\DBDiff\bin\Debug\Ascend.Windows.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.3.2.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
-    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.2.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+    <Reference Include="ScintillaNET">
+      <HintPath>..\depends\ScintillaNET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,11 +69,23 @@
     <Compile Include="Controls\GradientPanel.Designer.cs">
       <DependentUpon>GradientPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormApplication.Designer.cs">
+      <DependentUpon>FormApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormException.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormException.Designer.cs">
       <DependentUpon>FormException.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormProject.Designer.cs">
+      <DependentUpon>FormProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormProjectConfiguration.cs">
       <SubType>Form</SubType>
@@ -95,8 +109,14 @@
     <EmbeddedResource Include="Controls\ControlConnectionBuilder.resx">
       <DependentUpon>ControlConnectionBuilder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormApplication.resx">
+      <DependentUpon>FormApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormException.resx">
       <DependentUpon>FormException.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProject.resx">
+      <DependentUpon>FormProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormProjectConfiguration.resx">
       <DependentUpon>FormProjectConfiguration.cs</DependentUpon>
@@ -116,6 +136,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
