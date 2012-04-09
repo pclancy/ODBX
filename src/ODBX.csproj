@@ -52,12 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\ConnectionConfiguration.cs" />
-    <Compile Include="Config\Driver.cs" />
-    <Compile Include="Config\DriverConfiguration.cs" />
-    <Compile Include="Config\DriverOption.cs" />
     <Compile Include="Config\DriverRepository.cs" />
     <Compile Include="Config\Enums.cs" />
-    <Compile Include="Config\FakeDriver.cs" />
     <Compile Include="Config\IServerConfig.cs" />
     <Compile Include="Config\ProjectConfiguration.cs" />
     <Compile Include="Config\SqlServerConfig.cs" />
@@ -299,6 +295,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\database_test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\drivers\OpenDBDiff Driver\ODBX.Driver.OpenDBDiff.csproj">
+      <Project>{282EA14F-23CD-461E-BEE6-7CC25495A576}</Project>
+      <Name>ODBX.Driver.OpenDBDiff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ODBX.Driver\ODBX.Driver.csproj">
+      <Project>{C42E7204-687E-456E-9327-A0458F3F846F}</Project>
+      <Name>ODBX.Driver</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

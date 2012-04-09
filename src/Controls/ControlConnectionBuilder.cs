@@ -29,8 +29,7 @@ namespace ODBX.Controls
             InitializeComponent();
             cboAuthentication.SelectedIndex = 0;
             cboServer.SelectedIndex = 0;
-            DriverRepository.GetInstalledDrivers().ForEach(item => cboDriver.Items.Add(item.Name));
-            cboDriver.SelectedIndex = 0;
+
         }
 
 

@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlConnectionBuilder));
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.cboDriver = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.buttonRefreshCatalogs = new System.Windows.Forms.Button();
             this.buttonRefreshServers = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,8 +49,6 @@
             // panelContainer
             // 
             this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelContainer.Controls.Add(this.cboDriver);
-            this.panelContainer.Controls.Add(this.label6);
             this.panelContainer.Controls.Add(this.buttonRefreshCatalogs);
             this.panelContainer.Controls.Add(this.buttonRefreshServers);
             this.panelContainer.Controls.Add(this.label5);
@@ -68,19 +64,6 @@
             this.panelContainer.Controls.Add(this.label1);
             resources.ApplyResources(this.panelContainer, "panelContainer");
             this.panelContainer.Name = "panelContainer";
-            // 
-            // cboDriver
-            // 
-            this.cboDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDriver.FormattingEnabled = true;
-            resources.ApplyResources(this.cboDriver, "cboDriver");
-            this.cboDriver.Name = "cboDriver";
-            this.cboDriver.TextChanged += new System.EventHandler(this.ConfigurationChanged);
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
             // 
             // buttonRefreshCatalogs
             // 
@@ -199,8 +182,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRefreshServers;
         private System.Windows.Forms.Button buttonRefreshCatalogs;
-        private System.Windows.Forms.ComboBox cboDriver;
-        private System.Windows.Forms.Label label6;
 
     }
 }

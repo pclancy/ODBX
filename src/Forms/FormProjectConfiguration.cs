@@ -8,19 +8,28 @@
 //  
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using ODBX.Config;
+using ODBX.Driver;
+using DriverRepository = ODBX.Config.DriverRepository;
 
 namespace ODBX.Forms
 {
     public partial class FormProjectConfiguration : BaseForm
     {
+        private readonly List<IDriver> _drivers;
+
         public FormProjectConfiguration()
         {
             InitializeComponent();
             EvaluateReadiness();
-            LoadDriverOptions(DriverRepository.GetInstalledDrivers()[0]);
+
+            _drivers = DriverRepository.GetInstalledDrivers();
+            
+            _drivers.ForEach(item => cboDriver.Items.Add(item));
+            cboDriver.SelectedIndex = 0;
+            LoadDriverOptions(_drivers[0]);
         }
 
         private void ConnectionBuilderSourceConfigurationUpdatedEvent(object sender, EventArgs args)
@@ -50,7 +59,7 @@ namespace ODBX.Forms
             ConnectionBuilderSource.Configuration = ConnectionBuilderDestination.Configuration;
         }
 
-        private void LoadDriverOptions(Driver driver)
+        private void LoadDriverOptions(IDriver driver)
         {
 
             var boldFont = new Font(treeViewOptions.Font, FontStyle.Bold);
@@ -77,6 +86,14 @@ namespace ODBX.Forms
             
             treeViewOptions.ExpandAll();
             //boldFont.Dispose();
+        }
+
+        private void CboDriverSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboDriver.SelectedItem != null)
+            {
+                LoadDriverOptions((IDriver) cboDriver.SelectedItem);
+            }
         }
 
     }

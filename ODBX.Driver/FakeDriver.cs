@@ -1,0 +1,69 @@
+// 
+//    ODBX.Driver
+// 	
+//    Copyright (c) 2011 Paul Clancy
+//  
+//    FakeDriver.cs
+//   
+//  
+
+using System;
+using System.Collections.Generic;
+
+namespace ODBX.Driver
+{
+    public class FakeDriver : IDriver
+    {
+        private readonly FakeDriverConfiguration _configuration;
+
+        public FakeDriver()
+        {
+            _configuration = new FakeDriverConfiguration();
+        }
+
+        public string Name
+        {
+            get { return "Fake Driver"; }
+        }
+
+        public string License
+        {
+            get { return "GPL"; }
+        }
+
+        public Version Version
+        {
+            get { return new Version(1, 0); }
+        }
+
+        public IConfiguration Configuration
+        {
+            get { return _configuration; }
+        }
+
+        public Guid Id
+        {
+            get { return new Guid("{0DF47C45-D084-4C10-8BB2-8B372AF5B882}"); }
+        }
+    }
+
+    public class FakeDriverConfiguration : IConfiguration
+    {
+        private static readonly Guid OPTION_THROW_EXCEPTION = new Guid("{92D4FE1C-186A-4089-8A65-DA56E5245365}");
+
+        public FakeDriverConfiguration()
+        {
+            var optionCategory = new DriverOptionCategory("Behaviour");
+
+            OptionCategories = new List<DriverOptionCategory>(new[] {optionCategory});
+
+            Options = new List<DriverOption>
+                          {
+                              new DriverOption(optionCategory, "Throw Exception", "", true, OPTION_THROW_EXCEPTION),
+                          };
+        }
+
+        public IList<DriverOption> Options { get; set; }
+        public IList<DriverOptionCategory> OptionCategories { get; set; }
+    }
+}

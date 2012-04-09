@@ -37,6 +37,8 @@ namespace ODBX.Forms
             this.tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabPageSources = new System.Windows.Forms.TabPage();
+            this.cboDriver = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.labelHeader = new System.Windows.Forms.Label();
             this.gradientPanel1 = new ODBX.Controls.GradientPanel();
             this.labelDestinationDatabase = new System.Windows.Forms.Label();
@@ -115,6 +117,8 @@ namespace ODBX.Forms
             // 
             // tabPageSources
             // 
+            this.tabPageSources.Controls.Add(this.cboDriver);
+            this.tabPageSources.Controls.Add(this.label6);
             this.tabPageSources.Controls.Add(this.labelHeader);
             this.tabPageSources.Controls.Add(this.gradientPanel1);
             this.tabPageSources.Controls.Add(this.ConnectionBuilderDestination);
@@ -124,6 +128,21 @@ namespace ODBX.Forms
             resources.ApplyResources(this.tabPageSources, "tabPageSources");
             this.tabPageSources.Name = "tabPageSources";
             this.tabPageSources.UseVisualStyleBackColor = true;
+            // 
+            // cboDriver
+            // 
+            this.cboDriver.DisplayMember = "Name";
+            this.cboDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDriver.FormattingEnabled = true;
+            resources.ApplyResources(this.cboDriver, "cboDriver");
+            this.cboDriver.Name = "cboDriver";
+            this.cboDriver.ValueMember = "Id";
+            this.cboDriver.SelectedIndexChanged += new System.EventHandler(this.CboDriverSelectedIndexChanged);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
             // labelHeader
             // 
@@ -311,6 +330,8 @@ namespace ODBX.Forms
         private System.Windows.Forms.TreeView treeViewOptions;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cboDriver;
+        private System.Windows.Forms.Label label6;
 
 
     }

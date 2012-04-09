@@ -9,7 +9,7 @@
 
 using System;
 
-namespace ODBX.Config
+namespace ODBX.Driver
 {
     public class DriverOption
     {

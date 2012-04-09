@@ -121,10 +121,6 @@
   <data name="splitContainerInner.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainerInner.IsSplitterFixed" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="splitContainerInner.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -138,6 +134,7 @@
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -178,7 +175,7 @@
     <value>0, 0</value>
   </data>
   <data name="treeViewOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>545, 456</value>
+    <value>541, 454</value>
   </data>
   <data name="treeViewOptions.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -208,10 +205,10 @@
     <value>1</value>
   </data>
   <data name="splitContainerInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>545, 500</value>
+    <value>541, 500</value>
   </data>
   <data name="splitContainerInner.SplitterDistance" type="System.Int32, mscorlib">
-    <value>40</value>
+    <value>42</value>
   </data>
   <data name="splitContainerInner.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -231,6 +228,57 @@
   <data name="tableLayoutMain.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="cboDriver.Location" type="System.Drawing.Point, System.Drawing">
+    <value>57, 50</value>
+  </data>
+  <data name="cboDriver.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 23</value>
+  </data>
+  <data name="cboDriver.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;cboDriver.Name" xml:space="preserve">
+    <value>cboDriver</value>
+  </data>
+  <data name="&gt;&gt;cboDriver.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cboDriver.Parent" xml:space="preserve">
+    <value>tabPageSources</value>
+  </data>
+  <data name="&gt;&gt;cboDriver.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 55</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 15</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Driver:</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>tabPageSources</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="labelHeader.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -238,13 +286,13 @@
     <value>9, 21</value>
   </data>
   <data name="labelHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 15</value>
+    <value>424, 15</value>
   </data>
   <data name="labelHeader.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
   <data name="labelHeader.Text" xml:space="preserve">
-    <value>Select the database connections to use for the database comparison.</value>
+    <value>Select the driver and database connections to use for the database comparison.</value>
   </data>
   <data name="&gt;&gt;labelHeader.Name" xml:space="preserve">
     <value>labelHeader</value>
@@ -256,7 +304,7 @@
     <value>tabPageSources</value>
   </data>
   <data name="&gt;&gt;labelHeader.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="labelDestinationDatabase.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -421,10 +469,10 @@
     <value>5</value>
   </data>
   <data name="gradientPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-44, 59</value>
+    <value>-44, 102</value>
   </data>
   <data name="gradientPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>922, 117</value>
+    <value>922, 74</value>
   </data>
   <data name="gradientPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -439,7 +487,7 @@
     <value>tabPageSources</value>
   </data>
   <data name="&gt;&gt;gradientPanel1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="ConnectionBuilderDestination.Location" type="System.Drawing.Point, System.Drawing">
     <value>486, 182</value>
@@ -460,7 +508,7 @@
     <value>tabPageSources</value>
   </data>
   <data name="&gt;&gt;ConnectionBuilderDestination.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="ConnectionBuilderSource.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 182</value>
@@ -481,13 +529,13 @@
     <value>tabPageSources</value>
   </data>
   <data name="&gt;&gt;ConnectionBuilderSource.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="buttonCopyLeft.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonCopyLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>398, 227</value>
+    <value>396, 259</value>
   </data>
   <data name="buttonCopyLeft.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 27</value>
@@ -514,13 +562,13 @@
     <value>tabPageSources</value>
   </data>
   <data name="&gt;&gt;buttonCopyLeft.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="buttonCopyRight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonCopyRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>398, 194</value>
+    <value>396, 226</value>
   </data>
   <data name="buttonCopyRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 27</value>
@@ -547,7 +595,7 @@
     <value>tabPageSources</value>
   </data>
   <data name="&gt;&gt;buttonCopyRight.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="tabPageSources.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
@@ -634,7 +682,7 @@
     <value>869, 500</value>
   </data>
   <data name="splitContainerMain.SplitterDistance" type="System.Int32, mscorlib">
-    <value>545</value>
+    <value>541</value>
   </data>
   <data name="splitContainerMain.SplitterWidth" type="System.Int32, mscorlib">
     <value>16</value>
