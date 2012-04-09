@@ -368,6 +368,20 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap database_test {
+            get {
+                object obj = ResourceManager.GetObject("database_test", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap error {
+            get {
+                object obj = ResourceManager.GetObject("error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap folder_database {
             get {
                 object obj = ResourceManager.GetObject("folder_database", resourceCulture);

@@ -155,6 +155,7 @@ namespace ODBX.Forms
             resources.ApplyResources(this.buttonCopyLeft, "buttonCopyLeft");
             this.buttonCopyLeft.Name = "buttonCopyLeft";
             this.buttonCopyLeft.UseVisualStyleBackColor = true;
+            this.buttonCopyLeft.Click += new System.EventHandler(this.ButtonCopyLeftClick);
             // 
             // buttonCopyRight
             // 
@@ -162,6 +163,7 @@ namespace ODBX.Forms
             resources.ApplyResources(this.buttonCopyRight, "buttonCopyRight");
             this.buttonCopyRight.Name = "buttonCopyRight";
             this.buttonCopyRight.UseVisualStyleBackColor = true;
+            this.buttonCopyRight.Click += new System.EventHandler(this.ButtonCopyRightClick);
             // 
             // tabPageOptions
             // 
@@ -193,7 +195,7 @@ namespace ODBX.Forms
             // 
             this.AcceptButton = this.buttonAccept;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.buttonCancel;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

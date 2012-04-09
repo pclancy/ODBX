@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="DBDiff">
+</Property><Property Name="Solution File" Value="E:\@projects\OpenDBiff\DBDiff.sln">
+</Property><Property Name="Date" Value="02 April 2012">
+</Property><Property Name="Time" Value="08:15">
+</Property></Properties><Event ErrorLevel="0" Project="DBDiff" Source="DBDiff\DBDiff.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DBDiff" Source="DBDiff\DBDiff.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DBDiff.Schema" Source="DBDiff.Schema\DBDiff.Schema.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DBDiff.Schema" Source="DBDiff.Schema\DBDiff.Schema.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DBDiff.Schema.SQLServer" Source="DBDiff.Schema.SQLServer2005\DBDiff.Schema.SQLServer.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DBDiff.Schema.SQLServer" Source="DBDiff.Schema.SQLServer2005\DBDiff.Schema.SQLServer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DBDiff.Front" Source="DBDiff.Front\DBDiff.Front.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DBDiff.Front" Source="DBDiff.Front\DBDiff.Front.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DBDiff.OCDB" Source="DBDiffCmd\DBDiff.OCDB.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DBDiff.OCDB" Source="DBDiffCmd\DBDiff.OCDB.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="Converting project file 'E:\@projects\OpenDBiff\DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj'.">
+</Event><Event ErrorLevel="1" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="Attribute 'OptimizeForWindows98' of 'VCLinkerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="MSB8012: $(TargetName) ('DBDiff.SciLexer') does not match the Linker's OutputFile property value '.\../bin/DBDiff.SciLexer32.dll' ('DBDiff.SciLexer32') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetName) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="MSB8012: $(TargetPath) ('E:\@projects\OpenDBiff\DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\.\../bin\DBDiff.SciLexer.dll') does not match the Linker's OutputFile property value '.\../bin/DBDiff.SciLexer32.dll' ('E:\@projects\OpenDBiff\../bin/DBDiff.SciLexer32.dll') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="MSB8012: $(TargetName) ('DBDiff.SciLexer') does not match the Linker's OutputFile property value '.\../bin/DBDiff.SciLexer32.dll' ('DBDiff.SciLexer32') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetName) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="MSB8012: $(TargetPath) ('E:\@projects\OpenDBiff\DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\.\../bin\DBDiff.SciLexer.dll') does not match the Linker's OutputFile property value '.\../bin/DBDiff.SciLexer32.dll' ('E:\@projects\OpenDBiff\../bin/DBDiff.SciLexer32.dll') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="0" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="Done converting to new project file 'E:\@projects\OpenDBiff\DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="SciLexer" Source="DBDiff.Scintilla NET-2.0\SciLexter\vcbuild\SciLexer.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="DBDiff.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="DBDiff.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DBDiff" Source="DBDiff\DBDiff.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="DBDiff.Schema" Source="DBDiff.Schema\DBDiff.Schema.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="DBDiff.Schema.SQLServer" Source="DBDiff.Schema.SQLServer2005\DBDiff.Schema.SQLServer.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="DBDiff.Schema.SQLServer" Source="DBDiff.Schema.SQLServer2005\DBDiff.Schema.SQLServer.csproj" Description="Created rule set file &quot;E:\@projects\OpenDBiff\DBDiff.Schema.SQLServer2005\Migrated rules for DBDiff.Schema.SQLServer.ruleset&quot; for the &quot;Debug (Any CPU)&quot; configuration.">
+</Event><Event ErrorLevel="0" Project="DBDiff.Front" Source="DBDiff.Front\DBDiff.Front.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="DBDiff.OCDB" Source="DBDiffCmd\DBDiff.OCDB.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

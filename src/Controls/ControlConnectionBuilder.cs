@@ -8,8 +8,10 @@
 //  
 
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using ODBX.Config;
+using ODBX.Properties;
 
 namespace ODBX.Controls
 {
@@ -59,7 +61,7 @@ namespace ODBX.Controls
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Program.HandleException(ParentForm, ex, Strings.ErrorEnumerateHosts);
             }
             finally
             {
@@ -81,7 +83,7 @@ namespace ODBX.Controls
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Program.HandleException(ParentForm, ex, string.Format(Strings.ErrorEnumerateCatalogs, Configuration.Host));
             }
             finally
             {
@@ -89,6 +91,7 @@ namespace ODBX.Controls
             }
         }
 
+        [Browsable(false)]
         public ConnectionConfiguration Configuration
         {
             get
@@ -103,6 +106,21 @@ namespace ODBX.Controls
                                  };
 
                 return config;
+            }
+        }
+
+        public void SetConfiguration(ConnectionConfiguration value)
+        {
+            if (value != null)
+            {
+                cboAuthentication.SelectedIndex = (int)value.Authentication - 1;
+                //cboDriver.SelectedValue = value.
+                cboDatabase.Text = value.Catalog;
+                cboServer.Text = value.Host;
+                txtUsername.Text = value.Username;
+                txtPassword.Text = value.Password;
+
+                OnConfigurationUpdated(EventArgs.Empty);
             }
         }
 
@@ -128,6 +146,10 @@ namespace ODBX.Controls
             OnConfigurationUpdated(EventArgs.Empty);
         }
 
-        
+        public bool ValidateConfiguration()
+        {
+            return Configuration.IsReady;
+        }
+
     }
 }

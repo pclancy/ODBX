@@ -21,6 +21,23 @@ namespace ODBX.Config
         public string Username { get; set; }
         public string Password { get; set; }
 
+        public bool IsReady
+        {
+            get
+            {
+                var readyState = !string.IsNullOrWhiteSpace(Host) && !string.IsNullOrWhiteSpace(Catalog);
+                if (readyState)
+                {
+                    if (Authentication == AuthenticationMethod.Basic)
+                    {
+                        readyState = !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
+                    }
+                }
+
+                return readyState;
+            }
+        }
+
         public string ConnectionString
         {
             get

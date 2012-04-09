@@ -18,5 +18,14 @@ namespace ODBX
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormProjectConfiguration());
         }
+
+        public static void HandleException(Form owner, Exception exception, string title)
+        {
+            var form = new FormException();
+            form.SetException(title, exception);
+            form.ShowDialog(owner);
+            // todo: log
+
+        }
     }
 }
