@@ -157,7 +157,7 @@
     <value>570, 19</value>
   </data>
   <data name="labelDestinationDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>337, 51</value>
+    <value>337, 81</value>
   </data>
   <data name="labelDestinationDatabase.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -181,7 +181,7 @@
     <value>96, 19</value>
   </data>
   <data name="labelSourceDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>337, 51</value>
+    <value>337, 81</value>
   </data>
   <data name="labelSourceDatabase.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -316,7 +316,7 @@
     <value>-44, 59</value>
   </data>
   <data name="gradientPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>922, 84</value>
+    <value>922, 117</value>
   </data>
   <data name="gradientPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>

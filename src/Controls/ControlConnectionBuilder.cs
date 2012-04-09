@@ -92,6 +92,7 @@ namespace ODBX.Controls
         }
 
         [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ConnectionConfiguration Configuration
         {
             get
@@ -107,20 +108,19 @@ namespace ODBX.Controls
 
                 return config;
             }
-        }
-
-        public void SetConfiguration(ConnectionConfiguration value)
-        {
-            if (value != null)
+            set
             {
-                cboAuthentication.SelectedIndex = (int)value.Authentication - 1;
-                //cboDriver.SelectedValue = value.
-                cboDatabase.Text = value.Catalog;
-                cboServer.Text = value.Host;
-                txtUsername.Text = value.Username;
-                txtPassword.Text = value.Password;
+                if (value != null)
+                {
+                    cboAuthentication.SelectedIndex = (int)value.Authentication - 1;
+                    //cboDriver.SelectedValue = value.
+                    cboDatabase.Text = value.Catalog;
+                    cboServer.Text = value.Host;
+                    txtUsername.Text = value.Username;
+                    txtPassword.Text = value.Password;
 
-                OnConfigurationUpdated(EventArgs.Empty);
+                    OnConfigurationUpdated(EventArgs.Empty);
+                }                
             }
         }
 

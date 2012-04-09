@@ -38,12 +38,12 @@ namespace ODBX.Forms
 
         private void ButtonCopyRightClick(object sender, EventArgs e)
         {
-            ConnectionBuilderDestination.SetConfiguration(ConnectionBuilderSource.Configuration);
+            ConnectionBuilderDestination.Configuration = ConnectionBuilderSource.Configuration;
         }
 
         private void ButtonCopyLeftClick(object sender, EventArgs e)
         {
-            ConnectionBuilderSource.SetConfiguration(ConnectionBuilderDestination.Configuration);
+            ConnectionBuilderSource.Configuration = ConnectionBuilderDestination.Configuration;
         }
 
     }
