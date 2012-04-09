@@ -38,11 +38,15 @@
     <Reference Include="Ascend.Windows.Forms">
       <HintPath>..\DBDiff\bin\Debug\Ascend.Windows.Forms.dll</HintPath>
     </Reference>
+    <Reference Include="ObjectListView">
+      <HintPath>..\depends\ObjectListView.dll</HintPath>
+    </Reference>
     <Reference Include="ScintillaNET">
       <HintPath>..\depends\ScintillaNET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
