@@ -150,6 +150,7 @@
             this.Controls.Add(this.menuStripMain);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStripMain;
+            this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "FormApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FormApplication";

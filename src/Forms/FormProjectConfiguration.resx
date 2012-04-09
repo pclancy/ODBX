@@ -117,9 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="splitContainerInner.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="splitContainerInner.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainerInner.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="splitContainerInner.Location" type="System.Drawing.Point, System.Drawing">
@@ -134,7 +141,6 @@
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -175,7 +181,7 @@
     <value>0, 0</value>
   </data>
   <data name="treeViewOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>541, 454</value>
+    <value>537, 457</value>
   </data>
   <data name="treeViewOptions.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -205,10 +211,10 @@
     <value>1</value>
   </data>
   <data name="splitContainerInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 68</value>
+    <value>537, 500</value>
   </data>
   <data name="splitContainerInner.SplitterDistance" type="System.Int32, mscorlib">
-    <value>42</value>
+    <value>39</value>
   </data>
   <data name="splitContainerInner.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -646,7 +652,7 @@
     <value>3, 38</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>305, 467</value>
+    <value>305, 459</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -679,10 +685,10 @@
     <value>1</value>
   </data>
   <data name="splitContainerMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 68</value>
+    <value>869, 500</value>
   </data>
   <data name="splitContainerMain.SplitterDistance" type="System.Int32, mscorlib">
-    <value>115</value>
+    <value>537</value>
   </data>
   <data name="splitContainerMain.SplitterWidth" type="System.Int32, mscorlib">
     <value>16</value>

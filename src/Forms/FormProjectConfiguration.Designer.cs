@@ -199,12 +199,14 @@ namespace ODBX.Forms
             // 
             // ConnectionBuilderDestination
             // 
+            this.ConnectionBuilderDestination.Driver = null;
             resources.ApplyResources(this.ConnectionBuilderDestination, "ConnectionBuilderDestination");
             this.ConnectionBuilderDestination.Name = "ConnectionBuilderDestination";
             this.ConnectionBuilderDestination.ConfigurationUpdatedEvent += new ODBX.Controls.ControlConnectionBuilder.ConfigurationUpdated(this.ConnectionBuilderDestinationConfigurationUpdatedEvent);
             // 
             // ConnectionBuilderSource
             // 
+            this.ConnectionBuilderSource.Driver = null;
             resources.ApplyResources(this.ConnectionBuilderSource, "ConnectionBuilderSource");
             this.ConnectionBuilderSource.Name = "ConnectionBuilderSource";
             this.ConnectionBuilderSource.ConfigurationUpdatedEvent += new ODBX.Controls.ControlConnectionBuilder.ConfigurationUpdated(this.ConnectionBuilderSourceConfigurationUpdatedEvent);

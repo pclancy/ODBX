@@ -67,6 +67,12 @@
     <Compile Include="Controls\ControlConnectionBuilder.Designer.cs">
       <DependentUpon>ControlConnectionBuilder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GradientTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GradientTable.Designer.cs">
+      <DependentUpon>GradientTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>

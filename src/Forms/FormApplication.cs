@@ -30,10 +30,8 @@ namespace ODBX.Forms
 
         private void OpenProject()
         {
-            var formProject = new FormProject();
-            formProject.MdiParent = this;
-            formProject.WindowState = FormWindowState.Maximized;
-            
+            var formProject = new FormProject {MdiParent = this, WindowState = FormWindowState.Maximized};
+
             formProject.Show();
         }
 
