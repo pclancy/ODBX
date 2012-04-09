@@ -18,15 +18,8 @@ namespace ODBX.Config
         {
             return new List<Driver>(new[]
                                         {
-                                            new Driver {License = "GPL", Name = "Open DB Diff", Version = new Version(1, 0)}
+                                            new FakeDriver()
                                         });
         }
-    }
-
-    public class Driver
-    {
-        public string Name { get; set; }
-        public string License { get; set; }
-        public Version Version { get; set; }
     }
 }
