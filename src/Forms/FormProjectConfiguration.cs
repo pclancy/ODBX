@@ -11,25 +11,51 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
+using ODBX.Config;
 using ODBX.Driver;
-using DriverRepository = ODBX.Config.DriverRepository;
+using ODBX.Properties;
 
 namespace ODBX.Forms
 {
-    public partial class FormProjectConfiguration : BaseForm
+    public sealed partial class FormProjectConfiguration : BaseForm
     {
         private readonly List<IDriver> _drivers;
 
         public FormProjectConfiguration()
         {
             InitializeComponent();
-            EvaluateReadiness();
 
-            _drivers = DriverRepository.GetInstalledDrivers();
-            
-            _drivers.ForEach(item => cboDriver.Items.Add(item));
-            cboDriver.SelectedIndex = 0;
-            LoadDriverOptions(_drivers[0]);
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                EvaluateReadiness();
+
+                _drivers = DriverRepository.GetInstalledDrivers();
+
+                driver_retry:
+                while (_drivers.Count == 0)
+                {
+                    if (MessageBox.Show(this, Strings.ErrorNoDriversFound, Strings.Error, MessageBoxButtons.RetryCancel,
+                                        MessageBoxIcon.Asterisk) == DialogResult.Retry)
+                    {
+                        _drivers = DriverRepository.GetInstalledDrivers(refesh: true);
+                        goto driver_retry;
+                    }
+                }
+
+                _drivers.ForEach(item => cboDriver.Items.Add(item));
+                cboDriver.SelectedIndex = 0;
+                LoadDriverOptions(_drivers[0]);
+            }
+            catch (Exception ex)
+            {
+                Program.HandleException(this, ex, string.Empty);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
         }
 
         private void ConnectionBuilderSourceConfigurationUpdatedEvent(object sender, EventArgs args)
@@ -46,7 +72,8 @@ namespace ODBX.Forms
 
         private void EvaluateReadiness()
         {
-            buttonAccept.Enabled = (ConnectionBuilderDestination.ValidateConfiguration() && ConnectionBuilderSource.ValidateConfiguration());
+            buttonAccept.Enabled = (ConnectionBuilderDestination.ValidateConfiguration() &&
+                                    ConnectionBuilderSource.ValidateConfiguration() && cboDriver.SelectedItem != null);
         }
 
         private void ButtonCopyRightClick(object sender, EventArgs e)
@@ -61,29 +88,28 @@ namespace ODBX.Forms
 
         private void LoadDriverOptions(IDriver driver)
         {
-
             var boldFont = new Font(treeViewOptions.Font, FontStyle.Bold);
 
             treeViewOptions.Nodes.Clear();
             foreach (var category in driver.Configuration.OptionCategories)
             {
-                var node = treeViewOptions.Nodes.Add(string.Format("CAT_{0}", category.Id), string.Concat(category.Name, " "));
+                var node = treeViewOptions.Nodes.Add(string.Format("CAT_{0}", category.Id),
+                                                     string.Concat(category.Name, " "));
                 node.NodeFont = boldFont;
 
                 var allChecked = true;
-                foreach (var driverOption in driver.Configuration.Options.Where(x=>x.Category.Id == category.Id).ToList())
+                foreach (
+                    var driverOption in driver.Configuration.Options.Where(x => x.Category.Id == category.Id).ToList())
                 {
-                    var  optionNode = node.Nodes.Add(string.Format("OPT_{0}", driverOption.Id), driverOption.Name);
+                    var optionNode = node.Nodes.Add(string.Format("OPT_{0}", driverOption.Id), driverOption.Name);
                     optionNode.Checked = driverOption.DefaultValue;
                     if (!driverOption.DefaultValue)
                         allChecked = false;
-                    
                 }
 
                 node.Checked = allChecked;
-
             }
-            
+
             treeViewOptions.ExpandAll();
             //boldFont.Dispose();
         }
@@ -95,6 +121,5 @@ namespace ODBX.Forms
                 LoadDriverOptions((IDriver) cboDriver.SelectedItem);
             }
         }
-
     }
 }

@@ -61,6 +61,15 @@ namespace ODBX.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to enumerate the catalogs on host {0}.
         /// </summary>
         internal static string ErrorEnumerateCatalogs {
@@ -75,6 +84,15 @@ namespace ODBX.Properties {
         internal static string ErrorEnumerateHosts {
             get {
                 return ResourceManager.GetString("ErrorEnumerateHosts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find any drivers.  You must download drivers to use with this application..
+        /// </summary>
+        internal static string ErrorNoDriversFound {
+            get {
+                return ResourceManager.GetString("ErrorNoDriversFound", resourceCulture);
             }
         }
     }

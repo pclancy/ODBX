@@ -17,21 +17,27 @@ namespace ODBX.Config
 {
     public class DriverRepository
     {
-        static readonly List<IDriver> Drivers = new List<IDriver>(new IDriver[]
+        private static List<IDriver> _drivers;
+
+        
+        public static List<IDriver> GetInstalledDrivers(bool refesh = false)
+        {
+            if (refesh || _drivers == null)
+            {
+                _drivers = new List<IDriver>(new IDriver[]
                                         {
                                             new FakeDriver(),
                                             new OpenDbDiffDriver()
                                         });
 
-        
-        public static List<IDriver> GetInstalledDrivers()
-        {
-            return Drivers;
+            }
+
+            return _drivers;
         }
 
         public static IDriver GetDriverById(Guid id)
         {
-            return Drivers.First(x => x.Id == id);
+            return _drivers.First(x => x.Id == id);
         }
     }
 }

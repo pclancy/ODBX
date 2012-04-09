@@ -2,7 +2,7 @@
 
 namespace ODBX.Forms
 {
-    partial class FormProjectConfiguration
+    sealed partial class FormProjectConfiguration
     {
         /// <summary>
         /// Required designer variable.
