@@ -15,6 +15,8 @@ namespace ODBX.Forms
 {
     public partial class FormApplication : BaseForm
     {
+        private FormProject _formProject;
+
         public FormApplication()
         {
             InitializeComponent();
@@ -30,9 +32,8 @@ namespace ODBX.Forms
 
         private void OpenProject()
         {
-            var formProject = new FormProject {MdiParent = this, WindowState = FormWindowState.Maximized};
-
-            formProject.Show();
+            _formProject = new FormProject {MdiParent = this, WindowState = FormWindowState.Maximized};
+            _formProject.Show();
         }
 
         private void ButtonOptionsClick(object sender, System.EventArgs e)
@@ -44,9 +45,27 @@ namespace ODBX.Forms
 
                 if (formProjectConfiguration.ShowDialog(this) == DialogResult.OK)
                 {
+                    _formProject.Project = formProjectConfiguration.Project;
                 }
             }
             catch(Exception ex)
+            {
+                Program.HandleException(this, ex, Strings.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        private void ButtonRefreshClick(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                _formProject.Bind();
+            }
+            catch (Exception ex)
             {
                 Program.HandleException(this, ex, Strings.Error);
             }

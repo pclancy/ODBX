@@ -52,13 +52,17 @@ namespace ODBX.Driver
             get { return new Guid("{0DF47C45-D084-4C10-8BB2-8B372AF5B882}"); }
         }
 
-        public void BuildComparisonObjects(IConnection connection)
+
+        public Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection)
         {
             throw new NotImplementedException();
         }
 
         public string LastError { get; private set; }
-
+        public string GenerateScript(ModelObject modelObject)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class FakeServer : IServer

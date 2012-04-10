@@ -29,7 +29,8 @@ namespace ODBX.Driver
 
         Guid Id { get; }
 
-        void BuildComparisonObjects(IConnection connection);
+        Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection);
         string LastError { get; }
+        string GenerateScript(ModelObject modelObject);
     }
 }

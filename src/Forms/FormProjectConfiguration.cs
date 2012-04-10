@@ -128,9 +128,16 @@ namespace ODBX.Forms
 
         private void ButtonAcceptClick(object sender, EventArgs e)
         {
-            var driver = (IDriver) cboDriver.SelectedItem;
+            Project = new Project
+                              {
+                                  Driver = (IDriver) cboDriver.SelectedItem,
+                                  Source = ConnectionBuilderSource.Configuration,
+                                  Target = ConnectionBuilderDestination.Configuration,
+                                  Options = null
+                              };
 
-            driver.BuildComparisonObjects(ConnectionBuilderSource.Configuration);
         }
+
+        public Project Project { get; set; }
     }
 }

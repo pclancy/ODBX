@@ -211,7 +211,7 @@
     <value>1</value>
   </data>
   <data name="splitContainerInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>537, 500</value>
+    <value>114, 68</value>
   </data>
   <data name="splitContainerInner.SplitterDistance" type="System.Int32, mscorlib">
     <value>39</value>
@@ -382,7 +382,7 @@
     <value>11</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Destination Database</value>
+    <value>Target Database</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -685,10 +685,10 @@
     <value>1</value>
   </data>
   <data name="splitContainerMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>869, 500</value>
+    <value>186, 68</value>
   </data>
   <data name="splitContainerMain.SplitterDistance" type="System.Int32, mscorlib">
-    <value>537</value>
+    <value>114</value>
   </data>
   <data name="splitContainerMain.SplitterWidth" type="System.Int32, mscorlib">
     <value>16</value>

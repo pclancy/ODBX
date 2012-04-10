@@ -263,6 +263,7 @@ namespace ODBX.Forms
             // buttonAccept
             // 
             resources.ApplyResources(this.buttonAccept, "buttonAccept");
+            this.buttonAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonAccept.Name = "buttonAccept";
             this.buttonAccept.UseVisualStyleBackColor = true;
             this.buttonAccept.Click += new System.EventHandler(this.ButtonAcceptClick);

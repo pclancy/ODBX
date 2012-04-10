@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ascend.Windows.Forms">
-      <HintPath>..\DBDiff\bin\Debug\Ascend.Windows.Forms.dll</HintPath>
-    </Reference>
     <Reference Include="ObjectListView">
       <HintPath>..\depends\ObjectListView.dll</HintPath>
     </Reference>
@@ -57,10 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\ConnectionConfiguration.cs" />
     <Compile Include="Config\DriverRepository.cs" />
-    <Compile Include="Config\Enums.cs" />
-    <Compile Include="Config\ProjectConfiguration.cs" />
+    <Compile Include="Config\Project.cs" />
     <Compile Include="Controls\ControlConnectionBuilder.cs">
       <SubType>UserControl</SubType>
     </Compile>

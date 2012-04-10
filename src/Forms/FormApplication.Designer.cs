@@ -132,6 +132,7 @@
             this.ButtonRefresh.Name = "ButtonRefresh";
             this.ButtonRefresh.Size = new System.Drawing.Size(82, 36);
             this.ButtonRefresh.Text = "Refresh";
+            this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefreshClick);
             // 
             // toolStripButton1
             // 

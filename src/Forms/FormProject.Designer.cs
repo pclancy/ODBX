@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn3 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn4 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.scintilla1 = new ScintillaNET.Scintilla();
+            this.objectListView = new BrightIdeasSoftware.ObjectListView();
+            this.olvColumnType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumnName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.olvColumnAction = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.textScript = new ScintillaNET.Scintilla();
             this.tableLayoutPanel1 = new ODBX.Controls.GradientTable();
             this.panelSource = new System.Windows.Forms.Panel();
             this.panelSourceIcon = new System.Windows.Forms.Panel();
@@ -45,8 +44,8 @@
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scintilla1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textScript)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSource.SuspendLayout();
             this.panelDestination.SuspendLayout();
@@ -61,73 +60,82 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.objectListView1);
+            this.splitContainerMain.Panel1.Controls.Add(this.objectListView);
             // 
             // splitContainerMain.Panel2
             // 
-            this.splitContainerMain.Panel2.Controls.Add(this.scintilla1);
+            this.splitContainerMain.Panel2.Controls.Add(this.textScript);
             this.splitContainerMain.Size = new System.Drawing.Size(903, 331);
             this.splitContainerMain.SplitterDistance = 225;
             this.splitContainerMain.TabIndex = 3;
             // 
-            // objectListView1
+            // objectListView
             // 
-            this.objectListView1.AllColumns.Add(this.olvColumn1);
-            this.objectListView1.AllColumns.Add(this.olvColumn2);
-            this.objectListView1.AllColumns.Add(this.olvColumn3);
-            this.objectListView1.AllColumns.Add(this.olvColumn4);
-            this.objectListView1.CheckBoxes = true;
-            this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColumn1,
-            this.olvColumn2,
-            this.olvColumn3,
-            this.olvColumn4});
-            this.objectListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.objectListView1.FullRowSelect = true;
-            this.objectListView1.GridLines = true;
-            this.objectListView1.Location = new System.Drawing.Point(0, 0);
-            this.objectListView1.Name = "objectListView1";
-            this.objectListView1.SelectedColumnTint = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
-            this.objectListView1.ShowItemCountOnGroups = true;
-            this.objectListView1.Size = new System.Drawing.Size(903, 225);
-            this.objectListView1.TabIndex = 0;
-            this.objectListView1.UseCompatibleStateImageBehavior = false;
-            this.objectListView1.View = System.Windows.Forms.View.Details;
+            this.objectListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.objectListView.AllColumns.Add(this.olvColumnType);
+            this.objectListView.AllColumns.Add(this.olvColumnName);
+            this.objectListView.AllColumns.Add(this.olvColumnAction);
+            this.objectListView.AllowColumnReorder = true;
+            this.objectListView.CheckBoxes = true;
+            this.objectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.olvColumnType,
+            this.olvColumnName,
+            this.olvColumnAction});
+            this.objectListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.objectListView.FullRowSelect = true;
+            this.objectListView.GridLines = true;
+            this.objectListView.Location = new System.Drawing.Point(0, 0);
+            this.objectListView.MultiSelect = false;
+            this.objectListView.Name = "objectListView";
+            this.objectListView.SelectedColumnTint = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.objectListView.ShowCommandMenuOnRightClick = true;
+            this.objectListView.ShowItemCountOnGroups = true;
+            this.objectListView.ShowItemToolTips = true;
+            this.objectListView.Size = new System.Drawing.Size(903, 225);
+            this.objectListView.TabIndex = 0;
+            this.objectListView.UseCompatibleStateImageBehavior = false;
+            this.objectListView.View = System.Windows.Forms.View.Details;
+            this.objectListView.SelectionChanged += new System.EventHandler(this.ObjectListViewSelectionChanged);
+            this.objectListView.SelectedIndexChanged += new System.EventHandler(this.ObjectListViewSelectedIndexChanged);
             // 
-            // olvColumn1
+            // olvColumnType
             // 
-            this.olvColumn1.IsEditable = false;
-            this.olvColumn1.Text = "Type";
-            this.olvColumn1.Width = 100;
+            this.olvColumnType.AspectName = "Type";
+            this.olvColumnType.AutoCompleteEditor = false;
+            this.olvColumnType.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.olvColumnType.IsEditable = false;
+            this.olvColumnType.Text = "Type";
+            this.olvColumnType.Width = 100;
             // 
-            // olvColumn2
+            // olvColumnName
             // 
-            this.olvColumn2.FillsFreeSpace = true;
-            this.olvColumn2.Groupable = false;
-            this.olvColumn2.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.olvColumn2.Text = "Source Object";
-            this.olvColumn2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.olvColumnName.AspectName = "Fullname";
+            this.olvColumnName.AutoCompleteEditor = false;
+            this.olvColumnName.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.olvColumnName.FillsFreeSpace = true;
+            this.olvColumnName.Groupable = false;
+            this.olvColumnName.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.olvColumnName.Text = "Name";
             // 
-            // olvColumn3
+            // olvColumnAction
             // 
-            this.olvColumn3.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.olvColumn3.Text = "Result";
-            this.olvColumn3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.olvColumnAction.AspectName = "Action";
+            this.olvColumnAction.AutoCompleteEditor = false;
+            this.olvColumnAction.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.olvColumnAction.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.olvColumnAction.Text = "Action";
+            this.olvColumnAction.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // olvColumn4
+            // textScript
             // 
-            this.olvColumn4.CheckBoxes = true;
-            this.olvColumn4.FillsFreeSpace = true;
-            this.olvColumn4.Groupable = false;
-            this.olvColumn4.Text = "Target Object";
-            // 
-            // scintilla1
-            // 
-            this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintilla1.Location = new System.Drawing.Point(0, 0);
-            this.scintilla1.Name = "scintilla1";
-            this.scintilla1.Size = new System.Drawing.Size(903, 102);
-            this.scintilla1.TabIndex = 0;
+            this.textScript.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textScript.Indentation.IndentWidth = 45;
+            this.textScript.Indentation.ShowGuides = true;
+            this.textScript.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
+            this.textScript.Location = new System.Drawing.Point(0, 0);
+            this.textScript.Name = "textScript";
+            this.textScript.Size = new System.Drawing.Size(903, 102);
+            this.textScript.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -145,7 +153,7 @@
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(300, 64);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(903, 100);
             this.tableLayoutPanel1.StartColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.TabIndex = 2;
@@ -208,6 +216,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -219,8 +228,8 @@
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scintilla1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textScript)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelSource.ResumeLayout(false);
             this.panelDestination.ResumeLayout(false);
@@ -237,12 +246,11 @@
         private System.Windows.Forms.Panel panelDestinationIcon;
         private System.Windows.Forms.Panel panelDirection;
         private System.Windows.Forms.SplitContainer splitContainerMain;
-        private ScintillaNET.Scintilla scintilla1;
-        private BrightIdeasSoftware.ObjectListView objectListView1;
-        private BrightIdeasSoftware.OLVColumn olvColumn1;
-        private BrightIdeasSoftware.OLVColumn olvColumn2;
-        private BrightIdeasSoftware.OLVColumn olvColumn3;
-        private BrightIdeasSoftware.OLVColumn olvColumn4;
+        private ScintillaNET.Scintilla textScript;
+        private BrightIdeasSoftware.ObjectListView objectListView;
+        private BrightIdeasSoftware.OLVColumn olvColumnType;
+        private BrightIdeasSoftware.OLVColumn olvColumnName;
+        private BrightIdeasSoftware.OLVColumn olvColumnAction;
 
 
     }
