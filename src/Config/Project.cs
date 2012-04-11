@@ -13,8 +13,16 @@ using ODBX.Driver;
 
 namespace ODBX.Config
 {
+    public enum Direction
+    {
+        LeftToRight,
+        RightToLeft
+    }
+
     public class Project
     {
+
+        public Direction Direction { get; set; }
         public IDriver Driver { get; set; }
         public IConnection Target { get; set; }
         public IConnection Source { get; set; }

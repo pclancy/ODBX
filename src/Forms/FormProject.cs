@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using BrightIdeasSoftware;
 using ODBX.Config;
 using ODBX.Driver;
+using ODBX.Properties;
 
 namespace ODBX.Forms
 {
@@ -21,6 +22,7 @@ namespace ODBX.Forms
         public FormProject()
         {
             InitializeComponent();
+            textScript.ConfigurationManager.Language = "mssql";
         }
 
         public Project Project
@@ -29,6 +31,7 @@ namespace ODBX.Forms
             set
             {
                 _project = value;
+                textScript.ConfigurationManager.Language = _project.Driver.Syntax;
                 Bind();
             }
         }
@@ -47,13 +50,37 @@ namespace ODBX.Forms
             {
                 var modelObject = (ModelObject) objectListView.SelectedItem.RowObject;
                 var script = _project.Driver.GenerateScript(modelObject);
-                this.textScript.Text = script;
+                textScript.Text = script;
             }
         }
 
         private void ObjectListViewSelectionChanged(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void PanelDirectionMouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var source = _project.Source;
+            var target = _project.Target;
+
+            if (_project.Direction == Direction.LeftToRight)
+            {
+                _project.Direction = Direction.RightToLeft;
+                panelDirection.BackgroundImage = Resources.big_arrow_left;
+            }
+            else
+            {
+                _project.Direction = Direction.LeftToRight;
+                panelDirection.BackgroundImage = Resources.big_arrow_right;
+            }
+
+            panelDirection.Update();
+
+            _project.Source = target;
+            _project.Target = source;
+
+            Bind();
         }
     }
 }

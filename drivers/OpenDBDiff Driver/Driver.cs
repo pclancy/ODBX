@@ -109,6 +109,8 @@ namespace ODBX.Driver.OpenDBDiff
                         return Action.Rebuild;
                     case Enums.ObjectStatusType.OriginalStatus:
                         return Action.None;
+                    case Enums.ObjectStatusType.AlterStatus:
+                        return Action.Alter;
                 }
 
                 return Action.Unknown;
@@ -116,10 +118,16 @@ namespace ODBX.Driver.OpenDBDiff
         }
 
         public string LastError { get; private set; }
+
+        public string Syntax
+        {
+            get { return "mssql"; }
+        }
+
         public string GenerateScript(ModelObject modelObject)
         {
             var schemaObject =_merged.Find(modelObject.Fullname);
-            return schemaObject == null ? "(no object)" : schemaObject.ToSql();
+            return schemaObject == null ? "(no object)" : schemaObject.ToSqlDiff().ToSQL();
         }
     }
 }

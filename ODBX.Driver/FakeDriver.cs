@@ -59,6 +59,13 @@ namespace ODBX.Driver
         }
 
         public string LastError { get; private set; }
+
+        public string Syntax
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
         public string GenerateScript(ModelObject modelObject)
         {
             throw new NotImplementedException();

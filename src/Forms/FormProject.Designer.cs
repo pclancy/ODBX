@@ -33,11 +33,16 @@
             this.olvColumnType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnAction = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.panel1 = new System.Windows.Forms.Panel();
             this.textScript = new ScintillaNET.Scintilla();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableLayoutPanel1 = new ODBX.Controls.GradientTable();
             this.panelSource = new System.Windows.Forms.Panel();
-            this.panelSourceIcon = new System.Windows.Forms.Panel();
             this.panelDestination = new System.Windows.Forms.Panel();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelSourceIcon = new System.Windows.Forms.Panel();
             this.panelDestinationIcon = new System.Windows.Forms.Panel();
             this.panelDirection = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -45,7 +50,9 @@
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textScript)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSource.SuspendLayout();
             this.panelDestination.SuspendLayout();
@@ -54,6 +61,7 @@
             // splitContainerMain
             // 
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainerMain.Location = new System.Drawing.Point(0, 100);
             this.splitContainerMain.Name = "splitContainerMain";
             this.splitContainerMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -64,7 +72,7 @@
             // 
             // splitContainerMain.Panel2
             // 
-            this.splitContainerMain.Panel2.Controls.Add(this.textScript);
+            this.splitContainerMain.Panel2.Controls.Add(this.panel1);
             this.splitContainerMain.Size = new System.Drawing.Size(903, 331);
             this.splitContainerMain.SplitterDistance = 225;
             this.splitContainerMain.TabIndex = 3;
@@ -126,23 +134,43 @@
             this.olvColumnAction.Text = "Action";
             this.olvColumnAction.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textScript);
+            this.panel1.Controls.Add(this.toolStrip1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(903, 102);
+            this.panel1.TabIndex = 0;
+            // 
             // textScript
             // 
             this.textScript.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textScript.Indentation.IndentWidth = 45;
             this.textScript.Indentation.ShowGuides = true;
             this.textScript.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
-            this.textScript.Location = new System.Drawing.Point(0, 0);
+            this.textScript.Location = new System.Drawing.Point(0, 25);
             this.textScript.Name = "textScript";
-            this.textScript.Size = new System.Drawing.Size(903, 102);
+            this.textScript.Size = new System.Drawing.Size(903, 77);
             this.textScript.TabIndex = 0;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(903, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panelSource, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelDestination, 3, 0);
@@ -164,10 +192,44 @@
             this.panelSource.BackColor = System.Drawing.Color.Transparent;
             this.panelSource.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelSource.Controls.Add(this.panelSourceIcon);
-            this.panelSource.Location = new System.Drawing.Point(248, 3);
+            this.panelSource.Location = new System.Drawing.Point(263, 3);
             this.panelSource.Name = "panelSource";
             this.panelSource.Size = new System.Drawing.Size(200, 94);
             this.panelSource.TabIndex = 0;
+            // 
+            // panelDestination
+            // 
+            this.panelDestination.BackColor = System.Drawing.Color.Transparent;
+            this.panelDestination.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelDestination.Controls.Add(this.panelDestinationIcon);
+            this.panelDestination.Location = new System.Drawing.Point(539, 3);
+            this.panelDestination.Name = "panelDestination";
+            this.panelDestination.Size = new System.Drawing.Size(200, 94);
+            this.panelDestination.TabIndex = 1;
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createToolStripMenuItem,
+            this.diffToolStripMenuItem});
+            this.toolStripSplitButton1.Image = global::ODBX.Properties.Resources.database_lightning;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            // 
+            // createToolStripMenuItem
+            // 
+            this.createToolStripMenuItem.Name = "createToolStripMenuItem";
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.createToolStripMenuItem.Text = "Create";
+            // 
+            // diffToolStripMenuItem
+            // 
+            this.diffToolStripMenuItem.Name = "diffToolStripMenuItem";
+            this.diffToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.diffToolStripMenuItem.Text = "Diff";
             // 
             // panelSourceIcon
             // 
@@ -178,16 +240,6 @@
             this.panelSourceIcon.Name = "panelSourceIcon";
             this.panelSourceIcon.Size = new System.Drawing.Size(32, 94);
             this.panelSourceIcon.TabIndex = 0;
-            // 
-            // panelDestination
-            // 
-            this.panelDestination.BackColor = System.Drawing.Color.Transparent;
-            this.panelDestination.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelDestination.Controls.Add(this.panelDestinationIcon);
-            this.panelDestination.Location = new System.Drawing.Point(554, 3);
-            this.panelDestination.Name = "panelDestination";
-            this.panelDestination.Size = new System.Drawing.Size(200, 94);
-            this.panelDestination.TabIndex = 1;
             // 
             // panelDestinationIcon
             // 
@@ -202,11 +254,13 @@
             // panelDirection
             // 
             this.panelDirection.BackColor = System.Drawing.Color.Transparent;
-            this.panelDirection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelDirection.Location = new System.Drawing.Point(454, 3);
+            this.panelDirection.BackgroundImage = global::ODBX.Properties.Resources.big_arrow_right;
+            this.panelDirection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelDirection.Location = new System.Drawing.Point(469, 3);
             this.panelDirection.Name = "panelDirection";
-            this.panelDirection.Size = new System.Drawing.Size(94, 94);
+            this.panelDirection.Size = new System.Drawing.Size(64, 37);
             this.panelDirection.TabIndex = 2;
+            this.panelDirection.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PanelDirectionMouseDoubleClick);
             // 
             // FormProject
             // 
@@ -229,7 +283,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectListView)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textScript)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelSource.ResumeLayout(false);
             this.panelDestination.ResumeLayout(false);
@@ -251,6 +309,11 @@
         private BrightIdeasSoftware.OLVColumn olvColumnType;
         private BrightIdeasSoftware.OLVColumn olvColumnName;
         private BrightIdeasSoftware.OLVColumn olvColumnAction;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem diffToolStripMenuItem;
 
 
     }

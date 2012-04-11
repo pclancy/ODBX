@@ -31,6 +31,7 @@ namespace ODBX.Driver
 
         Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection);
         string LastError { get; }
+        string Syntax { get; }
         string GenerateScript(ModelObject modelObject);
     }
 }

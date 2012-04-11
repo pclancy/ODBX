@@ -20,7 +20,8 @@ namespace ODBX.Driver
         Rebuild,
         Update,
         Create,
-        None
+        None,
+        Alter
     }
 
     public class Model
