@@ -22,6 +22,8 @@ namespace ODBX.Driver
             _configuration = new FakeDriverConfiguration();
         }
 
+        public event FeedbackHandler FeedbackMessage;
+
         public string Name
         {
             get { return "Fake Driver"; }

@@ -31,6 +31,14 @@ namespace ODBX.Driver.OpenDBDiff
             _server = new SqlServer();
         }
 
+        public event FeedbackHandler FeedbackMessage;
+
+        public void OnFeedbackMessage(FeedbackEventArgs e)
+        {
+            var handler = FeedbackMessage;
+            if (handler != null) handler(this, e);
+        }
+
         public string Name
         {
             get { return "SQL Server - Open DB Diff Project"; }
@@ -64,13 +72,28 @@ namespace ODBX.Driver.OpenDBDiff
         public Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection)
         {
             var source = new Generate { ConnectionString = sourceConnection.ConnectionString, Options = new SqlOption(true) };
+
+            source.OnProgress += args => OnFeedbackMessage(new FeedbackEventArgs
+                                                               {
+                                                                   Message = args.Message,
+                                                                   ProgressPercent = args.Progress * (40 / Generate.MaxValue)
+                                                               });
             _sourceModel = source.Process();
 
+            
             var target = new Generate { ConnectionString = targetConnection.ConnectionString, Options = new SqlOption(true) };
+            target.OnProgress += args => OnFeedbackMessage(new FeedbackEventArgs
+            {
+                Message = args.Message,
+                ProgressPercent = 40 + ( args.Progress * (40 / Generate.MaxValue))
+            });
+
             _target = target.Process();
 
+            OnFeedbackMessage(new FeedbackEventArgs() { Message = "Running comparison...", ProgressPercent = 90});
             _merged = Generate.Compare((Database) _sourceModel.Clone(null), _target);
 
+            OnFeedbackMessage(new FeedbackEventArgs() { Message = "Building Model...", ProgressPercent = 95 });
             var model = new Model();
 
             _merged.Tables.ForEach(item => model.Add("Table", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
@@ -92,6 +115,8 @@ namespace ODBX.Driver.OpenDBDiff
             _merged.Roles.ForEach(item => model.Add("Roles", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Schemas.ForEach(item => model.Add("Schemas", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Synonyms.ForEach(item => model.Add("Synonyms", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+
+            OnFeedbackMessage(new FeedbackEventArgs() { Message = "Comparison Complete", ProgressPercent = 100 });
             return model;
         }
 

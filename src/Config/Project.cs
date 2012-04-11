@@ -27,8 +27,13 @@ namespace ODBX.Config
         public IConnection Target { get; set; }
         public IConnection Source { get; set; }
         public IList<DriverOption> Options { get; set; }
-
         public Model Model { get; set; }
+
+        public Project()
+        {
+            Direction = Direction.LeftToRight;
+        }
+
 
         public void Refresh()
         {

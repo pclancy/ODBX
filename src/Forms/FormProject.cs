@@ -7,8 +7,8 @@
 //   
 //  
 
+using System;
 using System.Windows.Forms;
-using BrightIdeasSoftware;
 using ODBX.Config;
 using ODBX.Driver;
 using ODBX.Properties;
@@ -32,21 +32,40 @@ namespace ODBX.Forms
             {
                 _project = value;
                 textScript.ConfigurationManager.Language = _project.Driver.Syntax;
+                panelDirection.BackgroundImage = _project.Direction == Direction.LeftToRight
+                                                     ? Resources.big_arrow_right
+                                                     : Resources.big_arrow_left;
+
                 Bind();
             }
         }
 
         public void Bind()
         {
-            _project.Refresh();
-            MessageBox.Show("Done");
+
+            Cursor.Current = Cursors.WaitCursor;
+
+            var formProgress = new FormProgress {Project = _project};
+            formProgress.Show(this);
+            formProgress.Update();
+
+            Project.Refresh();
+
+            formProgress.Hide();
+
+            labelSourceConnection.Text = _project.Source.Host;
+            labelTargetConnection.Text = _project.Target.Host;
+            labelSourceCatalog.Text = _project.Source.Catalog;
+            labelTargetCatalog.Text = _project.Target.Catalog;
 
             objectListView.SetObjects(_project.Model.Objects);
+
+            Cursor.Current = Cursors.Default;
         }
 
-        private void ObjectListViewSelectedIndexChanged(object sender, System.EventArgs e)
+        private void ObjectListViewSelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.objectListView.SelectedItem != null)
+            if (objectListView.SelectedItem != null)
             {
                 var modelObject = (ModelObject) objectListView.SelectedItem.RowObject;
                 var script = _project.Driver.GenerateScript(modelObject);
@@ -54,9 +73,8 @@ namespace ODBX.Forms
             }
         }
 
-        private void ObjectListViewSelectionChanged(object sender, System.EventArgs e)
+        private void ObjectListViewSelectionChanged(object sender, EventArgs e)
         {
-
         }
 
         private void PanelDirectionMouseDoubleClick(object sender, MouseEventArgs e)
@@ -81,6 +99,10 @@ namespace ODBX.Forms
             _project.Target = source;
 
             Bind();
+        }
+
+        private void panelDirection_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
         }
     }
 }
