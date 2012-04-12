@@ -41,7 +41,7 @@
             // buttonAccept
             // 
             this.buttonAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonAccept.Location = new System.Drawing.Point(577, 357);
+            this.buttonAccept.Location = new System.Drawing.Point(577, 402);
             this.buttonAccept.Name = "buttonAccept";
             this.buttonAccept.Size = new System.Drawing.Size(75, 23);
             this.buttonAccept.TabIndex = 0;
@@ -54,6 +54,11 @@
             this.gradientPanel1.Controls.Add(this.panelIcon);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gradientPanel1.EndColor = System.Drawing.Color.WhiteSmoke;
+            this.gradientPanel1.LineBottom = false;
+            this.gradientPanel1.LineColor = System.Drawing.Color.Empty;
+            this.gradientPanel1.LineLeft = false;
+            this.gradientPanel1.LineRight = false;
+            this.gradientPanel1.LineTop = false;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(664, 55);
@@ -96,24 +101,25 @@
             // textBoxDetails
             // 
             this.textBoxDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDetails.Location = new System.Drawing.Point(7, 23);
+            this.textBoxDetails.Location = new System.Drawing.Point(7, 21);
             this.textBoxDetails.Multiline = true;
             this.textBoxDetails.Name = "textBoxDetails";
             this.textBoxDetails.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDetails.Size = new System.Drawing.Size(625, 259);
+            this.textBoxDetails.Size = new System.Drawing.Size(625, 261);
             this.textBoxDetails.TabIndex = 0;
             // 
             // FormException
             // 
             this.AcceptButton = this.buttonAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonAccept;
-            this.ClientSize = new System.Drawing.Size(664, 386);
+            this.ClientSize = new System.Drawing.Size(664, 437);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gradientPanel1);
             this.Controls.Add(this.buttonAccept);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormException";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

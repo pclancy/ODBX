@@ -13,7 +13,7 @@ using System.Linq;
 using ODBX.Driver;
 using ODBX.Driver.OpenDBDiff;
 
-namespace ODBX.Config
+namespace ODBX.Common
 {
     public class DriverRepository
     {

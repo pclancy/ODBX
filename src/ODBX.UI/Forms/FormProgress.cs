@@ -7,7 +7,7 @@
 //   
 //  
 
-using ODBX.Config;
+using ODBX.Common;
 using ODBX.Driver;
 
 namespace ODBX.Forms

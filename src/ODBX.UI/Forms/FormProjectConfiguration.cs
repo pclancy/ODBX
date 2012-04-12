@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using ODBX.Config;
+using ODBX.Common;
 using ODBX.Driver;
 using ODBX.Properties;
 
@@ -137,21 +137,10 @@ namespace ODBX.Forms
                               Target = ConnectionBuilderDestination.Configuration,
                               Options = null
                           };
+
+            State.SaveProject(Project);
         }
 
-        private void ConnectionBuilderDestination_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void labelSourceDatabase_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelDestinationDatabase_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
+   }
 }

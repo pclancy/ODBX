@@ -124,6 +124,7 @@
             resources.GetString("cboAuthentication.Items1")});
             resources.ApplyResources(this.cboAuthentication, "cboAuthentication");
             this.cboAuthentication.Name = "cboAuthentication";
+            this.cboAuthentication.SelectedValueChanged += new System.EventHandler(this.CboAuthenticationSelectedValueChanged);
             this.cboAuthentication.TextChanged += new System.EventHandler(this.ConfigurationChanged);
             // 
             // cboServer

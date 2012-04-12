@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using ODBX.Config;
+using ODBX.Common;
 using ODBX.Properties;
 
 namespace ODBX.Forms
@@ -12,6 +12,8 @@ namespace ODBX.Forms
         public FormProjectBrowser()
         {
             InitializeComponent();
+            comboBoxLocation.Items.Add(State.DefaultFilePath);
+            comboBoxLocation.SelectedIndex = 0;
         }
 
         private void ButtonBrowseFolderClick(object sender, System.EventArgs e)

@@ -9,7 +9,7 @@
 
 using System;
 using System.Windows.Forms;
-using ODBX.Config;
+using ODBX.Common;
 using ODBX.Properties;
 
 namespace ODBX.Forms

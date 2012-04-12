@@ -126,6 +126,7 @@
             // 
             // buttonEditProject
             // 
+            this.buttonEditProject.Enabled = false;
             this.buttonEditProject.Image = global::ODBX.Properties.Resources.pencil;
             this.buttonEditProject.Location = new System.Drawing.Point(89, 43);
             this.buttonEditProject.Name = "buttonEditProject";
@@ -137,6 +138,7 @@
             // 
             // buttonCopyProject
             // 
+            this.buttonCopyProject.Enabled = false;
             this.buttonCopyProject.Image = global::ODBX.Properties.Resources.clone;
             this.buttonCopyProject.Location = new System.Drawing.Point(165, 43);
             this.buttonCopyProject.Name = "buttonCopyProject";
@@ -148,6 +150,7 @@
             // 
             // buttonDeleteProject
             // 
+            this.buttonDeleteProject.Enabled = false;
             this.buttonDeleteProject.Image = global::ODBX.Properties.Resources.cross;
             this.buttonDeleteProject.Location = new System.Drawing.Point(241, 43);
             this.buttonDeleteProject.Name = "buttonDeleteProject";
