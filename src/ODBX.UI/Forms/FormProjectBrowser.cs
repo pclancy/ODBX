@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
+using ODBX.Config;
 using ODBX.Properties;
 
 namespace ODBX.Forms
 {
     public partial class FormProjectBrowser : BaseForm
     {
+        public Project SelectedProject { get; set; }
+
         public FormProjectBrowser()
         {
             InitializeComponent();
@@ -15,8 +18,8 @@ namespace ODBX.Forms
         {
             if (folderBrowserDialog1.ShowDialog(this) == DialogResult.OK)
             {
-                this.comboBoxLocation.Items.Insert(0, folderBrowserDialog1.SelectedPath);
-                this.comboBoxLocation.SelectedIndex = 0;
+                comboBoxLocation.Items.Insert(0, folderBrowserDialog1.SelectedPath);
+                comboBoxLocation.SelectedIndex = 0;
 
             }
         }
@@ -30,7 +33,9 @@ namespace ODBX.Forms
 
                 if (formProjectConfiguration.ShowDialog(this) == DialogResult.OK)
                 {
-                    //_formProject.Project = formProjectConfiguration.Project;
+                    SelectedProject = formProjectConfiguration.Project;
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
             }
             catch (Exception ex)
@@ -39,10 +44,6 @@ namespace ODBX.Forms
             }
             finally
             {
-
-                //ButtonRefresh.Enabled = _formProject.Project != null;
-                //_formProject.Bind();
-                //_formProject.Show();
 
                 Cursor = Cursors.Default;
             }

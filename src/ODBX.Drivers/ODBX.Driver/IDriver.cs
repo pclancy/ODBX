@@ -21,6 +21,7 @@ namespace ODBX.Driver
 
     public delegate void FeedbackHandler(object sender, FeedbackEventArgs args);
 
+
     public interface IDriver
     {
         string Name { get; }
@@ -34,6 +35,9 @@ namespace ODBX.Driver
         string LastError { get; }
         string Syntax { get; }
         event FeedbackHandler FeedbackMessage;
+        event EventHandler ComparisonStarted;
+        event EventHandler ComparisonCompleted;
+
         Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection);
         string GenerateScript(ModelObject modelObject);
     }

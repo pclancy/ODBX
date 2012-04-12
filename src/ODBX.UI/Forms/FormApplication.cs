@@ -9,33 +9,25 @@
 
 using System;
 using System.Windows.Forms;
+using ODBX.Config;
 using ODBX.Properties;
 
 namespace ODBX.Forms
 {
     public partial class FormApplication : BaseForm
     {
-        private FormProject _formProject;
-        private FormProjectBrowser _formProjectBrowser;
+        private readonly FormProject _formProject;
+        private readonly FormProjectBrowser _formProjectBrowser;
+        private readonly FormProgress _formProgress;
 
         public FormApplication()
         {
             InitializeComponent();
+            _formProjectBrowser = new FormProjectBrowser();
+            _formProject = new FormProject { MdiParent = this, WindowState = FormWindowState.Maximized };
+            _formProgress = new FormProgress();
         }
 
-
-        private void OpenProjectBrowser()
-        {
-            if (_formProjectBrowser.ShowDialog() == DialogResult.OK)
-            { }
-
-        }
-
-        //private void OpenProject()
-        //{
-        //    _formProject = new FormProject {MdiParent = this, WindowState = FormWindowState.Maximized};
-        //    _formProject.Show();
-        //}
 
         private void ButtonOptionsClick(object sender, EventArgs e)
         {
@@ -46,7 +38,7 @@ namespace ODBX.Forms
 
                 if (formProjectConfiguration.ShowDialog(this) == DialogResult.OK)
                 {
-                    _formProject.Project = formProjectConfiguration.Project;
+                    Bind(formProjectConfiguration.Project);
                 }
             }
             catch (Exception ex)
@@ -55,11 +47,6 @@ namespace ODBX.Forms
             }
             finally
             {
-
-                ButtonRefresh.Enabled = _formProject.Project != null;
-                _formProject.Bind();
-                _formProject.Show();
-
                 Cursor = Cursors.Default;
             }
         }
@@ -69,7 +56,7 @@ namespace ODBX.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-                _formProject.Bind();
+                Bind(_formProject.Project);
             }
             catch (Exception ex)
             {
@@ -81,23 +68,48 @@ namespace ODBX.Forms
             }
         }
 
-        private void FormApplicationLoad(object sender, EventArgs e)
-        {
-            _formProject = new FormProject { MdiParent = this, WindowState = FormWindowState.Maximized };
-            _formProjectBrowser = new FormProjectBrowser();
 
-            
+        private void Bind(Project project)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                ButtonRefresh.Enabled = ButtonOptions.Enabled = ButtonSynchronise.Enabled = false;
+
+                if (project != null)
+                {
+
+                    _formProgress.Project = project;
+                    if (_formProgress.ShowDialog(this) == DialogResult.OK)
+                    {
+                        _formProject.Bind(project);
+                        _formProject.Show();
+                        ButtonRefresh.Enabled = ButtonOptions.Enabled = ButtonSynchronise.Enabled = true;
+                    }
+                }
+                else
+                {
+                    _formProject.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.HandleException(this, ex, Strings.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
         }
 
-        private void FormApplicationShown(object sender, EventArgs e)
-        {
-            OpenProjectBrowser();
 
+        private void OpenProjectBrowser(object sender, EventArgs e)
+        {
+            if (_formProjectBrowser.ShowDialog() == DialogResult.OK)
+            {
+                Bind(_formProjectBrowser.SelectedProject);
+            }
         }
 
-        private void ButtonProjectsClick(object sender, EventArgs e)
-        {
-            OpenProjectBrowser();
-        }
     }
 }

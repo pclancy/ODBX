@@ -15,7 +15,7 @@ using ODBX.Properties;
 
 namespace ODBX.Forms
 {
-    public partial class FormProject : Form
+    public partial class FormProject : BaseForm
     {
         private Project _project;
 
@@ -23,34 +23,28 @@ namespace ODBX.Forms
         {
             InitializeComponent();
             textScript.ConfigurationManager.Language = "mssql";
-            
+
         }
 
         public Project Project
         {
             get { return _project; }
-            set
+            private set
             {
                 _project = value;
-                textScript.ConfigurationManager.Language = _project.Driver.Syntax;
-                panelDirection.BackgroundImage = _project.Direction == Direction.LeftToRight
-                                                     ? Resources.big_arrow_right
-                                                     : Resources.big_arrow_left;
-
             }
         }
 
-        public void Bind()
+
+        public void Bind(Project project)
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            var formProgress = new FormProgress {Project = _project};
-            formProgress.Show();
-            formProgress.Update();
-
-            Project.Refresh();
-
-            formProgress.Hide();
+            Project = project;
+            textScript.ConfigurationManager.Language = _project.Driver.Syntax;
+            panelDirection.BackgroundImage = _project.Direction == Direction.LeftToRight
+                                                 ? Resources.big_arrow_right
+                                                 : Resources.big_arrow_left;
 
             labelSourceConnection.Text = _project.Source.Host;
             labelTargetConnection.Text = _project.Target.Host;
@@ -66,7 +60,7 @@ namespace ODBX.Forms
         {
             if (objectListView.SelectedItem != null)
             {
-                var modelObject = (ModelObject) objectListView.SelectedItem.RowObject;
+                var modelObject = (ModelObject)objectListView.SelectedItem.RowObject;
                 string script = _project.Driver.GenerateScript(modelObject);
                 textScript.Text = script;
             }
@@ -97,11 +91,7 @@ namespace ODBX.Forms
             _project.Source = target;
             _project.Target = source;
 
-            Bind();
-        }
-
-        private void panelDirection_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+            Bind(_project);
         }
     }
 }

@@ -403,6 +403,13 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap diff {
+            get {
+                object obj = ResourceManager.GetObject("diff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap error {
             get {
                 object obj = ResourceManager.GetObject("error", resourceCulture);

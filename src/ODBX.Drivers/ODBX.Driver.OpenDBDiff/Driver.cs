@@ -34,6 +34,21 @@ namespace ODBX.Driver.OpenDBDiff
         #region IDriver Members
 
         public event FeedbackHandler FeedbackMessage;
+        public event EventHandler ComparisonStarted;
+
+        public void OnComparisonStarted(EventArgs e)
+        {
+            var handler = ComparisonStarted;
+            if (handler != null) handler(this, e);
+        }
+
+        public event EventHandler ComparisonCompleted;
+
+        public void OnComparisonCompleted(EventArgs e)
+        {
+            var handler = ComparisonCompleted;
+            if (handler != null) handler(this, e);
+        }
 
         public string Name
         {
@@ -67,6 +82,8 @@ namespace ODBX.Driver.OpenDBDiff
 
         public Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection)
         {
+            OnComparisonStarted(EventArgs.Empty);
+
             var source = new Generate
                              {ConnectionString = sourceConnection.ConnectionString, Options = new SqlOption(true)};
 
@@ -146,6 +163,8 @@ namespace ODBX.Driver.OpenDBDiff
                 item => model.Add("Synonyms", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
 
             OnFeedbackMessage(new FeedbackEventArgs {Message = "Comparison Complete", ProgressPercent = 100});
+            OnComparisonCompleted(EventArgs.Empty);
+
             return model;
         }
 

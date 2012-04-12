@@ -25,6 +25,8 @@ namespace ODBX.Driver
         #region IDriver Members
 
         public event FeedbackHandler FeedbackMessage;
+        public event EventHandler ComparisonStarted;
+        public event EventHandler ComparisonCompleted;
 
         public string Name
         {

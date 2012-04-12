@@ -53,11 +53,11 @@
             this.olvColumnSummary,
             this.olvColumnDate});
             this.treeListView1.GridLines = true;
-            this.treeListView1.Location = new System.Drawing.Point(15, 79);
+            this.treeListView1.Location = new System.Drawing.Point(13, 72);
             this.treeListView1.Name = "treeListView1";
             this.treeListView1.OwnerDraw = true;
             this.treeListView1.ShowGroups = false;
-            this.treeListView1.Size = new System.Drawing.Size(694, 302);
+            this.treeListView1.Size = new System.Drawing.Size(595, 258);
             this.treeListView1.TabIndex = 0;
             this.treeListView1.UseCompatibleStateImageBehavior = false;
             this.treeListView1.View = System.Windows.Forms.View.Details;
@@ -74,26 +74,26 @@
             // comboBoxLocation
             // 
             this.comboBoxLocation.FormattingEnabled = true;
-            this.comboBoxLocation.Location = new System.Drawing.Point(81, 13);
+            this.comboBoxLocation.Location = new System.Drawing.Point(69, 11);
             this.comboBoxLocation.Name = "comboBoxLocation";
-            this.comboBoxLocation.Size = new System.Drawing.Size(593, 23);
+            this.comboBoxLocation.Size = new System.Drawing.Size(509, 21);
             this.comboBoxLocation.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Location = new System.Drawing.Point(10, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 15);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Location:";
             // 
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(634, 396);
+            this.buttonCancel.Location = new System.Drawing.Point(518, 346);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(89, 24);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -101,9 +101,9 @@
             // buttonAccept
             // 
             this.buttonAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonAccept.Location = new System.Drawing.Point(553, 396);
+            this.buttonAccept.Location = new System.Drawing.Point(420, 346);
             this.buttonAccept.Name = "buttonAccept";
-            this.buttonAccept.Size = new System.Drawing.Size(75, 23);
+            this.buttonAccept.Size = new System.Drawing.Size(92, 24);
             this.buttonAccept.TabIndex = 4;
             this.buttonAccept.Text = "Open";
             this.buttonAccept.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@
             // buttonNewProject
             // 
             this.buttonNewProject.Image = global::ODBX.Properties.Resources.wand;
-            this.buttonNewProject.Location = new System.Drawing.Point(15, 50);
+            this.buttonNewProject.Location = new System.Drawing.Point(13, 43);
             this.buttonNewProject.Name = "buttonNewProject";
-            this.buttonNewProject.Size = new System.Drawing.Size(75, 23);
+            this.buttonNewProject.Size = new System.Drawing.Size(70, 24);
             this.buttonNewProject.TabIndex = 6;
             this.buttonNewProject.Text = "New...";
             this.buttonNewProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -127,9 +127,9 @@
             // buttonEditProject
             // 
             this.buttonEditProject.Image = global::ODBX.Properties.Resources.pencil;
-            this.buttonEditProject.Location = new System.Drawing.Point(97, 50);
+            this.buttonEditProject.Location = new System.Drawing.Point(89, 43);
             this.buttonEditProject.Name = "buttonEditProject";
-            this.buttonEditProject.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditProject.Size = new System.Drawing.Size(70, 24);
             this.buttonEditProject.TabIndex = 7;
             this.buttonEditProject.Text = "Edit";
             this.buttonEditProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -138,9 +138,9 @@
             // buttonCopyProject
             // 
             this.buttonCopyProject.Image = global::ODBX.Properties.Resources.clone;
-            this.buttonCopyProject.Location = new System.Drawing.Point(178, 50);
+            this.buttonCopyProject.Location = new System.Drawing.Point(165, 43);
             this.buttonCopyProject.Name = "buttonCopyProject";
-            this.buttonCopyProject.Size = new System.Drawing.Size(75, 23);
+            this.buttonCopyProject.Size = new System.Drawing.Size(70, 24);
             this.buttonCopyProject.TabIndex = 8;
             this.buttonCopyProject.Text = "Copy";
             this.buttonCopyProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -149,9 +149,9 @@
             // buttonDeleteProject
             // 
             this.buttonDeleteProject.Image = global::ODBX.Properties.Resources.cross;
-            this.buttonDeleteProject.Location = new System.Drawing.Point(259, 50);
+            this.buttonDeleteProject.Location = new System.Drawing.Point(241, 43);
             this.buttonDeleteProject.Name = "buttonDeleteProject";
-            this.buttonDeleteProject.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteProject.Size = new System.Drawing.Size(70, 24);
             this.buttonDeleteProject.TabIndex = 9;
             this.buttonDeleteProject.Text = "Delete";
             this.buttonDeleteProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -160,9 +160,9 @@
             // buttonBrowseFolder
             // 
             this.buttonBrowseFolder.Image = global::ODBX.Properties.Resources.folder;
-            this.buttonBrowseFolder.Location = new System.Drawing.Point(681, 13);
+            this.buttonBrowseFolder.Location = new System.Drawing.Point(584, 11);
             this.buttonBrowseFolder.Name = "buttonBrowseFolder";
-            this.buttonBrowseFolder.Size = new System.Drawing.Size(28, 23);
+            this.buttonBrowseFolder.Size = new System.Drawing.Size(24, 20);
             this.buttonBrowseFolder.TabIndex = 5;
             this.buttonBrowseFolder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonBrowseFolder.UseVisualStyleBackColor = true;
@@ -171,10 +171,10 @@
             // FormProjectBrowser
             // 
             this.AcceptButton = this.buttonAccept;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(725, 431);
+            this.ClientSize = new System.Drawing.Size(621, 379);
             this.Controls.Add(this.buttonDeleteProject);
             this.Controls.Add(this.buttonCopyProject);
             this.Controls.Add(this.buttonEditProject);
@@ -185,6 +185,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxLocation);
             this.Controls.Add(this.treeListView1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

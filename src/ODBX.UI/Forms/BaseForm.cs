@@ -14,19 +14,22 @@ namespace ODBX.Forms
 {
     public class BaseForm : Form
     {
-        public BaseForm()
-        {
-            Font = SystemFonts.IconTitleFont;
 
-            foreach (Control control in Controls)
+        protected override void OnLoad(System.EventArgs e)
+        {
+            base.OnLoad(e);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            ChangeFont(this);
+        }
+
+        private void ChangeFont(Control control)
+        {
+            control.Font = new Font(SystemFonts.DialogFont.FontFamily, control.Font.Size, control.Font.Style);
+            if (control.HasChildren)
             {
-                control.Font = SystemFonts.IconTitleFont;
-                if (control.HasChildren)
+                foreach (Control childControl in control.Controls)
                 {
-                    foreach (Control childControl in Controls)
-                    {
-                        childControl.Font = SystemFonts.IconTitleFont;
-                    }
+                    ChangeFont(childControl);
                 }
             }
         }

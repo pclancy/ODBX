@@ -38,7 +38,7 @@
             this.ButtonOptions = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ButtonRefresh = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.ButtonSynchronise = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +90,7 @@
             this.ButtonOptions,
             this.toolStripSeparator1,
             this.ButtonRefresh,
-            this.toolStripButton1});
+            this.ButtonSynchronise});
             this.toolStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
@@ -110,7 +110,7 @@
             this.buttonProjects.Size = new System.Drawing.Size(94, 36);
             this.buttonProjects.Text = "Projects...";
             this.buttonProjects.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonProjects.Click += new System.EventHandler(this.ButtonProjectsClick);
+            this.buttonProjects.Click += new System.EventHandler(this.OpenProjectBrowser);
             // 
             // ButtonOptions
             // 
@@ -137,14 +137,14 @@
             this.ButtonRefresh.Text = "Refresh";
             this.ButtonRefresh.Click += new System.EventHandler(this.ButtonRefreshClick);
             // 
-            // toolStripButton1
+            // ButtonSynchronise
             // 
-            this.toolStripButton1.Enabled = false;
-            this.toolStripButton1.Image = global::ODBX.Properties.Resources.database_lightning;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(107, 36);
-            this.toolStripButton1.Text = "Synchronise";
+            this.ButtonSynchronise.Enabled = false;
+            this.ButtonSynchronise.Image = global::ODBX.Properties.Resources.database_lightning;
+            this.ButtonSynchronise.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ButtonSynchronise.Name = "ButtonSynchronise";
+            this.ButtonSynchronise.Size = new System.Drawing.Size(107, 36);
+            this.ButtonSynchronise.Text = "Synchronise";
             // 
             // FormApplication
             // 
@@ -153,14 +153,14 @@
             this.ClientSize = new System.Drawing.Size(942, 435);
             this.Controls.Add(this.toolStripMain);
             this.Controls.Add(this.menuStripMain);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStripMain;
             this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "FormApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FormApplication";
-            this.Load += new System.EventHandler(this.FormApplicationLoad);
-            this.Shown += new System.EventHandler(this.FormApplicationShown);
+            this.Shown += new System.EventHandler(this.OpenProjectBrowser);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
@@ -182,6 +182,6 @@
         private System.Windows.Forms.ToolStripButton ButtonOptions;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton ButtonRefresh;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton ButtonSynchronise;
     }
 }

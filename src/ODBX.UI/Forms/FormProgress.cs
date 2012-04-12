@@ -37,5 +37,14 @@ namespace ODBX.Forms
             progressBar1.Value = eventArgs.ProgressPercent;
             labelOperation.Refresh();
         }
+
+        private void FormProgressShown(object sender, System.EventArgs e)
+        {
+            Refresh();
+            Project.Refresh();
+            buttonAccept.Enabled = true;
+        }
+
+
     }
 }
