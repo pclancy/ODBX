@@ -41,7 +41,7 @@
             // labelOperation
             // 
             this.labelOperation.AutoSize = true;
-            this.labelOperation.Location = new System.Drawing.Point(78, 49);
+            this.labelOperation.Location = new System.Drawing.Point(83, 60);
             this.labelOperation.Name = "labelOperation";
             this.labelOperation.Size = new System.Drawing.Size(57, 15);
             this.labelOperation.TabIndex = 20;
@@ -49,7 +49,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(80, 68);
+            this.progressBar1.Location = new System.Drawing.Point(85, 79);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(483, 23);
             this.progressBar1.Step = 1;
@@ -61,7 +61,7 @@
             // 
             this.labelTitle.BackColor = System.Drawing.Color.White;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.labelTitle.Location = new System.Drawing.Point(77, 26);
+            this.labelTitle.Location = new System.Drawing.Point(82, 37);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(470, 23);
             this.labelTitle.TabIndex = 5;
@@ -73,7 +73,7 @@
             this.panelIcon.BackColor = System.Drawing.Color.Transparent;
             this.panelIcon.BackgroundImage = global::ODBX.Properties.Resources.diff;
             this.panelIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelIcon.Location = new System.Drawing.Point(34, 26);
+            this.panelIcon.Location = new System.Drawing.Point(39, 37);
             this.panelIcon.Name = "panelIcon";
             this.panelIcon.Size = new System.Drawing.Size(37, 39);
             this.panelIcon.TabIndex = 4;

@@ -138,5 +138,20 @@ namespace ODBX.Forms
                               Options = null
                           };
         }
+
+        private void ConnectionBuilderDestination_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelSourceDatabase_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDestinationDatabase_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

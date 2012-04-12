@@ -48,7 +48,7 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContainer.BackColor = System.Drawing.Color.Transparent;
             this.panelContainer.Controls.Add(this.buttonRefreshCatalogs);
             this.panelContainer.Controls.Add(this.buttonRefreshServers);
             this.panelContainer.Controls.Add(this.label5);
@@ -158,6 +158,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.panelContainer);
             this.Name = "ControlConnectionBuilder";
             this.panelContainer.ResumeLayout(false);

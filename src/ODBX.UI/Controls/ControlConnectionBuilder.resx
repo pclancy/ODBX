@@ -127,7 +127,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonRefreshCatalogs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 158</value>
+    <value>308, 166</value>
   </data>
   <data name="buttonRefreshCatalogs.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 23</value>
@@ -151,7 +151,7 @@
     <value>True</value>
   </data>
   <data name="buttonRefreshServers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 14</value>
+    <value>308, 14</value>
   </data>
   <data name="buttonRefreshServers.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 23</value>
@@ -175,7 +175,7 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 160</value>
+    <value>39, 168</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 13</value>
@@ -205,7 +205,7 @@
     <value>False</value>
   </data>
   <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 122</value>
+    <value>101, 134</value>
   </data>
   <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 17</value>
@@ -232,7 +232,7 @@
     <value>True</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 95</value>
+    <value>39, 107</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 13</value>
@@ -259,7 +259,7 @@
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 69</value>
+    <value>34, 81</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 13</value>
@@ -286,7 +286,7 @@
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 45</value>
+    <value>17, 57</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
@@ -310,10 +310,10 @@
     <value>6</value>
   </data>
   <data name="cboDatabase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 160</value>
+    <value>101, 168</value>
   </data>
   <data name="cboDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 21</value>
+    <value>201, 21</value>
   </data>
   <data name="cboDatabase.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -337,10 +337,10 @@
     <value>SQL Server Authentication</value>
   </data>
   <data name="cboAuthentication.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 42</value>
+    <value>101, 54</value>
   </data>
   <data name="cboAuthentication.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 21</value>
+    <value>201, 21</value>
   </data>
   <data name="cboAuthentication.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -367,7 +367,7 @@
     <value>101, 15</value>
   </data>
   <data name="cboServer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 21</value>
+    <value>201, 21</value>
   </data>
   <data name="cboServer.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -388,13 +388,13 @@
     <value>False</value>
   </data>
   <data name="txtPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 95</value>
+    <value>101, 107</value>
   </data>
   <data name="txtPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
   </data>
   <data name="txtPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 20</value>
+    <value>201, 20</value>
   </data>
   <data name="txtPassword.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -415,10 +415,10 @@
     <value>False</value>
   </data>
   <data name="txtUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 69</value>
+    <value>101, 81</value>
   </data>
   <data name="txtUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 20</value>
+    <value>201, 20</value>
   </data>
   <data name="txtUsername.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -466,7 +466,7 @@
     <value>3, 3</value>
   </data>
   <data name="panelContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>321, 256</value>
+    <value>355, 225</value>
   </data>
   <data name="panelContainer.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -490,7 +490,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 262</value>
+    <value>360, 258</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ControlConnectionBuilder</value>
