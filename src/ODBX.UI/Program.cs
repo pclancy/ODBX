@@ -15,8 +15,6 @@ namespace ODBX
 {
     internal static class Program
     {
-        private static FormApplication _formApplication;
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -26,8 +24,7 @@ namespace ODBX
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            _formApplication = new FormApplication();
-            Application.Run(_formApplication);
+            Application.Run(new FormApplication());
         }
 
         public static void HandleException(Form owner, Exception exception, string title)

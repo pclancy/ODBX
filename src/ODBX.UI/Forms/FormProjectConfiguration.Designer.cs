@@ -31,7 +31,6 @@ namespace ODBX.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProjectConfiguration));
-            this.splitContainerInner = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.treeViewOptions = new System.Windows.Forms.TreeView();
             this.tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
@@ -57,10 +56,8 @@ namespace ODBX.Forms
             this.panelButtonBar = new System.Windows.Forms.Panel();
             this.buttonAccept = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerInner)).BeginInit();
-            this.splitContainerInner.Panel1.SuspendLayout();
-            this.splitContainerInner.Panel2.SuspendLayout();
-            this.splitContainerInner.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutMain.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabPageSources.SuspendLayout();
@@ -71,21 +68,9 @@ namespace ODBX.Forms
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
             this.panelButtonBar.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splitContainerInner
-            // 
-            resources.ApplyResources(this.splitContainerInner, "splitContainerInner");
-            this.splitContainerInner.Name = "splitContainerInner";
-            // 
-            // splitContainerInner.Panel1
-            // 
-            this.splitContainerInner.Panel1.Controls.Add(this.button1);
-            resources.ApplyResources(this.splitContainerInner.Panel1, "splitContainerInner.Panel1");
-            // 
-            // splitContainerInner.Panel2
-            // 
-            this.splitContainerInner.Panel2.Controls.Add(this.treeViewOptions);
             // 
             // button1
             // 
@@ -241,7 +226,7 @@ namespace ODBX.Forms
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.splitContainerInner);
+            this.splitContainerMain.Panel1.Controls.Add(this.tableLayoutPanel1);
             // 
             // splitContainerMain.Panel2
             // 
@@ -275,6 +260,19 @@ namespace ODBX.Forms
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.Controls.Add(this.treeViewOptions, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button1);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
             // FormProjectConfiguration
             // 
             this.AcceptButton = this.buttonAccept;
@@ -287,10 +285,6 @@ namespace ODBX.Forms
             this.MinimizeBox = false;
             this.Name = "FormProjectConfiguration";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.splitContainerInner.Panel1.ResumeLayout(false);
-            this.splitContainerInner.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerInner)).EndInit();
-            this.splitContainerInner.ResumeLayout(false);
             this.tableLayoutMain.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabPageSources.ResumeLayout(false);
@@ -304,6 +298,8 @@ namespace ODBX.Forms
             this.splitContainerMain.ResumeLayout(false);
             this.panelButtonBar.ResumeLayout(false);
             this.panelButtonBar.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -330,12 +326,13 @@ namespace ODBX.Forms
         private System.Windows.Forms.Label labelSourceDatabase;
         private System.Windows.Forms.Label labelHeader;
         private System.Windows.Forms.SplitContainer splitContainerMain;
-        private System.Windows.Forms.SplitContainer splitContainerInner;
         private System.Windows.Forms.TreeView treeViewOptions;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cboDriver;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
 
 
     }

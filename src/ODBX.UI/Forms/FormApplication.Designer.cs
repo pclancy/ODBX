@@ -102,7 +102,6 @@
             // 
             // buttonProjects
             // 
-            this.buttonProjects.Enabled = false;
             this.buttonProjects.Image = global::ODBX.Properties.Resources.folder_database;
             this.buttonProjects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonProjects.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -111,9 +110,11 @@
             this.buttonProjects.Size = new System.Drawing.Size(94, 36);
             this.buttonProjects.Text = "Projects...";
             this.buttonProjects.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonProjects.Click += new System.EventHandler(this.ButtonProjectsClick);
             // 
             // ButtonOptions
             // 
+            this.ButtonOptions.Enabled = false;
             this.ButtonOptions.Image = global::ODBX.Properties.Resources.database_edit;
             this.ButtonOptions.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ButtonOptions.Name = "ButtonOptions";
@@ -158,6 +159,8 @@
             this.Name = "FormApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FormApplication";
+            this.Load += new System.EventHandler(this.FormApplicationLoad);
+            this.Shown += new System.EventHandler(this.FormApplicationShown);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
