@@ -67,7 +67,6 @@ namespace ODBX.Common
 
         public void Refresh()
         {
-            // set options
             Model = Driver.BuildComparisonObjects(Source, Target);
         }
 

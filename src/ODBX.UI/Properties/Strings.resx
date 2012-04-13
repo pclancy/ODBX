@@ -129,4 +129,7 @@
   <data name="ErrorNoDriversFound" xml:space="preserve">
     <value>Unable to find any drivers.  You must download drivers to use with this application.</value>
   </data>
+  <data name="ErrorNoDriveOptionsFound">
+    <value xml:space="preserve">No driver options found</value>
+  </data>
 </root>

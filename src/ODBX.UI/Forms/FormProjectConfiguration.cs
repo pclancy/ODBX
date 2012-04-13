@@ -96,25 +96,22 @@ namespace ODBX.Forms
 
         private void ButtonAcceptClick(object sender, EventArgs e)
         {
-            Project = new Project
-                          {
-                              Driver = (IDriver) cboDriver.SelectedItem,
-                              Source = ConnectionBuilderSource.Configuration,
-                              Target = ConnectionBuilderDestination.Configuration,
-                              Options =
-                                  (from TreeNode node in treeViewOptions.Nodes select (DriverOption) node.Tag).ToList()
-                          };
+            Project.Source = ConnectionBuilderSource.Configuration;
+            Project.Target = ConnectionBuilderDestination.Configuration;
 
             State.SaveProject(Project);
         }
 
         private void TreeViewOptionsAfterCheck(object sender, TreeViewEventArgs e)
         {
-            if (e.Node != null && e.Action != TreeViewAction.Unknown)
+            if (e.Node != null)
             {
                 if (e.Node.Tag != null)
                 {
-                    ((DriverOption) e.Node.Tag).ConfiguredValue = e.Node.Checked;
+                    var o = Project.Options.First(x => x.Id == ((DriverOption) e.Node.Tag).Id);
+                    var t = ((DriverOption) e.Node.Tag);
+
+                    Project.Options.First(x=>x.Id == ((DriverOption)e.Node.Tag).Id).ConfiguredValue = e.Node.Checked;
                 }
             }
         }
@@ -155,7 +152,6 @@ namespace ODBX.Forms
             cboDriver.SelectedItem = cboDriver.Items.Cast<IDriver>().First(item => item.Id == Project.Driver.Id);
 
             BindDriverOptions();
-
             EvaluateReadiness();
         }
 
@@ -171,25 +167,34 @@ namespace ODBX.Forms
         private void BindDriverOptions()
         {
             treeViewOptions.Nodes.Clear();
-            foreach (DriverOptionCategory category in Project.Driver.Configuration.OptionCategories)
+
+            if (Project.Options == null || Project.Options.Count == 0)
             {
-                TreeNode node = treeViewOptions.Nodes.Add(string.Format("CAT_{0}", category.Id),
-                                                          string.Concat(category.Name, "    "));
-
-                bool allChecked = true;
-                foreach (
-                    DriverOption driverOption in
-                        Project.Options.Where(x => x.Category.Id == category.Id).ToList())
+                MessageBox.Show(this, Strings.ErrorNoDriveOptionsFound);
+            }
+            else
+            {
+                foreach (DriverOptionCategory category in Project.Driver.Configuration.OptionCategories)
                 {
-                    TreeNode optionNode = node.Nodes.Add(string.Format("OPT_{0}", driverOption.Id),
-                                                         driverOption.Name);
-                    optionNode.Checked = driverOption.ConfiguredValue;
-                    optionNode.Tag = driverOption;
-                    if (!driverOption.DefaultValue)
-                        allChecked = false;
-                }
+                    TreeNode node = treeViewOptions.Nodes.Add(string.Format("CAT_{0}", category.Id),
+                                                              string.Concat(category.Name, "    "));
 
-                node.Checked = allChecked;
+                    bool allChecked = true;
+                    DriverOptionCategory optionCategory = category;
+                    foreach (
+                        DriverOption driverOption in
+                            Project.Options.Where(x => x.Category.Id == optionCategory.Id))
+                    {
+                        TreeNode optionNode = node.Nodes.Add(string.Format("OPT_{0}", driverOption.Id),
+                                                             driverOption.Name);
+                        optionNode.Checked = driverOption.ConfiguredValue;
+                        optionNode.Tag = driverOption;
+                        if (!driverOption.DefaultValue)
+                            allChecked = false;
+                    }
+
+                    node.Checked = allChecked;
+                }
             }
 
             treeViewOptions.ExpandAll();

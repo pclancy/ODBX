@@ -8,6 +8,8 @@
 //  
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using DBDiff.Schema;
 using DBDiff.Schema.Model;
 using DBDiff.Schema.SQLServer.Generates.Generates;
@@ -88,59 +90,67 @@ namespace ODBX.Driver.OpenDBDiff
                               {
                                   Ignore =
                                       {
-                                          FilterConstraint = !config[OptionType.FilterConstraint].ConfiguredValue,
-                                          FilterFunction = !config[OptionType.FilterFunction].ConfiguredValue,
-                                          FilterStoreProcedure = !config[OptionType.FilterStoreProcedure].ConfiguredValue,
-                                          FilterView = !config[OptionType.FilterView].ConfiguredValue,
-                                          FilterTable = !config[OptionType.FilterTable].ConfiguredValue,
-                                          FilterTableOption = !config[OptionType.FilterTableOption].ConfiguredValue,
-                                          FilterUserDataType = !config[OptionType.FilterUserDataType].ConfiguredValue,
-                                          FilterTrigger = !config[OptionType.FilterTrigger].ConfiguredValue,
-                                          FilterSchema = !config[OptionType.FilterSchema].ConfiguredValue,
-                                          FilterXMLSchema = !config[OptionType.FilterXMLSchema].ConfiguredValue,
-                                          FilterTableFileGroup = !config[OptionType.FilterTableFileGroup].ConfiguredValue,
-                                          FilterExtendedPropertys = !config[OptionType.FilterExtendedProperties].ConfiguredValue,
-                                          FilterDDLTriggers = !config[OptionType.FilterDDLTriggers].ConfiguredValue,
-                                          FilterSynonyms = !config[OptionType.FilterSynonyms].ConfiguredValue,
-                                          FilterRules = !config[OptionType.FilterRules].ConfiguredValue,
-                                          FilterAssemblies = !config[OptionType.FilterAssemblies].ConfiguredValue,
-                                          FilterTableChangeTracking = !config[OptionType.FilterTableChangeTracking].ConfiguredValue,
-                                          FilterTableLockEscalation = !config[OptionType.FilterTableLockEscalation].ConfiguredValue,
-                                          FilterFullTextPath = !config[OptionType.FilterFullTextPath].ConfiguredValue,
-                                          FilterFullText = !config[OptionType.FilterFullText].ConfiguredValue,
-                                          FilterCLRStoreProcedure = !config[OptionType.FilterCLRStoredProcedure].ConfiguredValue,
-                                          FilterCLRUDT = !config[OptionType.FilterCLRUserDefinedType].ConfiguredValue,
-                                          FilterCLRTrigger = !config[OptionType.FilterCLRTrigger].ConfiguredValue,
-                                          FilterCLRFunction = !config[OptionType.FilterCLRFunction].ConfiguredValue,
-                                          FilterRoles = !config[OptionType.FilterRoles].ConfiguredValue,
-                                          FilterUsers = !config[OptionType.FilterUsers].ConfiguredValue,
-                                          FilterNotForReplication = !config[OptionType.FilterNotForReplication].ConfiguredValue,
-                                          FilterColumnCollation = !config[OptionType.FilterColumnCollation].ConfiguredValue,
-                                          FilterColumnIdentity = !config[OptionType.FilterColumnIdentity].ConfiguredValue,
-                                          FilterColumnOrder = !config[OptionType.FilterColumnOrder].ConfiguredValue,
-                                          FilterIndexRowLock = !config[OptionType.FilterIndexRowLock].ConfiguredValue,
-                                          FilterIndexIncludeColumns = !config[OptionType.FilterIndexIncludeColumns].ConfiguredValue,
-                                          FilterIndexFillFactor = !config[OptionType.FilterIndexFillFactor].ConfiguredValue,
-                                          FilterConstraintCheck = !config[OptionType.FilterConstraintCheck].ConfiguredValue,
-                                          FilterConstraintUK = !config[OptionType.FilterConstraintUniqueKey].ConfiguredValue,
-                                          FilterConstraintFK = !config[OptionType.FilterConstraintForeignKey].ConfiguredValue,
-                                          FilterConstraintPK = !config[OptionType.FilterConstraintPrimaryKey].ConfiguredValue,
-                                          FilterIndex = !config[OptionType.FilterIndex].ConfiguredValue,
-                                          FilterIndexFilter = !config[OptionType.FilterIndexFilter].ConfiguredValue,
-                                          FilterPartitionScheme = !config[OptionType.FilterPartitionScheme].ConfiguredValue,
-                                          FilterPartitionFunction = !config[OptionType.FilterPartitionFunction].ConfiguredValue,
+                                          FilterConstraint = config[OptionType.FilterConstraint].ConfiguredValue,
+                                          FilterFunction = config[OptionType.FilterFunction].ConfiguredValue,
+                                          FilterStoreProcedure = config[OptionType.FilterStoreProcedure].ConfiguredValue,
+                                          FilterView = config[OptionType.FilterView].ConfiguredValue,
+                                          FilterTable = config[OptionType.FilterTable].ConfiguredValue,
+                                          FilterTableOption = config[OptionType.FilterTableOption].ConfiguredValue,
+                                          FilterUserDataType = config[OptionType.FilterUserDataType].ConfiguredValue,
+                                          FilterTrigger = config[OptionType.FilterTrigger].ConfiguredValue,
+                                          FilterSchema = config[OptionType.FilterSchema].ConfiguredValue,
+                                          FilterXMLSchema = config[OptionType.FilterXMLSchema].ConfiguredValue,
+                                          FilterTableFileGroup = config[OptionType.FilterTableFileGroup].ConfiguredValue,
+                                          FilterExtendedPropertys = config[OptionType.FilterExtendedProperties].ConfiguredValue,
+                                          FilterDDLTriggers = config[OptionType.FilterDDLTriggers].ConfiguredValue,
+                                          FilterSynonyms = config[OptionType.FilterSynonyms].ConfiguredValue,
+                                          FilterRules = config[OptionType.FilterRules].ConfiguredValue,
+                                          FilterAssemblies = config[OptionType.FilterAssemblies].ConfiguredValue,
+                                          FilterTableChangeTracking = config[OptionType.FilterTableChangeTracking].ConfiguredValue,
+                                          FilterTableLockEscalation = config[OptionType.FilterTableLockEscalation].ConfiguredValue,
+                                          FilterFullTextPath = config[OptionType.FilterFullTextPath].ConfiguredValue,
+                                          FilterFullText = config[OptionType.FilterFullText].ConfiguredValue,
+                                          FilterCLRStoreProcedure = config[OptionType.FilterCLRStoredProcedure].ConfiguredValue,
+                                          FilterCLRUDT = config[OptionType.FilterCLRUserDefinedType].ConfiguredValue,
+                                          FilterCLRTrigger = config[OptionType.FilterCLRTrigger].ConfiguredValue,
+                                          FilterCLRFunction = config[OptionType.FilterCLRFunction].ConfiguredValue,
+                                          FilterRoles = config[OptionType.FilterRoles].ConfiguredValue,
+                                          FilterUsers = config[OptionType.FilterUsers].ConfiguredValue,
+                                          FilterNotForReplication = config[OptionType.FilterNotForReplication].ConfiguredValue,
+                                          FilterColumnCollation = config[OptionType.FilterColumnCollation].ConfiguredValue,
+                                          FilterColumnIdentity = config[OptionType.FilterColumnIdentity].ConfiguredValue,
+                                          FilterColumnOrder = config[OptionType.FilterColumnOrder].ConfiguredValue,
+                                          FilterIndexRowLock = config[OptionType.FilterIndexRowLock].ConfiguredValue,
+                                          FilterIndexIncludeColumns = config[OptionType.FilterIndexIncludeColumns].ConfiguredValue,
+                                          FilterIndexFillFactor = config[OptionType.FilterIndexFillFactor].ConfiguredValue,
+                                          FilterConstraintCheck = config[OptionType.FilterConstraintCheck].ConfiguredValue,
+                                          FilterConstraintUK = config[OptionType.FilterConstraintUniqueKey].ConfiguredValue,
+                                          FilterConstraintFK = config[OptionType.FilterConstraintForeignKey].ConfiguredValue,
+                                          FilterConstraintPK = config[OptionType.FilterConstraintPrimaryKey].ConfiguredValue,
+                                          FilterIndex = config[OptionType.FilterIndex].ConfiguredValue,
+                                          FilterIndexFilter = config[OptionType.FilterIndexFilter].ConfiguredValue,
+                                          FilterPartitionScheme = config[OptionType.FilterPartitionScheme].ConfiguredValue,
+                                          FilterPartitionFunction = config[OptionType.FilterPartitionFunction].ConfiguredValue,
                                       },
-                                      Comparison =
-                                          {
-                                              IgnoreWhiteSpacesInCode = config[OptionType.ComparisonIgnoreWhiteSpacesInCode].ConfiguredValue,
-                                              CaseSensityType = config[OptionType.FilterPartitionFunction].ConfiguredValue ? SqlOptionComparison.CaseSensityOptions.CaseSensity : SqlOptionComparison.CaseSensityOptions.Automatic,
-                                              CaseSensityInCode = config[OptionType.FilterPartitionFunction].ConfiguredValue ? SqlOptionComparison.CaseSensityOptions.CaseSensity : SqlOptionComparison.CaseSensityOptions.Automatic,
-                                          },
-                                      Script =
-                                          {
-                                                AlterObjectOnSchemaBinding = config[OptionType.ScriptAlterObjectOnSchemaBinding].ConfiguredValue
-                                          }
-                            };
+                                  Comparison =
+                                      {
+                                          IgnoreWhiteSpacesInCode =
+                                              config[OptionType.ComparisonIgnoreWhiteSpacesInCode].ConfiguredValue,
+                                          CaseSensityType =
+                                              config[OptionType.FilterPartitionFunction].ConfiguredValue
+                                                  ? SqlOptionComparison.CaseSensityOptions.CaseSensity
+                                                  : SqlOptionComparison.CaseSensityOptions.Automatic,
+                                          CaseSensityInCode =
+                                              config[OptionType.FilterPartitionFunction].ConfiguredValue
+                                                  ? SqlOptionComparison.CaseSensityOptions.CaseSensity
+                                                  : SqlOptionComparison.CaseSensityOptions.Automatic,
+                                      },
+                                  Script =
+                                      {
+                                          AlterObjectOnSchemaBinding =
+                                              config[OptionType.ScriptAlterObjectOnSchemaBinding].ConfiguredValue
+                                      }
+                              };
 
 
             return options;
@@ -148,9 +158,11 @@ namespace ODBX.Driver.OpenDBDiff
 
         public Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection)
         {
+            var options = BuildOptions();
+
             OnComparisonStarted(EventArgs.Empty);
 
-            var source = new Generate { ConnectionString = sourceConnection.ConnectionString, Options = BuildOptions() };
+            var source = new Generate { ConnectionString = sourceConnection.ConnectionString, Options = options };
 
             source.OnProgress += args => OnFeedbackMessage(new FeedbackEventArgs
                                                                {
@@ -161,7 +173,7 @@ namespace ODBX.Driver.OpenDBDiff
             _source = source.Process();
 
 
-            var target = new Generate { ConnectionString = targetConnection.ConnectionString, Options = BuildOptions() };
+            var target = new Generate { ConnectionString = targetConnection.ConnectionString, Options = options };
             target.OnProgress += args => OnFeedbackMessage(new FeedbackEventArgs
                                                                {
                                                                    Message = args.Message,
@@ -186,39 +198,29 @@ namespace ODBX.Driver.OpenDBDiff
             _merged.UserTypes.ForEach(
                 item => model.Add("User Types", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.XmlSchemas.ForEach(
-                item =>
-                model.Add("XML Schemas", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("XML Schemas", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Assemblies.ForEach(
-                item =>
-                model.Add("CLR Assemblies", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("CLR Assemblies", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.CLRFunctions.ForEach(
-                item =>
-                model.Add("CLR Functions", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("CLR Functions", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.CLRProcedures.ForEach(
-                item =>
-                model.Add("CLR Procedures", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("CLR Procedures", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.DDLTriggers.ForEach(
-                item =>
-                model.Add("DDL Triggers", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("DDL Triggers", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Defaults.ForEach(
                 item => model.Add("Defaults", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.ExtendedProperties.ForEach(
-                item =>
-                model.Add("Extended Properties", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Extended Properties", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.FileGroups.ForEach(
-                item =>
-                model.Add("File Groups", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("File Groups", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Functions.ForEach(
                 item => model.Add("Functions", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.PartitionFunctions.ForEach(
-                item =>
-                model.Add("Partition Functions", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Partition Functions", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.PartitionSchemes.ForEach(
-                item =>
-                model.Add("Partition Schemes", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Partition Schemes", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Procedures.ForEach(
-                item =>
-                model.Add("Stored Procedures", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Stored Procedures", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Roles.ForEach(
                 item => model.Add("Roles", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Schemas.ForEach(
@@ -254,7 +256,6 @@ namespace ODBX.Driver.OpenDBDiff
         }
 
 
-
         public string LastError { get; private set; }
 
         public string Syntax
@@ -270,27 +271,52 @@ namespace ODBX.Driver.OpenDBDiff
             if (handler != null) handler(this, e);
         }
 
-        private Action ResolveAction(Enums.ObjectStatusType status)
+
+        static readonly Dictionary<Enums.ObjectStatusType, Difference> DifferenceMap = new Dictionary<Enums.ObjectStatusType, Difference>
+                {
+                    {
+                        Enums.ObjectStatusType.OriginalStatus, new Difference {
+                                Action = Action.None, DisplayValue = "Identical", IsDifferent = false, IsInSource = true, IsInTarget = true
+                        }
+                    },
+                    {
+                        Enums.ObjectStatusType.CreateStatus, new Difference {
+                                Action = Action.Create, DisplayValue = "Only in Source", IsDifferent = true, IsInSource = true, IsInTarget = false
+                        }
+                    },
+                    {
+                        Enums.ObjectStatusType.AlterStatus, new Difference {
+                                Action = Action.Alter, DisplayValue = "Different", IsDifferent = true, IsInSource = true, IsInTarget = true
+                        }
+                    },
+                    {
+                        Enums.ObjectStatusType.DropStatus, new Difference {
+                                Action = Action.Drop, DisplayValue = "Only in Target", IsDifferent = true, IsInSource = false, IsInTarget = true
+                        }
+                    },
+                    {
+                        Enums.ObjectStatusType.RebuildStatus, new Difference {
+                                Action = Action.Rebuild, DisplayValue = "Different", IsDifferent = true, IsInSource = true, IsInTarget = true
+                        }
+                    },
+
+                };
+
+
+
+        private Difference ResolveAction(Enums.ObjectStatusType status)
         {
-            switch (status)
+
+            var match = DifferenceMap.FirstOrDefault(x => x.Key.HasFlag(status)).Value;
+
+            if (match == null)
             {
-                case Enums.ObjectStatusType.CreateStatus:
-                    return Action.Create;
-                case Enums.ObjectStatusType.DropStatus:
-                    return Action.Drop;
-                case Enums.ObjectStatusType.UpdateStatus:
-                    return Action.Update;
-                case Enums.ObjectStatusType.RebuildStatus:
-                    return Action.Rebuild;
-                case Enums.ObjectStatusType.OriginalStatus:
-                    return Action.None;
-                case Enums.ObjectStatusType.AlterStatus:
-                    return Action.Alter;
+                return new Difference {Action = Action.None, DisplayValue = "Error" };
             }
+            
+            match.InternalState = status.ToString();
+            return match;
 
-            return Action.Unknown;
         }
-
-
     }
 }

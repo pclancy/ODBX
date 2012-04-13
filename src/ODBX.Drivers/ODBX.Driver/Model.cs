@@ -23,6 +23,17 @@ namespace ODBX.Driver
         Alter
     }
 
+    public class Difference
+    {
+        public string DisplayValue { get; set; }
+        public string InternalState { get; set; }
+        public bool IsDifferent { get; set; }
+        public bool IsInSource { get; set; }
+        public bool IsInTarget { get; set; }
+        public Action Action { get; set; }
+    }
+
+
     public class Model
     {
         private readonly List<ModelObject> _objects = new List<ModelObject>();
@@ -32,7 +43,7 @@ namespace ODBX.Driver
             get { return _objects; }
         }
 
-        public void Add(string type, string fullName, Guid guid, int id, Action action)
+        public void Add(string type, string fullName, Guid guid, int id, Difference difference)
         {
             _objects.Add(new ModelObject
 
@@ -41,7 +52,7 @@ namespace ODBX.Driver
                                  Fullname = fullName,
                                  Guid = guid,
                                  Id = id,
-                                 Action = action
+                                 Difference = difference
                              }
                 );
         }
@@ -52,7 +63,7 @@ namespace ODBX.Driver
         public string Fullname { get; set; }
         public Guid Guid { get; set; }
         public int Id { get; set; }
-        public Action Action { get; set; }
+        public Difference Difference { get; set; }
         public string Type { get; set; }
     }
 }

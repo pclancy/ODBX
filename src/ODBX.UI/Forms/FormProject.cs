@@ -42,7 +42,7 @@ namespace ODBX.Forms
             Project = project;
 
             Text = project.FilePath;
-            controlScriptDiff1.LanguageTemplate = _project.Driver.Syntax;
+            controlScriptDiff1.Syntax = _project.Driver.Syntax;
             panelDirection.BackgroundImage = _project.Direction == Direction.LeftToRight
                                                  ? Resources.big_arrow_right
                                                  : Resources.big_arrow_left;
@@ -62,6 +62,9 @@ namespace ODBX.Forms
             if (objectListView.SelectedItem != null)
             {
                 var modelObject = (ModelObject)objectListView.SelectedItem.RowObject;
+
+
+                controlScriptDiff1.ModelObject = modelObject;
                 controlScriptDiff1.LeftContent = _project.Driver.GenerateScript(ScriptAction.OriginalFromSource, modelObject);
                 controlScriptDiff1.RightContent = _project.Driver.GenerateScript(ScriptAction.OriginalFromTarget, modelObject);
                 controlScriptDiff1.BottomContent = _project.Driver.GenerateScript(ScriptAction.Merged, modelObject);
@@ -96,10 +99,5 @@ namespace ODBX.Forms
             Bind(_project);
         }
 
-        private void ButtonTearWindowClick(object sender, EventArgs e)
-        {
-            var formObjectDiff = new FormObjectDiff();
-            formObjectDiff.Show();
-        }
     }
 }

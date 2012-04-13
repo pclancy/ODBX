@@ -88,6 +88,15 @@ namespace ODBX.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No driver options found.
+        /// </summary>
+        internal static string ErrorNoDriveOptionsFound {
+            get {
+                return ResourceManager.GetString("ErrorNoDriveOptionsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find any drivers.  You must download drivers to use with this application..
         /// </summary>
         internal static string ErrorNoDriversFound {

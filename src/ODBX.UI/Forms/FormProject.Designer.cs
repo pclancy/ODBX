@@ -33,12 +33,7 @@
             this.olvColumnType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnAction = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.controlScriptDiff1 = new ODBX.Controls.ControlScriptDiff();
-            this.panelDiffToolbar = new System.Windows.Forms.Panel();
-            this.buttonTearWindow = new System.Windows.Forms.Button();
-            this.checkBoxShowDiff = new System.Windows.Forms.CheckBox();
-            this.checkBoxShowMerged = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new ODBX.Controls.GradientTable();
             this.panelDestination = new System.Windows.Forms.Panel();
             this.labelTargetCatalog = new System.Windows.Forms.Label();
@@ -54,8 +49,6 @@
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panelDiffToolbar.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelDestination.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelDestinationIcon)).BeginInit();
@@ -77,10 +70,10 @@
             // 
             // splitContainerMain.Panel2
             // 
-            this.splitContainerMain.Panel2.Controls.Add(this.panel1);
+            this.splitContainerMain.Panel2.Controls.Add(this.controlScriptDiff1);
             this.splitContainerMain.Size = new System.Drawing.Size(792, 400);
             this.splitContainerMain.SplitterDistance = 185;
-            this.splitContainerMain.SplitterWidth = 5;
+            this.splitContainerMain.SplitterWidth = 2;
             this.splitContainerMain.TabIndex = 3;
             // 
             // objectListView
@@ -133,80 +126,24 @@
             // 
             // olvColumnAction
             // 
-            this.olvColumnAction.AspectName = "Action";
+            this.olvColumnAction.AspectName = "Difference.DisplayValue";
             this.olvColumnAction.AutoCompleteEditor = false;
             this.olvColumnAction.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
             this.olvColumnAction.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.olvColumnAction.Text = "Action";
             this.olvColumnAction.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.controlScriptDiff1);
-            this.panel1.Controls.Add(this.panelDiffToolbar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(792, 210);
-            this.panel1.TabIndex = 0;
-            // 
             // controlScriptDiff1
             // 
             this.controlScriptDiff1.BottomContent = "";
             this.controlScriptDiff1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.controlScriptDiff1.LeftContent = "";
-            this.controlScriptDiff1.Location = new System.Drawing.Point(0, 30);
+            this.controlScriptDiff1.Location = new System.Drawing.Point(0, 0);
+            this.controlScriptDiff1.ModelObject = null;
             this.controlScriptDiff1.Name = "controlScriptDiff1";
             this.controlScriptDiff1.RightContent = "";
-            this.controlScriptDiff1.Size = new System.Drawing.Size(792, 180);
+            this.controlScriptDiff1.Size = new System.Drawing.Size(792, 213);
             this.controlScriptDiff1.TabIndex = 0;
-            // 
-            // panelDiffToolbar
-            // 
-            this.panelDiffToolbar.Controls.Add(this.buttonTearWindow);
-            this.panelDiffToolbar.Controls.Add(this.checkBoxShowDiff);
-            this.panelDiffToolbar.Controls.Add(this.checkBoxShowMerged);
-            this.panelDiffToolbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDiffToolbar.Location = new System.Drawing.Point(0, 0);
-            this.panelDiffToolbar.Name = "panelDiffToolbar";
-            this.panelDiffToolbar.Size = new System.Drawing.Size(792, 30);
-            this.panelDiffToolbar.TabIndex = 1;
-            // 
-            // buttonTearWindow
-            // 
-            this.buttonTearWindow.Image = global::ODBX.Properties.Resources.window_16;
-            this.buttonTearWindow.Location = new System.Drawing.Point(3, 3);
-            this.buttonTearWindow.Name = "buttonTearWindow";
-            this.buttonTearWindow.Size = new System.Drawing.Size(50, 24);
-            this.buttonTearWindow.TabIndex = 2;
-            this.buttonTearWindow.UseVisualStyleBackColor = true;
-            this.buttonTearWindow.Click += new System.EventHandler(this.ButtonTearWindowClick);
-            // 
-            // checkBoxShowDiff
-            // 
-            this.checkBoxShowDiff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxShowDiff.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxShowDiff.Checked = true;
-            this.checkBoxShowDiff.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowDiff.Image = global::ODBX.Properties.Resources.diff_16;
-            this.checkBoxShowDiff.Location = new System.Drawing.Point(736, 3);
-            this.checkBoxShowDiff.Name = "checkBoxShowDiff";
-            this.checkBoxShowDiff.Size = new System.Drawing.Size(50, 24);
-            this.checkBoxShowDiff.TabIndex = 1;
-            this.checkBoxShowDiff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.checkBoxShowDiff.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxShowMerged
-            // 
-            this.checkBoxShowMerged.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxShowMerged.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxShowMerged.Image = global::ODBX.Properties.Resources.split;
-            this.checkBoxShowMerged.Location = new System.Drawing.Point(680, 3);
-            this.checkBoxShowMerged.Name = "checkBoxShowMerged";
-            this.checkBoxShowMerged.Size = new System.Drawing.Size(50, 24);
-            this.checkBoxShowMerged.TabIndex = 0;
-            this.checkBoxShowMerged.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.checkBoxShowMerged.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -354,8 +291,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectListView)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panelDiffToolbar.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelDestination.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelDestinationIcon)).EndInit();
@@ -378,16 +313,11 @@
         private BrightIdeasSoftware.OLVColumn olvColumnType;
         private BrightIdeasSoftware.OLVColumn olvColumnName;
         private BrightIdeasSoftware.OLVColumn olvColumnAction;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelSourceConnection;
         private System.Windows.Forms.Label labelTargetConnection;
         private System.Windows.Forms.Label labelTargetCatalog;
         private System.Windows.Forms.Label labelSourceCatalog;
         private Controls.ControlScriptDiff controlScriptDiff1;
-        private System.Windows.Forms.Panel panelDiffToolbar;
-        private System.Windows.Forms.CheckBox checkBoxShowMerged;
-        private System.Windows.Forms.CheckBox checkBoxShowDiff;
-        private System.Windows.Forms.Button buttonTearWindow;
 
 
     }

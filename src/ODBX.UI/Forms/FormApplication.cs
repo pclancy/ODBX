@@ -16,15 +16,15 @@ namespace ODBX.Forms
 {
     public partial class FormApplication : BaseForm
     {
+        private readonly FormProgress _formProgress;
         private readonly FormProject _formProject;
         private readonly FormProjectBrowser _formProjectBrowser;
-        private readonly FormProgress _formProgress;
 
         public FormApplication()
         {
             InitializeComponent();
             _formProjectBrowser = new FormProjectBrowser();
-            _formProject = new FormProject { MdiParent = this};
+            _formProject = new FormProject {MdiParent = this};
             _formProgress = new FormProgress();
         }
 
@@ -34,8 +34,7 @@ namespace ODBX.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-                var formProjectConfiguration = new FormProjectConfiguration();
-                formProjectConfiguration.Project = _formProject.Project;
+                var formProjectConfiguration = new FormProjectConfiguration {Project = _formProject.Project};
 
                 if (formProjectConfiguration.ShowDialog(this) == DialogResult.OK)
                 {
@@ -79,7 +78,6 @@ namespace ODBX.Forms
 
                 if (project != null)
                 {
-
                     _formProgress.Project = project;
                     if (_formProgress.ShowDialog(this) == DialogResult.OK)
                     {
@@ -106,12 +104,10 @@ namespace ODBX.Forms
 
         private void OpenProjectBrowser(object sender, EventArgs e)
         {
-
             if (_formProjectBrowser.ShowDialog() == DialogResult.OK)
             {
                 Bind(_formProjectBrowser.SelectedProject);
             }
         }
-
- }
+    }
 }

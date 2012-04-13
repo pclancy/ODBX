@@ -7,6 +7,8 @@
 //   
 //  
 
+using System;
+using System.Windows.Forms;
 using ODBX.Common;
 using ODBX.Driver;
 
@@ -38,11 +40,21 @@ namespace ODBX.Forms
             labelOperation.Refresh();
         }
 
-        private void FormProgressShown(object sender, System.EventArgs e)
+        private void FormProgressShown(object sender, EventArgs e)
         {
+            buttonAccept.Enabled = false;
+            buttonCancel.Enabled = true;
             Refresh();
             Project.Refresh();
             buttonAccept.Enabled = true;
+            buttonCancel.Enabled = false;
+        }
+
+        private void ButtonCancelClick(object sender, EventArgs e)
+        {
+            buttonCancel.Enabled = false;
+            DialogResult = DialogResult.Cancel;
+            Hide();
         }
 
 
