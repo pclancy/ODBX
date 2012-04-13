@@ -529,7 +529,7 @@
     <value>0, 37</value>
   </data>
   <data name="treeViewOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>478, 399</value>
+    <value>473, 399</value>
   </data>
   <data name="treeViewOptions.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -631,7 +631,7 @@
     <value>0, 0</value>
   </data>
   <data name="gradientPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>478, 37</value>
+    <value>473, 37</value>
   </data>
   <data name="gradientPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -700,7 +700,7 @@
     <value>855, 436</value>
   </data>
   <data name="splitContainerMain.SplitterDistance" type="System.Int32, mscorlib">
-    <value>478</value>
+    <value>473</value>
   </data>
   <data name="splitContainerMain.SplitterWidth" type="System.Int32, mscorlib">
     <value>16</value>

@@ -57,9 +57,8 @@ namespace ODBX.Controls
                 if (value != null)
                 {
                     cboAuthentication.SelectedIndex = (int)value.Authentication - 1;
-                    //cboDriver.SelectedValue = value.
                     cboDatabase.Text = value.Catalog;
-                    cboServer.Text = value.Host;
+                    cboServer.Text = value.Host ?? "(local)";
                     txtUsername.Text = value.Username;
                     txtPassword.Text = value.Password;
 

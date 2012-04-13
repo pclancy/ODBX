@@ -258,6 +258,7 @@ namespace ODBX.Forms
             resources.ApplyResources(this.buttonResetOptions, "buttonResetOptions");
             this.buttonResetOptions.Name = "buttonResetOptions";
             this.buttonResetOptions.UseVisualStyleBackColor = true;
+            this.buttonResetOptions.Click += new System.EventHandler(this.ButtonResetOptionsClick);
             // 
             // label6
             // 
@@ -299,6 +300,7 @@ namespace ODBX.Forms
             this.MinimizeBox = false;
             this.Name = "FormProjectConfiguration";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Shown += new System.EventHandler(this.FormProjectConfigurationShown);
             this.tabMain.ResumeLayout(false);
             this.tabPageSources.ResumeLayout(false);
             this.tabPageSources.PerformLayout();
