@@ -61,20 +61,24 @@ namespace ODBX.Driver
 
         public Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection)
         {
-            throw new NotImplementedException();
+            return null;
+        }
+
+        public string GenerateScript(ScriptAction action, ModelObject modelObject)
+        {
+            return string.Empty;
         }
 
         public string LastError { get; private set; }
 
         public string Syntax
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return "mssql"; }
         }
 
         public string GenerateScript(ModelObject modelObject)
         {
-            throw new NotImplementedException();
+            return string.Empty;
         }
 
         #endregion

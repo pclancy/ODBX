@@ -410,6 +410,13 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap diff_16 {
+            get {
+                object obj = ResourceManager.GetObject("diff_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap error {
             get {
                 object obj = ResourceManager.GetObject("error", resourceCulture);
@@ -501,9 +508,23 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap split {
+            get {
+                object obj = ResourceManager.GetObject("split", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap wand {
             get {
                 object obj = ResourceManager.GetObject("wand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap window_16 {
+            get {
+                object obj = ResourceManager.GetObject("window_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

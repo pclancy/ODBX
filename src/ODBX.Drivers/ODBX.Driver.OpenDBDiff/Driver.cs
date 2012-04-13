@@ -22,7 +22,7 @@ namespace ODBX.Driver.OpenDBDiff
         private readonly Configuration _configuration;
         private readonly IServer _server;
         private Database _merged;
-        private Database _sourceModel;
+        private Database _source;
         private Database _target;
 
         public OpenDbDiffDriver()
@@ -84,33 +84,31 @@ namespace ODBX.Driver.OpenDBDiff
         {
             OnComparisonStarted(EventArgs.Empty);
 
-            var source = new Generate
-                             {ConnectionString = sourceConnection.ConnectionString, Options = new SqlOption(true)};
+            var source = new Generate { ConnectionString = sourceConnection.ConnectionString, Options = new SqlOption(true) };
 
             source.OnProgress += args => OnFeedbackMessage(new FeedbackEventArgs
                                                                {
                                                                    Message = args.Message,
                                                                    ProgressPercent =
-                                                                       args.Progress*(40/Generate.MaxValue)
+                                                                       args.Progress * (40 / Generate.MaxValue)
                                                                });
-            _sourceModel = source.Process();
+            _source = source.Process();
 
 
-            var target = new Generate
-                             {ConnectionString = targetConnection.ConnectionString, Options = new SqlOption(true)};
+            var target = new Generate { ConnectionString = targetConnection.ConnectionString, Options = new SqlOption(true) };
             target.OnProgress += args => OnFeedbackMessage(new FeedbackEventArgs
                                                                {
                                                                    Message = args.Message,
                                                                    ProgressPercent =
-                                                                       40 + (args.Progress*(40/Generate.MaxValue))
+                                                                       40 + (args.Progress * (40 / Generate.MaxValue))
                                                                });
 
             _target = target.Process();
 
-            OnFeedbackMessage(new FeedbackEventArgs {Message = "Running comparison...", ProgressPercent = 90});
-            _merged = Generate.Compare((Database) _sourceModel.Clone(null), _target);
+            OnFeedbackMessage(new FeedbackEventArgs { Message = "Running comparison...", ProgressPercent = 90 });
+            _merged = Generate.Compare((Database)_source.Clone(null), _target);
 
-            OnFeedbackMessage(new FeedbackEventArgs {Message = "Building Model...", ProgressPercent = 95});
+            OnFeedbackMessage(new FeedbackEventArgs { Message = "Building Model...", ProgressPercent = 95 });
             var model = new Model();
 
             _merged.Tables.ForEach(
@@ -162,10 +160,31 @@ namespace ODBX.Driver.OpenDBDiff
             _merged.Synonyms.ForEach(
                 item => model.Add("Synonyms", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
 
-            OnFeedbackMessage(new FeedbackEventArgs {Message = "Comparison Complete", ProgressPercent = 100});
+            OnFeedbackMessage(new FeedbackEventArgs { Message = "Comparison Complete", ProgressPercent = 100 });
             OnComparisonCompleted(EventArgs.Empty);
 
             return model;
+        }
+
+        public string GenerateScript(ScriptAction action, ModelObject modelObject)
+        {
+            ISchemaBase schemaObject;
+            switch (action)
+            {
+                case ScriptAction.OriginalFromSource:
+                    schemaObject = _source.Find(modelObject.Fullname);
+                    return schemaObject == null ? string.Empty : schemaObject.ToSql();
+
+                case ScriptAction.OriginalFromTarget:
+                    schemaObject = _target.Find(modelObject.Fullname);
+                    return schemaObject == null ? string.Empty : schemaObject.ToSql();
+
+                case ScriptAction.Merged:
+                    schemaObject = _merged.Find(modelObject.Fullname);
+                    return schemaObject == null ? string.Empty : schemaObject.ToSqlDiff().ToSQL();
+            }
+
+            return string.Empty;
         }
 
         public string LastError { get; private set; }
@@ -173,12 +192,6 @@ namespace ODBX.Driver.OpenDBDiff
         public string Syntax
         {
             get { return "mssql"; }
-        }
-
-        public string GenerateScript(ModelObject modelObject)
-        {
-            ISchemaBase schemaObject = _merged.Find(modelObject.Fullname);
-            return schemaObject == null ? "(no object)" : schemaObject.ToSqlDiff().ToSQL();
         }
 
         #endregion

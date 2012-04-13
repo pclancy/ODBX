@@ -24,7 +24,7 @@ namespace ODBX.Forms
         {
             InitializeComponent();
             _formProjectBrowser = new FormProjectBrowser();
-            _formProject = new FormProject { MdiParent = this, WindowState = FormWindowState.Maximized };
+            _formProject = new FormProject { MdiParent = this};
             _formProgress = new FormProgress();
         }
 
@@ -83,8 +83,8 @@ namespace ODBX.Forms
                     if (_formProgress.ShowDialog(this) == DialogResult.OK)
                     {
                         _formProject.Bind(project);
-                        _formProject.Show();
                         ButtonRefresh.Enabled = ButtonOptions.Enabled = ButtonSynchronise.Enabled = true;
+                        _formProject.Show();
                     }
                 }
                 else
@@ -105,11 +105,12 @@ namespace ODBX.Forms
 
         private void OpenProjectBrowser(object sender, EventArgs e)
         {
+
             if (_formProjectBrowser.ShowDialog() == DialogResult.OK)
             {
                 Bind(_formProjectBrowser.SelectedProject);
             }
         }
 
-    }
+ }
 }

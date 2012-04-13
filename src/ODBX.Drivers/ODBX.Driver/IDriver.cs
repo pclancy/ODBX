@@ -19,6 +19,13 @@ namespace ODBX.Driver
         Basic = 2
     }
 
+    public enum ScriptAction
+    {
+        OriginalFromSource,
+        OriginalFromTarget,
+        Merged
+    }
+
     public delegate void FeedbackHandler(object sender, FeedbackEventArgs args);
 
 
@@ -39,7 +46,7 @@ namespace ODBX.Driver
         event EventHandler ComparisonCompleted;
 
         Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection);
-        string GenerateScript(ModelObject modelObject);
+        string GenerateScript(ScriptAction action, ModelObject modelObject);
     }
 
     public class FeedbackEventArgs : EventArgs

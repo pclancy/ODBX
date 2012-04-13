@@ -63,6 +63,12 @@
     <Compile Include="Controls\ControlConnectionBuilder.Designer.cs">
       <DependentUpon>ControlConnectionBuilder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ControlScriptDiff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ControlScriptDiff.Designer.cs">
+      <DependentUpon>ControlScriptDiff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GradientTable.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="Forms\FormException.Designer.cs">
       <DependentUpon>FormException.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormObjectDiff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormObjectDiff.Designer.cs">
+      <DependentUpon>FormObjectDiff.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormProgress.cs">
       <SubType>Form</SubType>
@@ -133,11 +145,17 @@
     <EmbeddedResource Include="Controls\ControlConnectionBuilder.resx">
       <DependentUpon>ControlConnectionBuilder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ControlScriptDiff.resx">
+      <DependentUpon>ControlScriptDiff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormException.resx">
       <DependentUpon>FormException.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormObjectDiff.resx">
+      <DependentUpon>FormObjectDiff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormProgress.resx">
       <DependentUpon>FormProgress.cs</DependentUpon>
@@ -384,6 +402,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit_diff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title_window.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
