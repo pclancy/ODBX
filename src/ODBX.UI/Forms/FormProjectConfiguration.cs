@@ -58,8 +58,6 @@ namespace ODBX.Forms
             }
         }
 
-        public Project Project { get; set; }
-
         private void ConnectionBuilderSourceConfigurationUpdatedEvent(object sender, EventArgs args)
         {
             labelSourceDatabase.Text = ConnectionBuilderSource.Configuration.ConnectionString;
@@ -165,6 +163,19 @@ namespace ODBX.Forms
                     node.Checked = !e.Node.Checked;
                 }
                 Cursor.Current = Cursors.Default;
+            }
+        }
+
+        private Project _project;
+        public Project Project
+        {
+            get { return _project; }
+            set { _project = value;
+
+                ConnectionBuilderDestination.Configuration = value.Target;
+                ConnectionBuilderSource.Configuration = value.Source;
+
+                EvaluateReadiness();
             }
         }
     }

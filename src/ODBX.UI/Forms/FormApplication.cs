@@ -35,6 +35,7 @@ namespace ODBX.Forms
             {
                 Cursor = Cursors.WaitCursor;
                 var formProjectConfiguration = new FormProjectConfiguration();
+                formProjectConfiguration.Project = _formProject.Project;
 
                 if (formProjectConfiguration.ShowDialog(this) == DialogResult.OK)
                 {

@@ -37,7 +37,7 @@ namespace ODBX.Controls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Connection Configuration
+        public IConnection Configuration
         {
             get
             {
