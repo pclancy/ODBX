@@ -48,7 +48,7 @@ namespace ODBX.Forms
             this.buttonCopyRight = new System.Windows.Forms.Button();
             this.tabPageOptions = new System.Windows.Forms.TabPage();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.treeViewOptions = new System.Windows.Forms.TreeView();
+            this.treeViewOptions = new ODBX.Controls.CheckedTreeView();
             this.gradientPanel3 = new ODBX.Controls.GradientPanel();
             this.cboDriver = new System.Windows.Forms.ComboBox();
             this.buttonResetOptions = new System.Windows.Forms.Button();
@@ -225,6 +225,8 @@ namespace ODBX.Forms
             resources.ApplyResources(this.treeViewOptions, "treeViewOptions");
             this.treeViewOptions.Name = "treeViewOptions";
             this.treeViewOptions.ShowRootLines = false;
+            this.treeViewOptions.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.TreeViewOptionsBeforeCheck);
+            this.treeViewOptions.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewOptionsAfterCheck);
             // 
             // gradientPanel3
             // 
@@ -331,7 +333,7 @@ namespace ODBX.Forms
         private System.Windows.Forms.Button buttonCopyRight;
         private System.Windows.Forms.TabPage tabPageOptions;
         private System.Windows.Forms.SplitContainer splitContainerMain;
-        private System.Windows.Forms.TreeView treeViewOptions;
+        private CheckedTreeView treeViewOptions;
         private System.Windows.Forms.Button buttonResetOptions;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonAccept;

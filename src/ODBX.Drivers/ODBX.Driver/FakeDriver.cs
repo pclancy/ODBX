@@ -69,6 +69,11 @@ namespace ODBX.Driver
             return string.Empty;
         }
 
+        public void SetOption(Guid id, bool value)
+        {
+            
+        }
+
         public string LastError { get; private set; }
 
         public string Syntax
@@ -113,7 +118,7 @@ namespace ODBX.Driver
 
     public class FakeDriverConfiguration : IConfiguration
     {
-        private static readonly Guid OPTION_THROW_EXCEPTION = new Guid("{92D4FE1C-186A-4089-8A65-DA56E5245365}");
+        private const int OPTION_THROW_EXCEPTION = 1;
 
         public FakeDriverConfiguration()
         {
@@ -131,6 +136,9 @@ namespace ODBX.Driver
 
         public IList<DriverOption> Options { get; set; }
         public IList<DriverOptionCategory> OptionCategories { get; set; }
+        public void SetOption(int id, bool value)
+        {
+        }
 
         #endregion
     }

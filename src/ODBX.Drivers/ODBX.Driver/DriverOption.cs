@@ -13,17 +13,7 @@ namespace ODBX.Driver
 {
     public class DriverOption
     {
-        public DriverOption(DriverOptionCategory category, string name, string synopsis, bool defaultValue)
-        {
-            Id = Guid.NewGuid();
-            Category = category;
-            Name = name;
-            Synopsis = synopsis;
-            DefaultValue = defaultValue;
-        }
-
-
-        public DriverOption(DriverOptionCategory category, string name, string synopsis, bool defaultValue, Guid id)
+        public DriverOption(DriverOptionCategory category, string name, string synopsis, bool defaultValue, int id)
         {
             Id = id;
             Category = category;
@@ -32,7 +22,7 @@ namespace ODBX.Driver
             DefaultValue = defaultValue;
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public DriverOptionCategory Category { get; set; }
 
         public bool ConfiguredValue { get; set; }

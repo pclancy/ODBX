@@ -7,79 +7,141 @@
 //   
 //  
 
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ODBX.Driver.OpenDBDiff
 {
+    public enum OptionType
+    {
+        FilterConstraint,
+        FilterFunction,
+        FilterStoreProcedure,
+        FilterView,
+        FilterTable,
+        FilterTableOption,
+        FilterUserDataType,
+        FilterTrigger,
+        FilterSchema,
+        FilterXMLSchema,
+        FilterTableFileGroup,
+        FilterExtendedProperties,
+        FilterDDLTriggers,
+        FilterSynonyms,
+        FilterRules,
+        FilterAssemblies,
+        FilterTableChangeTracking,
+        FilterTableLockEscalation,
+        FilterFullTextPath,
+        FilterFullText,
+        FilterCLRStoredProcedure,
+        FilterCLRUserDefinedType,
+        FilterCLRTrigger,
+        FilterCLRFunction,
+        FilterRoles,
+        FilterUsers,
+        FilterNotForReplication,
+        FilterColumnCollation,
+        FilterColumnIdentity,
+        FilterColumnOrder,
+        FilterIndexRowLock,
+        FilterIndexIncludeColumns,
+        FilterIndexFillFactor,
+        FilterConstraintCheck,
+        FilterConstraintUniqueKey,
+        FilterConstraintForeignKey,
+        FilterConstraintPrimaryKey,
+        FilterIndex,
+        FilterIndexFilter,
+        FilterPartitionScheme,
+        FilterPartitionFunction,
+
+
+        ScriptAlterObjectOnSchemaBinding,
+
+        ComparisonIgnoreWhiteSpacesInCode,
+        ComparisonCaseSensitive,
+    }
+
+    public class DiffOption : DriverOption
+    {
+        public DiffOption(DriverOptionCategory category, string name, string synopsis, bool defaultValue, OptionType id)
+            : base(category, name, synopsis, defaultValue, (int) id)
+        {
+        }
+    }
+
     public class Configuration : IConfiguration
     {
-        private static readonly Guid OPTION_TABLE_COLUMN_COLLATION = new Guid("{92D4FE1C-186A-4089-8A65-DA56E5245365}");
-        private static readonly Guid OPTION_TABLE_COLUMN_ORDER = new Guid("{4DAAFA50-8C15-48A0-815D-D5174A0C3099}");
-        private static readonly Guid OPTION_TABLE_IDENTITY_OPTIONS = new Guid("{13AA52FD-4A0E-4BB2-970B-BD81581626ED}");
+        private readonly IDriver _driver;
 
-        public Configuration()
+
+        public Configuration(IDriver driver)
         {
-            var categoryFilters = new DriverOptionCategory("Compare");
-            var categoryTables = new DriverOptionCategory("Tables");
-            var categoryIndexes = new DriverOptionCategory("Indexes");
-            var categoryConstraints = new DriverOptionCategory("Constraints");
+            _driver = driver;
+
+            var categoryFilters = new DriverOptionCategory("Include");
             var categoryComparison = new DriverOptionCategory("Comparison");
 
             OptionCategories =
                 new List<DriverOptionCategory>(new[]
                                                    {
-                                                       categoryTables, categoryIndexes, categoryConstraints,
                                                        categoryFilters, categoryComparison
                                                    });
 
             Options = new List<DriverOption>
                           {
-                              new DriverOption(categoryTables, "Column Collation", "", true,
-                                               OPTION_TABLE_COLUMN_COLLATION),
-                              new DriverOption(categoryTables, "Column Order", "", true),
-                              new DriverOption(categoryTables, "Identity Options", "", true),
-                              new DriverOption(categoryTables, "Table Options", "", true),
-                              new DriverOption(categoryTables, "Lock Escalation", "", true),
-                              new DriverOption(categoryTables, "Change Tracking", "", true),
-                              new DriverOption(categoryIndexes, "Row Locks", "", true),
-                              new DriverOption(categoryIndexes, "Fill Factor", "", true),
-                              new DriverOption(categoryIndexes, "Include Columns", "", true),
-                              new DriverOption(categoryIndexes, "Filter Columns", "", true),
-                              new DriverOption(categoryConstraints, "Primary Key Constraints", "", true),
-                              new DriverOption(categoryConstraints, "Foreign Key Constraints", "", true),
-                              new DriverOption(categoryConstraints, "Unique Key Constraints", "", true),
-                              new DriverOption(categoryConstraints, "Check Constraints", "", true),
-                              new DriverOption(categoryComparison, "Extended Properties", "", true),
-                              new DriverOption(categoryComparison, "Ignore Not For Replication", "", true),
-                              new DriverOption(categoryFilters, "File Groups", "", true),
-                              new DriverOption(categoryFilters, "Full Text Indexes", "", true),
-                              new DriverOption(categoryFilters, "Full Text Index Paths", "", true),
-                              new DriverOption(categoryFilters, "Users", "", true),
-                              new DriverOption(categoryFilters, "Roles", "", true),
-                              new DriverOption(categoryFilters, "Schemas", "", true),
-                              new DriverOption(categoryFilters, "Permissions", "", true),
-                              new DriverOption(categoryFilters, "CLR Aggregates", "", true),
-                              new DriverOption(categoryFilters, "CLR Functions", "", true),
-                              new DriverOption(categoryFilters, "CLR Stored Procedures", "", true),
-                              new DriverOption(categoryFilters, "CLR User Defined Types", "", true),
-                              new DriverOption(categoryFilters, "CLR Triggers", "", true),
-                              new DriverOption(categoryFilters, "Functions", "", true),
-                              new DriverOption(categoryFilters, "Views", "", true),
-                              new DriverOption(categoryFilters, "Stored Procedures", "", true),
-                              new DriverOption(categoryFilters, "Triggers", "", true),
-                              new DriverOption(categoryFilters, "DDL Triggers", "", true),
-                              new DriverOption(categoryFilters, "User Defined Types", "", true),
-                              new DriverOption(categoryFilters, "XML Schemas", "", true),
-                              new DriverOption(categoryFilters, "Rules", "", true),
-                              new DriverOption(categoryFilters, "Partition Function", "", true),
-                              new DriverOption(categoryFilters, "Partition Schema", "", true),
-                              new DriverOption(categoryComparison, "Case Sensitive", "", false),
-                              new DriverOption(categoryComparison, "Ignore white space", "", false),
-                              new DriverOption(categoryComparison,
-                                               "Rebuild views using SCHEMABINDING with DROP/CREATE statements", "",
-                                               false),
-                          };
+                              new DiffOption(categoryFilters, "Constraints", "", true, OptionType.FilterConstraint),
+                              new DiffOption(categoryFilters, "Functions", "", true, OptionType.FilterFunction),
+                              new DiffOption(categoryFilters, "Stored Procedures", "", true, OptionType.FilterStoreProcedure),
+                              new DiffOption(categoryFilters, "Views", "", true, OptionType.FilterView),
+                              new DiffOption(categoryFilters, "Tables", "", true, OptionType.FilterTable),
+                              new DiffOption(categoryFilters, "Table Options", "", true, OptionType.FilterTableOption),
+                              new DiffOption(categoryFilters, "User Defined Types", "", true, OptionType.FilterUserDataType),
+                              new DiffOption(categoryFilters, "Triggers", "", true, OptionType.FilterTrigger),
+                              new DiffOption(categoryFilters, "Schemas", "", true, OptionType.FilterSchema),
+                              new DiffOption(categoryFilters, "XML Schemas", "", true, OptionType.FilterXMLSchema),
+                              new DiffOption(categoryFilters, "Table File Groups", "", true, OptionType.FilterTableFileGroup),
+                              new DiffOption(categoryFilters, "Extended Properties", "", true, OptionType.FilterExtendedProperties),
+                              new DiffOption(categoryFilters, "DDLTriggers", "", true, OptionType.FilterDDLTriggers),
+                              new DiffOption(categoryFilters, "Synonyms", "", true, OptionType.FilterSynonyms),
+                              new DiffOption(categoryFilters, "Rules", "", true, OptionType.FilterRules),
+                              new DiffOption(categoryFilters, "Assemblies", "", true, OptionType.FilterAssemblies),
+                              new DiffOption(categoryFilters, "Table Change Tracking", "", true, OptionType.FilterTableChangeTracking),
+                              new DiffOption(categoryFilters, "Table Lock Escalation", "", true, OptionType.FilterTableLockEscalation),
+                              new DiffOption(categoryFilters, "Full Text Paths", "", true, OptionType.FilterFullTextPath),
+                              new DiffOption(categoryFilters, "Full Text", "", true, OptionType.FilterFullText),
+                              new DiffOption(categoryFilters, "CLR Stored Procedures", "", true, OptionType.FilterCLRStoredProcedure),
+                              new DiffOption(categoryFilters, "CLR User Defined Types", "", true, OptionType.FilterCLRUserDefinedType),
+                              new DiffOption(categoryFilters, "CLR Triggers", "", true, OptionType.FilterCLRTrigger),
+                              new DiffOption(categoryFilters, "CLR Functions", "", true, OptionType.FilterCLRFunction),
+                              new DiffOption(categoryFilters, "Roles", "", true, OptionType.FilterRoles),
+                              new DiffOption(categoryFilters, "Users", "", true, OptionType.FilterUsers),
+                              new DiffOption(categoryFilters, "Not For Replication", "", true, OptionType.FilterNotForReplication),
+                              new DiffOption(categoryFilters, "Column Collation", "", true, OptionType.FilterColumnCollation),
+                              new DiffOption(categoryFilters, "Column Identity", "", true, OptionType.FilterColumnIdentity),
+                              new DiffOption(categoryFilters, "Column Order", "", true, OptionType.FilterColumnOrder),
+                              new DiffOption(categoryFilters, "Index Row Locks", "", true, OptionType.FilterIndexRowLock),
+                              new DiffOption(categoryFilters, "Index Include Columns", "", true, OptionType.FilterIndexIncludeColumns),
+                              new DiffOption(categoryFilters, "Index Fill Factor", "", true, OptionType.FilterIndexFillFactor),
+                              new DiffOption(categoryFilters, "Constraint Checks", "", true, OptionType.FilterConstraintCheck),
+                              new DiffOption(categoryFilters, "Unique Key Constraints", "", true, OptionType.FilterConstraintUniqueKey),
+                              new DiffOption(categoryFilters, "Foreign Key Constraints", "", true, OptionType.FilterConstraintForeignKey),
+                              new DiffOption(categoryFilters, "Primary Key Constraints", "", true, OptionType.FilterConstraintPrimaryKey),
+                              new DiffOption(categoryFilters, "Indexes", "", true, OptionType.FilterIndex),
+                              new DiffOption(categoryFilters, "Index Filters", "", true, OptionType.FilterIndexFilter),
+                              new DiffOption(categoryFilters, "Partition Schemes", "", true, OptionType.FilterPartitionScheme),
+                              new DiffOption(categoryFilters, "Partition Functions", "", true, OptionType.FilterPartitionFunction),
+                              new DiffOption(categoryComparison, "Rebuild views using SCHEMABINDING with DROP/CREATE statements", "", true, OptionType.ScriptAlterObjectOnSchemaBinding),
+                              new DiffOption(categoryComparison, "Ignore White Space", "", true, OptionType.ComparisonIgnoreWhiteSpacesInCode),
+                              new DiffOption(categoryComparison, "Case Sensitive", "", true, OptionType.ComparisonCaseSensitive),
+
+                          }.OrderBy(x=>x.Name).ToList();
+        }
+
+        public DriverOption this[OptionType id]
+        {
+            get { return Options.First(x => x.Id == (int) id); }
         }
 
         #region IConfiguration Members

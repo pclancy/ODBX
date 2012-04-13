@@ -27,7 +27,7 @@ namespace ODBX.Driver.OpenDBDiff
 
         public OpenDbDiffDriver()
         {
-            _configuration = new Configuration();
+            _configuration = new Configuration(this);
             _server = new SqlServer();
         }
 
@@ -80,11 +80,77 @@ namespace ODBX.Driver.OpenDBDiff
             get { return new Guid("{1F752582-6081-4A78-8DF6-A31D99BC2241}"); }
         }
 
+
+        private SqlOption BuildOptions()
+        {
+            var config = (Configuration)Configuration;
+            var options = new SqlOption(false)
+                              {
+                                  Ignore =
+                                      {
+                                          FilterConstraint = config[OptionType.FilterConstraint].ConfiguredValue,
+                                          FilterFunction = config[OptionType.FilterFunction].ConfiguredValue,
+                                          FilterStoreProcedure = config[OptionType.FilterStoreProcedure].ConfiguredValue,
+                                          FilterView = config[OptionType.FilterView].ConfiguredValue,
+                                          FilterTable = config[OptionType.FilterTable].ConfiguredValue,
+                                          FilterTableOption = config[OptionType.FilterTableOption].ConfiguredValue,
+                                          FilterUserDataType = config[OptionType.FilterUserDataType].ConfiguredValue,
+                                          FilterTrigger = config[OptionType.FilterTrigger].ConfiguredValue,
+                                          FilterSchema = config[OptionType.FilterSchema].ConfiguredValue,
+                                          FilterXMLSchema = config[OptionType.FilterXMLSchema].ConfiguredValue,
+                                          FilterTableFileGroup = config[OptionType.FilterTableFileGroup].ConfiguredValue,
+                                          FilterExtendedPropertys = config[OptionType.FilterExtendedProperties].ConfiguredValue,
+                                          FilterDDLTriggers = config[OptionType.FilterDDLTriggers].ConfiguredValue,
+                                          FilterSynonyms = config[OptionType.FilterSynonyms].ConfiguredValue,
+                                          FilterRules = config[OptionType.FilterRules].ConfiguredValue,
+                                          FilterAssemblies = config[OptionType.FilterAssemblies].ConfiguredValue,
+                                          FilterTableChangeTracking = config[OptionType.FilterTableChangeTracking].ConfiguredValue,
+                                          FilterTableLockEscalation = config[OptionType.FilterTableLockEscalation].ConfiguredValue,
+                                          FilterFullTextPath = config[OptionType.FilterFullTextPath].ConfiguredValue,
+                                          FilterFullText = config[OptionType.FilterFullText].ConfiguredValue,
+                                          FilterCLRStoreProcedure = config[OptionType.FilterCLRStoredProcedure].ConfiguredValue,
+                                          FilterCLRUDT = config[OptionType.FilterCLRUserDefinedType].ConfiguredValue,
+                                          FilterCLRTrigger = config[OptionType.FilterCLRTrigger].ConfiguredValue,
+                                          FilterCLRFunction = config[OptionType.FilterCLRFunction].ConfiguredValue,
+                                          FilterRoles = config[OptionType.FilterRoles].ConfiguredValue,
+                                          FilterUsers = config[OptionType.FilterUsers].ConfiguredValue,
+                                          FilterNotForReplication = config[OptionType.FilterNotForReplication].ConfiguredValue,
+                                          FilterColumnCollation = config[OptionType.FilterColumnCollation].ConfiguredValue,
+                                          FilterColumnIdentity = config[OptionType.FilterColumnIdentity].ConfiguredValue,
+                                          FilterColumnOrder = config[OptionType.FilterColumnOrder].ConfiguredValue,
+                                          FilterIndexRowLock = config[OptionType.FilterIndexRowLock].ConfiguredValue,
+                                          FilterIndexIncludeColumns = config[OptionType.FilterIndexIncludeColumns].ConfiguredValue,
+                                          FilterIndexFillFactor = config[OptionType.FilterIndexFillFactor].ConfiguredValue,
+                                          FilterConstraintCheck = config[OptionType.FilterConstraintCheck].ConfiguredValue,
+                                          FilterConstraintUK = config[OptionType.FilterConstraintUniqueKey].ConfiguredValue,
+                                          FilterConstraintFK = config[OptionType.FilterConstraintForeignKey].ConfiguredValue,
+                                          FilterConstraintPK = config[OptionType.FilterConstraintPrimaryKey].ConfiguredValue,
+                                          FilterIndex = config[OptionType.FilterIndex].ConfiguredValue,
+                                          FilterIndexFilter = config[OptionType.FilterIndexFilter].ConfiguredValue,
+                                          FilterPartitionScheme = config[OptionType.FilterPartitionScheme].ConfiguredValue,
+                                          FilterPartitionFunction = config[OptionType.FilterPartitionFunction].ConfiguredValue,
+                                      },
+                                      Comparison =
+                                          {
+                                              IgnoreWhiteSpacesInCode = config[OptionType.ComparisonIgnoreWhiteSpacesInCode].ConfiguredValue,
+                                              CaseSensityType = config[OptionType.FilterPartitionFunction].ConfiguredValue ? SqlOptionComparison.CaseSensityOptions.CaseSensity : SqlOptionComparison.CaseSensityOptions.Automatic,
+                                              CaseSensityInCode = config[OptionType.FilterPartitionFunction].ConfiguredValue ? SqlOptionComparison.CaseSensityOptions.CaseSensity : SqlOptionComparison.CaseSensityOptions.Automatic,
+                                          },
+                                      Script =
+                                          {
+                                                AlterObjectOnSchemaBinding = config[OptionType.ScriptAlterObjectOnSchemaBinding].ConfiguredValue
+                                          }
+                            };
+
+
+            return options;
+        }
+
         public Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection)
         {
             OnComparisonStarted(EventArgs.Empty);
 
-            var source = new Generate { ConnectionString = sourceConnection.ConnectionString, Options = new SqlOption(true) };
+            var source = new Generate { ConnectionString = sourceConnection.ConnectionString, Options = BuildOptions() };
 
             source.OnProgress += args => OnFeedbackMessage(new FeedbackEventArgs
                                                                {
@@ -95,7 +161,7 @@ namespace ODBX.Driver.OpenDBDiff
             _source = source.Process();
 
 
-            var target = new Generate { ConnectionString = targetConnection.ConnectionString, Options = new SqlOption(true) };
+            var target = new Generate { ConnectionString = targetConnection.ConnectionString, Options = BuildOptions() };
             target.OnProgress += args => OnFeedbackMessage(new FeedbackEventArgs
                                                                {
                                                                    Message = args.Message,
@@ -187,6 +253,8 @@ namespace ODBX.Driver.OpenDBDiff
             return string.Empty;
         }
 
+
+
         public string LastError { get; private set; }
 
         public string Syntax
@@ -222,5 +290,7 @@ namespace ODBX.Driver.OpenDBDiff
 
             return Action.Unknown;
         }
+
+
     }
 }

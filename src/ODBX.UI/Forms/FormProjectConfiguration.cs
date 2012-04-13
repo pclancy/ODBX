@@ -33,7 +33,7 @@ namespace ODBX.Forms
 
                 _drivers = DriverRepository.GetInstalledDrivers();
 
-                driver_retry:
+            driver_retry:
                 while (_drivers.Count == 0)
                 {
                     if (MessageBox.Show(this, Strings.ErrorNoDriversFound, Strings.Error, MessageBoxButtons.RetryCancel,
@@ -96,10 +96,10 @@ namespace ODBX.Forms
             var boldFont = new Font(treeViewOptions.Font, FontStyle.Bold);
 
             treeViewOptions.Nodes.Clear();
-            foreach (DriverOptionCategory category in driver.Configuration.OptionCategories)
+            foreach (var category in driver.Configuration.OptionCategories)
             {
-                TreeNode node = treeViewOptions.Nodes.Add(string.Format("CAT_{0}", category.Id),
-                                                          string.Concat(category.Name, " "));
+                var node = treeViewOptions.Nodes.Add(string.Format("CAT_{0}", category.Id),
+                                                          string.Concat(category.Name, "    "));
                 node.NodeFont = boldFont;
 
                 bool allChecked = true;
@@ -109,6 +109,7 @@ namespace ODBX.Forms
                 {
                     TreeNode optionNode = node.Nodes.Add(string.Format("OPT_{0}", driverOption.Id), driverOption.Name);
                     optionNode.Checked = driverOption.DefaultValue;
+                    optionNode.Tag = driverOption;
                     if (!driverOption.DefaultValue)
                         allChecked = false;
                 }
@@ -124,7 +125,7 @@ namespace ODBX.Forms
         {
             if (cboDriver.SelectedItem != null)
             {
-                LoadDriverOptions((IDriver) cboDriver.SelectedItem);
+                LoadDriverOptions((IDriver)cboDriver.SelectedItem);
             }
         }
 
@@ -132,15 +133,39 @@ namespace ODBX.Forms
         {
             Project = new Project
                           {
-                              Driver = (IDriver) cboDriver.SelectedItem,
+                              Driver = (IDriver)cboDriver.SelectedItem,
                               Source = ConnectionBuilderSource.Configuration,
                               Target = ConnectionBuilderDestination.Configuration,
-                              Options = null
+                              Options =
+                                  (from TreeNode node in treeViewOptions.Nodes select (DriverOption)node.Tag).ToList()
                           };
 
             State.SaveProject(Project);
         }
 
+        private void TreeViewOptionsAfterCheck(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node != null && e.Action != TreeViewAction.Unknown)
+            {
+                if (e.Node.Tag != null)
+                {
+                    ((DriverOption)e.Node.Tag).ConfiguredValue = e.Node.Checked;
+                }
 
-   }
+            }
+        }
+
+        private void TreeViewOptionsBeforeCheck(object sender, TreeViewCancelEventArgs e)
+        {
+            if (e.Node != null && e.Action == TreeViewAction.ByMouse || e.Action == TreeViewAction.ByKeyboard)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                foreach (TreeNode node in e.Node.Nodes)
+                {
+                    node.Checked = !e.Node.Checked;
+                }
+                Cursor.Current = Cursors.Default;
+            }
+        }
+    }
 }

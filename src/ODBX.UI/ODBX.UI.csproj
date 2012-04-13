@@ -57,6 +57,9 @@
     <Compile Include="Common\State.cs" />
     <Compile Include="Common\DriverRepository.cs" />
     <Compile Include="Common\Project.cs" />
+    <Compile Include="Controls\CheckedTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ControlConnectionBuilder.cs">
       <SubType>UserControl</SubType>
     </Compile>
