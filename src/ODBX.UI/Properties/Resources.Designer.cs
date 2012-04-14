@@ -60,6 +60,13 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap application_tile_horizontal {
+            get {
+                object obj = ResourceManager.GetObject("application_tile_horizontal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap arrow_branch {
             get {
                 object obj = ResourceManager.GetObject("arrow_branch", resourceCulture);
@@ -277,6 +284,13 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap collapse {
+            get {
+                object obj = ResourceManager.GetObject("collapse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap cross {
             get {
                 object obj = ResourceManager.GetObject("cross", resourceCulture);
@@ -403,6 +417,41 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap db_procedure {
+            get {
+                object obj = ResourceManager.GetObject("db_procedure", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap db_role {
+            get {
+                object obj = ResourceManager.GetObject("db_role", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap db_table {
+            get {
+                object obj = ResourceManager.GetObject("db_table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap db_user {
+            get {
+                object obj = ResourceManager.GetObject("db_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap db_view {
+            get {
+                object obj = ResourceManager.GetObject("db_view", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap diff {
             get {
                 object obj = ResourceManager.GetObject("diff", resourceCulture);
@@ -420,6 +469,13 @@ namespace ODBX.Properties {
         internal static System.Drawing.Bitmap error {
             get {
                 object obj = ResourceManager.GetObject("error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap expand {
+            get {
+                object obj = ResourceManager.GetObject("expand", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

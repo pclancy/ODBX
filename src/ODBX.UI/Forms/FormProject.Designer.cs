@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.objectListView = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumnType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumnName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumnAction = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.tableLayoutView = new System.Windows.Forms.TableLayoutPanel();
             this.controlScriptDiff1 = new ODBX.Controls.ControlScriptDiff();
             this.tableLayoutPanel1 = new ODBX.Controls.GradientTable();
             this.panelDestination = new System.Windows.Forms.Panel();
@@ -48,7 +45,6 @@
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelDestination.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelDestinationIcon)).BeginInit();
@@ -66,71 +62,29 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.objectListView);
+            this.splitContainerMain.Panel1.Controls.Add(this.tableLayoutView);
             // 
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.controlScriptDiff1);
             this.splitContainerMain.Size = new System.Drawing.Size(792, 400);
             this.splitContainerMain.SplitterDistance = 185;
-            this.splitContainerMain.SplitterWidth = 2;
             this.splitContainerMain.TabIndex = 3;
             // 
-            // objectListView
+            // tableLayoutView
             // 
-            this.objectListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.objectListView.AllColumns.Add(this.olvColumnType);
-            this.objectListView.AllColumns.Add(this.olvColumnName);
-            this.objectListView.AllColumns.Add(this.olvColumnAction);
-            this.objectListView.AllowColumnReorder = true;
-            this.objectListView.CheckBoxes = true;
-            this.objectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColumnType,
-            this.olvColumnName,
-            this.olvColumnAction});
-            this.objectListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.objectListView.FullRowSelect = true;
-            this.objectListView.GridLines = true;
-            this.objectListView.Location = new System.Drawing.Point(0, 0);
-            this.objectListView.MultiSelect = false;
-            this.objectListView.Name = "objectListView";
-            this.objectListView.SelectedColumnTint = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
-            this.objectListView.ShowCommandMenuOnRightClick = true;
-            this.objectListView.ShowItemCountOnGroups = true;
-            this.objectListView.ShowItemToolTips = true;
-            this.objectListView.Size = new System.Drawing.Size(792, 185);
-            this.objectListView.TabIndex = 0;
-            this.objectListView.UseCompatibleStateImageBehavior = false;
-            this.objectListView.View = System.Windows.Forms.View.Details;
-            this.objectListView.SelectedIndexChanged += new System.EventHandler(this.ObjectListViewSelectedIndexChanged);
-            // 
-            // olvColumnType
-            // 
-            this.olvColumnType.AspectName = "Type";
-            this.olvColumnType.AutoCompleteEditor = false;
-            this.olvColumnType.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.olvColumnType.IsEditable = false;
-            this.olvColumnType.Text = "Type";
-            this.olvColumnType.Width = 100;
-            // 
-            // olvColumnName
-            // 
-            this.olvColumnName.AspectName = "Fullname";
-            this.olvColumnName.AutoCompleteEditor = false;
-            this.olvColumnName.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.olvColumnName.FillsFreeSpace = true;
-            this.olvColumnName.Groupable = false;
-            this.olvColumnName.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.olvColumnName.Text = "Name";
-            // 
-            // olvColumnAction
-            // 
-            this.olvColumnAction.AspectName = "Difference.DisplayValue";
-            this.olvColumnAction.AutoCompleteEditor = false;
-            this.olvColumnAction.AutoCompleteEditorMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.olvColumnAction.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.olvColumnAction.Text = "Action";
-            this.olvColumnAction.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tableLayoutView.AutoScroll = true;
+            this.tableLayoutView.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tableLayoutView.ColumnCount = 1;
+            this.tableLayoutView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutView.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutView.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutView.Name = "tableLayoutView";
+            this.tableLayoutView.RowCount = 1;
+            this.tableLayoutView.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutView.Size = new System.Drawing.Size(792, 185);
+            this.tableLayoutView.TabIndex = 0;
             // 
             // controlScriptDiff1
             // 
@@ -141,7 +95,7 @@
             this.controlScriptDiff1.ModelObject = null;
             this.controlScriptDiff1.Name = "controlScriptDiff1";
             this.controlScriptDiff1.RightContent = "";
-            this.controlScriptDiff1.Size = new System.Drawing.Size(792, 213);
+            this.controlScriptDiff1.Size = new System.Drawing.Size(792, 211);
             this.controlScriptDiff1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -290,7 +244,6 @@
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelDestination.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelDestinationIcon)).EndInit();
@@ -309,15 +262,12 @@
         private System.Windows.Forms.PictureBox panelDestinationIcon;
         private System.Windows.Forms.Panel panelDirection;
         private System.Windows.Forms.SplitContainer splitContainerMain;
-        private BrightIdeasSoftware.ObjectListView objectListView;
-        private BrightIdeasSoftware.OLVColumn olvColumnType;
-        private BrightIdeasSoftware.OLVColumn olvColumnName;
-        private BrightIdeasSoftware.OLVColumn olvColumnAction;
         private System.Windows.Forms.Label labelSourceConnection;
         private System.Windows.Forms.Label labelTargetConnection;
         private System.Windows.Forms.Label labelTargetCatalog;
         private System.Windows.Forms.Label labelSourceCatalog;
         private Controls.ControlScriptDiff controlScriptDiff1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutView;
 
 
     }

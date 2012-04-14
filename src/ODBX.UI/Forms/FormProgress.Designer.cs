@@ -75,7 +75,6 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(483, 23);
             this.progressBar1.Step = 1;
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 19;
             this.progressBar1.Value = 50;
             // 
@@ -127,8 +126,6 @@
             // 
             this.checkBoxAutoClose.AutoSize = true;
             this.checkBoxAutoClose.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxAutoClose.Checked = true;
-            this.checkBoxAutoClose.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxAutoClose.Location = new System.Drawing.Point(13, 18);
             this.checkBoxAutoClose.Name = "checkBoxAutoClose";
             this.checkBoxAutoClose.Size = new System.Drawing.Size(240, 19);

@@ -184,7 +184,7 @@ namespace ODBX.Driver.OpenDBDiff
             _target = target.Process();
 
             OnFeedbackMessage(new FeedbackEventArgs { Message = "Running comparison...", ProgressPercent = 90 });
-            _merged = Generate.Compare((Database)_source.Clone(null), _target);
+            _merged = Generate.Compare((Database)_target.Clone(null), _source);
 
             OnFeedbackMessage(new FeedbackEventArgs { Message = "Building Model...", ProgressPercent = 95 });
             var model = new Model();

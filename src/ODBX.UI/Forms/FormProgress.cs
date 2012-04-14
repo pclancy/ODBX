@@ -51,7 +51,7 @@ namespace ODBX.Forms
             if (checkBoxAutoClose.Checked)
             {
                 DialogResult = DialogResult.OK;
-                Hide();
+                Close();
             }
         }
 
@@ -59,7 +59,7 @@ namespace ODBX.Forms
         {
             buttonCancel.Enabled = false;
             DialogResult = DialogResult.Cancel;
-            Hide();
+            Close();
         }
 
 

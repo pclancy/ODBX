@@ -175,7 +175,7 @@
             this.checkBoxShowDiff.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBoxShowDiff.Checked = true;
             this.checkBoxShowDiff.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowDiff.Image = global::ODBX.Properties.Resources.diff_16;
+            this.checkBoxShowDiff.Image = global::ODBX.Properties.Resources.application_tile_horizontal;
             this.checkBoxShowDiff.Location = new System.Drawing.Point(679, 3);
             this.checkBoxShowDiff.Name = "checkBoxShowDiff";
             this.checkBoxShowDiff.Size = new System.Drawing.Size(50, 24);
