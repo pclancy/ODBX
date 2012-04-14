@@ -1,4 +1,14 @@
-﻿using System;
+﻿// 
+//    ODBX.UI
+// 	
+//    Copyright (c) 2011 Paul Clancy
+//  
+//    State.cs
+//   
+//  
+
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -6,16 +16,11 @@ namespace ODBX.Common
 {
     public static class State
     {
-        private static string _defaultFilePath;
-        public static string DefaultFilePath
-        {
-            get { return _defaultFilePath; }
-            set { _defaultFilePath = value; }
-        }
+        public static string DefaultFilePath { get; set; }
 
         static State()
         {
-            _defaultFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            DefaultFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         }
 
         public static void SaveProject(Project project)
@@ -23,9 +28,9 @@ namespace ODBX.Common
             if (string.IsNullOrWhiteSpace(project.FilePath))
             {
                 project.FilePath = string.Format(@"{0}\{1}-{2} vs {3}-{4}.odbx",
-                    DefaultFilePath,
-                    project.Source.Host, project.Source.Catalog,
-                    project.Target.Host, project.Target.Catalog);
+                                                 DefaultFilePath,
+                                                 project.Source.Host, project.Source.Catalog,
+                                                 project.Target.Host, project.Target.Catalog);
             }
 
             var xmlSerializer = new XmlSerializer(typeof(ProjectDTO));
@@ -38,16 +43,27 @@ namespace ODBX.Common
         }
 
 
+        public static List<Project> ScanProjects(string folderPath)
+        {
+            var projects = new List<Project>();
+            foreach (var enumerateFile in Directory.EnumerateFiles(folderPath, "*.odbx"))
+            {
+                projects.Add(LoadProject(enumerateFile));
+            }
+
+            return projects;
+        }
+
         public static Project LoadProject(string filePath)
         {
-            var readFileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            using (var readFileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                var xmlSerializer = new XmlSerializer(typeof(ProjectDTO));
+                var projectDTO = (ProjectDTO)xmlSerializer.Deserialize(readFileStream);
+                readFileStream.Close();
 
-            // Load the object saved above by using the Deserialize function
-            //TestClass LoadedObj = (TestClass)SerializerObj.Deserialize(readFileStream);
-
-            // Cleanup
-            readFileStream.Close();
-            return null;
+                return new Project(projectDTO, filePath);
+            }
         }
     }
 }

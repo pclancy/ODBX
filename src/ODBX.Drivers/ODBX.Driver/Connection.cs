@@ -15,6 +15,16 @@ namespace ODBX.Driver
     [Serializable]
     public class Connection : IConnection
     {
+
+        public Connection()
+        {
+        }
+
+        public Connection(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
+
         #region IConnection Members
 
         public AuthenticationMethod Authentication { get; set; }
@@ -87,6 +97,11 @@ namespace ODBX.Driver
                     Catalog = "";
                 }
             }
+        }
+
+        public string Summary
+        {
+            get { return string.Format("{0} on {1}", Catalog, Host); }
         }
 
         #endregion

@@ -33,19 +33,15 @@ namespace ODBX.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProjectConfiguration));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabPageSources = new System.Windows.Forms.TabPage();
-            this.buttonCopyLeft = new System.Windows.Forms.Button();
             this.ConnectionBuilderDestination = new ODBX.Controls.ControlConnectionBuilder();
             this.gradientPanelHeader = new ODBX.Controls.GradientPanel();
             this.gradientPanelHeaderRight = new ODBX.Controls.GradientPanel();
-            this.panelIconDestination = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.labelDestinationDatabase = new System.Windows.Forms.Label();
             this.gradientPanelHeaderLeft = new ODBX.Controls.GradientPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.labelSourceDatabase = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ConnectionBuilderSource = new ODBX.Controls.ControlConnectionBuilder();
-            this.buttonCopyRight = new System.Windows.Forms.Button();
             this.tabPageOptions = new System.Windows.Forms.TabPage();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.treeViewOptions = new ODBX.Controls.CheckedTreeView();
@@ -56,6 +52,11 @@ namespace ODBX.Forms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonAccept = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSwap = new System.Windows.Forms.Button();
+            this.buttonCopyLeft = new System.Windows.Forms.Button();
+            this.panelIconDestination = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonCopyRight = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabPageSources.SuspendLayout();
             this.gradientPanelHeader.SuspendLayout();
@@ -79,6 +80,7 @@ namespace ODBX.Forms
             // 
             // tabPageSources
             // 
+            this.tabPageSources.Controls.Add(this.buttonSwap);
             this.tabPageSources.Controls.Add(this.buttonCopyLeft);
             this.tabPageSources.Controls.Add(this.ConnectionBuilderDestination);
             this.tabPageSources.Controls.Add(this.gradientPanelHeader);
@@ -87,14 +89,6 @@ namespace ODBX.Forms
             resources.ApplyResources(this.tabPageSources, "tabPageSources");
             this.tabPageSources.Name = "tabPageSources";
             this.tabPageSources.UseVisualStyleBackColor = true;
-            // 
-            // buttonCopyLeft
-            // 
-            this.buttonCopyLeft.Image = global::ODBX.Properties.Resources.resultset_previous;
-            resources.ApplyResources(this.buttonCopyLeft, "buttonCopyLeft");
-            this.buttonCopyLeft.Name = "buttonCopyLeft";
-            this.buttonCopyLeft.UseVisualStyleBackColor = true;
-            this.buttonCopyLeft.Click += new System.EventHandler(this.ButtonCopyLeftClick);
             // 
             // ConnectionBuilderDestination
             // 
@@ -133,12 +127,6 @@ namespace ODBX.Forms
             this.gradientPanelHeaderRight.Name = "gradientPanelHeaderRight";
             this.gradientPanelHeaderRight.StartColor = System.Drawing.Color.Empty;
             // 
-            // panelIconDestination
-            // 
-            this.panelIconDestination.BackgroundImage = global::ODBX.Properties.Resources.database_connect;
-            resources.ApplyResources(this.panelIconDestination, "panelIconDestination");
-            this.panelIconDestination.Name = "panelIconDestination";
-            // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
@@ -165,12 +153,6 @@ namespace ODBX.Forms
             this.gradientPanelHeaderLeft.Name = "gradientPanelHeaderLeft";
             this.gradientPanelHeaderLeft.StartColor = System.Drawing.Color.Empty;
             // 
-            // panel1
-            // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackgroundImage = global::ODBX.Properties.Resources.database_connect;
-            this.panel1.Name = "panel1";
-            // 
             // labelSourceDatabase
             // 
             resources.ApplyResources(this.labelSourceDatabase, "labelSourceDatabase");
@@ -189,14 +171,6 @@ namespace ODBX.Forms
             this.ConnectionBuilderSource.Driver = null;
             this.ConnectionBuilderSource.Name = "ConnectionBuilderSource";
             this.ConnectionBuilderSource.ConfigurationUpdatedEvent += new ODBX.Controls.ControlConnectionBuilder.ConfigurationUpdated(this.ConnectionBuilderSourceConfigurationUpdatedEvent);
-            // 
-            // buttonCopyRight
-            // 
-            this.buttonCopyRight.Image = global::ODBX.Properties.Resources.resultset_next;
-            resources.ApplyResources(this.buttonCopyRight, "buttonCopyRight");
-            this.buttonCopyRight.Name = "buttonCopyRight";
-            this.buttonCopyRight.UseVisualStyleBackColor = true;
-            this.buttonCopyRight.Click += new System.EventHandler(this.ButtonCopyRightClick);
             // 
             // tabPageOptions
             // 
@@ -286,6 +260,42 @@ namespace ODBX.Forms
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
+            // buttonSwap
+            // 
+            this.buttonSwap.Image = global::ODBX.Properties.Resources.swap;
+            resources.ApplyResources(this.buttonSwap, "buttonSwap");
+            this.buttonSwap.Name = "buttonSwap";
+            this.buttonSwap.UseVisualStyleBackColor = true;
+            this.buttonSwap.Click += new System.EventHandler(this.ButtonSwapClick);
+            // 
+            // buttonCopyLeft
+            // 
+            this.buttonCopyLeft.Image = global::ODBX.Properties.Resources.resultset_previous;
+            resources.ApplyResources(this.buttonCopyLeft, "buttonCopyLeft");
+            this.buttonCopyLeft.Name = "buttonCopyLeft";
+            this.buttonCopyLeft.UseVisualStyleBackColor = true;
+            this.buttonCopyLeft.Click += new System.EventHandler(this.ButtonCopyLeftClick);
+            // 
+            // panelIconDestination
+            // 
+            this.panelIconDestination.BackgroundImage = global::ODBX.Properties.Resources.database_connect;
+            resources.ApplyResources(this.panelIconDestination, "panelIconDestination");
+            this.panelIconDestination.Name = "panelIconDestination";
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.BackgroundImage = global::ODBX.Properties.Resources.database_connect;
+            this.panel1.Name = "panel1";
+            // 
+            // buttonCopyRight
+            // 
+            this.buttonCopyRight.Image = global::ODBX.Properties.Resources.resultset_next;
+            resources.ApplyResources(this.buttonCopyRight, "buttonCopyRight");
+            this.buttonCopyRight.Name = "buttonCopyRight";
+            this.buttonCopyRight.UseVisualStyleBackColor = true;
+            this.buttonCopyRight.Click += new System.EventHandler(this.ButtonCopyRightClick);
+            // 
             // FormProjectConfiguration
             // 
             this.AcceptButton = this.buttonAccept;
@@ -348,6 +358,7 @@ namespace ODBX.Forms
         private ControlConnectionBuilder ConnectionBuilderDestination;
         private ControlConnectionBuilder ConnectionBuilderSource;
         private GradientPanel gradientPanel3;
+        private System.Windows.Forms.Button buttonSwap;
 
 
 

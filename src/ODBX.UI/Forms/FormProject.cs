@@ -43,9 +43,7 @@ namespace ODBX.Forms
 
             Text = project.FilePath;
             controlScriptDiff1.Syntax = _project.Driver.Syntax;
-            panelDirection.BackgroundImage = _project.Direction == Direction.LeftToRight
-                                                 ? Resources.big_arrow_right
-                                                 : Resources.big_arrow_left;
+            panelDirection.BackgroundImage = Resources.big_arrow_right;
 
             labelSourceConnection.Text = _project.Source.Host;
             labelTargetConnection.Text = _project.Target.Host;
@@ -69,34 +67,6 @@ namespace ODBX.Forms
                 controlScriptDiff1.RightContent = _project.Driver.GenerateScript(ScriptAction.OriginalFromTarget, modelObject);
                 controlScriptDiff1.BottomContent = _project.Driver.GenerateScript(ScriptAction.Merged, modelObject);
             }
-        }
-
-        private void ObjectListViewSelectionChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void PanelDirectionMouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            IConnection source = _project.Source;
-            IConnection target = _project.Target;
-
-            if (_project.Direction == Direction.LeftToRight)
-            {
-                _project.Direction = Direction.RightToLeft;
-                panelDirection.BackgroundImage = Resources.big_arrow_left;
-            }
-            else
-            {
-                _project.Direction = Direction.LeftToRight;
-                panelDirection.BackgroundImage = Resources.big_arrow_right;
-            }
-
-            panelDirection.Update();
-
-            _project.Source = target;
-            _project.Target = source;
-
-            Bind(_project);
         }
 
     }

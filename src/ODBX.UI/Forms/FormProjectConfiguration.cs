@@ -206,5 +206,13 @@ namespace ODBX.Forms
             BindDriverOptions();
         }
 
+        private void ButtonSwapClick(object sender, EventArgs e)
+        {
+            var sourceConfiguration = ConnectionBuilderSource.Configuration;
+            var targetConfiguration = ConnectionBuilderDestination.Configuration;
+            ConnectionBuilderSource.Configuration = targetConfiguration;
+            ConnectionBuilderDestination.Configuration = sourceConfiguration;
+        }
+
     }
 }

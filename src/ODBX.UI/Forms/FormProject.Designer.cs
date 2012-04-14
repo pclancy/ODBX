@@ -102,7 +102,6 @@
             this.objectListView.TabIndex = 0;
             this.objectListView.UseCompatibleStateImageBehavior = false;
             this.objectListView.View = System.Windows.Forms.View.Details;
-            this.objectListView.SelectionChanged += new System.EventHandler(this.ObjectListViewSelectionChanged);
             this.objectListView.SelectedIndexChanged += new System.EventHandler(this.ObjectListViewSelectedIndexChanged);
             // 
             // olvColumnType
@@ -222,7 +221,6 @@
             this.panelDirection.Name = "panelDirection";
             this.panelDirection.Size = new System.Drawing.Size(75, 43);
             this.panelDirection.TabIndex = 2;
-            this.panelDirection.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PanelDirectionMouseDoubleClick);
             // 
             // panelSource
             // 
@@ -278,6 +276,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 454);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
@@ -285,6 +284,7 @@
             this.MinimumSize = new System.Drawing.Size(117, 115);
             this.Name = "FormProject";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "FormProject";
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);

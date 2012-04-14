@@ -19,6 +19,10 @@ namespace ODBX.Common
     {
         private static List<IDriver> _drivers;
 
+        static DriverRepository()
+        {
+            GetInstalledDrivers(true);
+        }
 
         public static List<IDriver> GetInstalledDrivers(bool refesh = false)
         {

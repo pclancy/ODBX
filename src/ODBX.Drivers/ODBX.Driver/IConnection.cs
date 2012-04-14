@@ -18,5 +18,6 @@ namespace ODBX.Driver
         string Password { get; set; }
         bool IsReady { get; }
         string ConnectionString { get; set; }
+        string Summary { get; }
     }
 }

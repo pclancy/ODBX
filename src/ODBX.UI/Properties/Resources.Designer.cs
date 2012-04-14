@@ -515,6 +515,13 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap swap {
+            get {
+                object obj = ResourceManager.GetObject("swap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap wand {
             get {
                 object obj = ResourceManager.GetObject("wand", resourceCulture);

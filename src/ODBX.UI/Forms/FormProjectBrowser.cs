@@ -50,5 +50,32 @@ namespace ODBX.Forms
                 Cursor = Cursors.Default;
             }
         }
+
+        private void FormProjectBrowserShown(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            buttonAccept.Enabled = false;
+            var projectList = State.ScanProjects(comboBoxLocation.Text);
+            this.ListViewProjects.SetObjects(projectList);
+            Cursor.Current = Cursors.Default;
+
+        }
+
+        private void ButtonAcceptClick(object sender, EventArgs e)
+        {
+            if (ListViewProjects.SelectedItem == null)
+            {
+                buttonAccept.Enabled = false;
+                return;
+            }
+            SelectedProject = (Project)ListViewProjects.SelectedItem.RowObject;
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void ListViewProjectsSelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonAccept.Enabled = (ListViewProjects.SelectedItem != null);
+        }
     }
 }
