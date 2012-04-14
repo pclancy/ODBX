@@ -35,6 +35,7 @@
             this.buttonAccept = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.gradientPanel2 = new ODBX.Controls.GradientPanel();
+            this.checkBoxAutoClose = new System.Windows.Forms.CheckBox();
             this.gradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,6 +107,7 @@
             // gradientPanel2
             // 
             this.gradientPanel2.BackColor = System.Drawing.SystemColors.Control;
+            this.gradientPanel2.Controls.Add(this.checkBoxAutoClose);
             this.gradientPanel2.Controls.Add(this.buttonAccept);
             this.gradientPanel2.Controls.Add(this.buttonCancel);
             this.gradientPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -120,6 +122,19 @@
             this.gradientPanel2.Size = new System.Drawing.Size(565, 53);
             this.gradientPanel2.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gradientPanel2.TabIndex = 21;
+            // 
+            // checkBoxAutoClose
+            // 
+            this.checkBoxAutoClose.AutoSize = true;
+            this.checkBoxAutoClose.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxAutoClose.Checked = true;
+            this.checkBoxAutoClose.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAutoClose.Location = new System.Drawing.Point(13, 18);
+            this.checkBoxAutoClose.Name = "checkBoxAutoClose";
+            this.checkBoxAutoClose.Size = new System.Drawing.Size(240, 19);
+            this.checkBoxAutoClose.TabIndex = 2;
+            this.checkBoxAutoClose.Text = "Close window on successful comparison";
+            this.checkBoxAutoClose.UseVisualStyleBackColor = false;
             // 
             // FormProgress
             // 
@@ -142,6 +157,7 @@
             this.Text = "Status";
             this.Shown += new System.EventHandler(this.FormProgressShown);
             this.gradientPanel2.ResumeLayout(false);
+            this.gradientPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +172,7 @@
         private System.Windows.Forms.Button buttonAccept;
         private System.Windows.Forms.Button buttonCancel;
         private Controls.GradientPanel gradientPanel2;
+        private System.Windows.Forms.CheckBox checkBoxAutoClose;
 
     }
 }

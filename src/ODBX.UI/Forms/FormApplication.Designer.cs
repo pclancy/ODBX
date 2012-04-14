@@ -109,6 +109,7 @@
             this.ButtonSynchronise.Name = "ButtonSynchronise";
             this.ButtonSynchronise.Size = new System.Drawing.Size(107, 36);
             this.ButtonSynchronise.Text = "Synchronise";
+            this.ButtonSynchronise.Click += new System.EventHandler(this.ButtonSynchroniseClick);
             // 
             // menuStripMain
             // 

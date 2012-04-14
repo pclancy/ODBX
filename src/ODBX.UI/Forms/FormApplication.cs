@@ -78,6 +78,7 @@ namespace ODBX.Forms
                     _formProgress.Project = project;
                     if (_formProgress.ShowDialog(this) == DialogResult.OK)
                     {
+                        this.Focus();
                         _formProject.Bind(project);
                         ButtonRefresh.Enabled = ButtonOptions.Enabled = ButtonSynchronise.Enabled = true;
                         _formProject.Show();
@@ -116,6 +117,11 @@ namespace ODBX.Forms
             _formProgress = new FormProgress();
             
             OpenProjectBrowser(sender, e);
+        }
+
+        private void ButtonSynchroniseClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not Yet Implemented");
         }
     }
 }

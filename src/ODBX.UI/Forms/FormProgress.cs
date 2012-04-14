@@ -48,6 +48,11 @@ namespace ODBX.Forms
             Project.Refresh();
             buttonAccept.Enabled = true;
             buttonCancel.Enabled = false;
+            if (checkBoxAutoClose.Checked)
+            {
+                DialogResult = DialogResult.OK;
+                Hide();
+            }
         }
 
         private void ButtonCancelClick(object sender, EventArgs e)
