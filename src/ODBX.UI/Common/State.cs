@@ -16,11 +16,11 @@ namespace ODBX.Common
 {
     public static class State
     {
-        public static string DefaultFilePath { get; set; }
+        public static string SavedProjectsFolder { get; set; }
 
         static State()
         {
-            DefaultFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            SavedProjectsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         }
 
         public static void SaveProject(Project project)
@@ -28,7 +28,7 @@ namespace ODBX.Common
             if (string.IsNullOrWhiteSpace(project.FilePath))
             {
                 project.FilePath = string.Format(@"{0}\{1}-{2} vs {3}-{4}.odbx",
-                                                 DefaultFilePath,
+                                                 SavedProjectsFolder,
                                                  project.Source.Host, project.Source.Catalog,
                                                  project.Target.Host, project.Target.Catalog);
             }
@@ -46,11 +46,25 @@ namespace ODBX.Common
         public static List<Project> ScanProjects(string folderPath)
         {
             var projects = new List<Project>();
-            foreach (var enumerateFile in Directory.EnumerateFiles(folderPath, "*.odbx"))
+            try
             {
-                projects.Add(LoadProject(enumerateFile));
+                foreach (var enumerateFile in Directory.EnumerateFiles(folderPath, "*.odbx"))
+                {
+                    try
+                    {
+                        projects.Add(LoadProject(enumerateFile));
+                    }
+                    catch
+                    {
+                    }
+                }
+
+            }
+            catch
+            {
             }
 
+            SavedProjectsFolder = folderPath;
             return projects;
         }
 

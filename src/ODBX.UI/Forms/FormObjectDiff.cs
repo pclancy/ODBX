@@ -21,9 +21,12 @@ namespace ODBX.Forms
             get { return _modelObject; }
             set
             {
-                _modelObject = value;
-                controlScriptDiff1.ModelObject = value;
-                Text = string.Format("Object Diff: {0}", value.Fullname);
+                if (value != null)
+                {
+                    _modelObject = value;
+                    controlScriptDiff1.ModelObject = value;
+                    Text = string.Format("Object Diff: {0}", value.Fullname);
+                }
             }
         }
 
@@ -45,9 +48,5 @@ namespace ODBX.Forms
             controlScriptDiff1.Syntax = syntax;
         }
 
-        private void controlScriptDiff1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

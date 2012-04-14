@@ -77,7 +77,6 @@
             this.controlScriptDiff1.RightContent = "";
             this.controlScriptDiff1.Size = new System.Drawing.Size(806, 387);
             this.controlScriptDiff1.TabIndex = 1;
-            this.controlScriptDiff1.Load += new System.EventHandler(this.controlScriptDiff1_Load);
             // 
             // FormObjectDiff
             // 

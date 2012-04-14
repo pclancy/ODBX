@@ -82,7 +82,6 @@
             this.ListViewProjects.ShowGroups = false;
             this.ListViewProjects.Size = new System.Drawing.Size(877, 458);
             this.ListViewProjects.TabIndex = 0;
-            this.ListViewProjects.UseAlternatingBackColors = true;
             this.ListViewProjects.UseCompatibleStateImageBehavior = false;
             this.ListViewProjects.UseTranslucentSelection = true;
             this.ListViewProjects.View = System.Windows.Forms.View.Details;
@@ -212,6 +211,7 @@
             this.buttonEditProject.Text = "Edit";
             this.buttonEditProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonEditProject.UseVisualStyleBackColor = true;
+            this.buttonEditProject.Click += new System.EventHandler(this.ButtonEditProjectClick);
             // 
             // buttonNewProject
             // 
@@ -255,6 +255,7 @@
             this.comboBoxLocation.Name = "comboBoxLocation";
             this.comboBoxLocation.Size = new System.Drawing.Size(761, 21);
             this.comboBoxLocation.TabIndex = 10;
+            this.comboBoxLocation.SelectedValueChanged += new System.EventHandler(this.ScanProjects);
             // 
             // FormProjectBrowser
             // 

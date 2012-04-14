@@ -10,11 +10,20 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 using ODBX.Driver;
 
 namespace ODBX.Common
 {
+
+    [Serializable]
+    public class ProjectOptionDTO
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool Value { get; set; }
+    }
 
     [Serializable]
     public class ProjectDTO
@@ -31,6 +40,19 @@ namespace ODBX.Common
             Version = "1.0";
             Author = project.Author;
 
+            Options = new List<ProjectOptionDTO>();
+            foreach (var driverOption in project.Options)
+            {
+                Options.Add(new ProjectOptionDTO
+
+                                {
+                                    Id = driverOption.Id,
+                                    Name = driverOption.Name,
+                                    Value = driverOption.ConfiguredValue
+                                }
+                    );
+            }
+
         }
 
 
@@ -43,6 +65,9 @@ namespace ODBX.Common
         public string Target { get; set; }
         public DateTime? LastCompared { get; set; }
         public DateTime? LastSync { get; set; }
+
+        public List<ProjectOptionDTO> Options { get; set; }
+        
     }
 
     public class Project
@@ -68,6 +93,22 @@ namespace ODBX.Common
             Driver = DriverRepository.GetDriverById(project.DriverId);
             LastCompared = project.LastCompared;
             LastSync = project.LastSync;
+
+            Options = Driver.Configuration.Options;
+
+            foreach (var projectOptionDTO in project.Options)
+            {
+                var match = Options.FirstOrDefault(x => x.Id == projectOptionDTO.Id);
+                if (match != null)
+                {
+                    match.ConfiguredValue = projectOptionDTO.Value;
+                }
+                else
+                {
+                    // todo: warn user
+                }
+            }
+
         }
 
         public void Refresh()
