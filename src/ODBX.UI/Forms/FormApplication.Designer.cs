@@ -166,7 +166,7 @@
             this.Name = "FormApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FormApplication";
-            this.Shown += new System.EventHandler(this.OpenProjectBrowser);
+            this.Shown += new System.EventHandler(this.FormApplicationShown);
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
             this.menuStripMain.ResumeLayout(false);

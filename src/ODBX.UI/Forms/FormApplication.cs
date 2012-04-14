@@ -16,16 +16,13 @@ namespace ODBX.Forms
 {
     public partial class FormApplication : BaseForm
     {
-        private readonly FormProgress _formProgress;
-        private readonly FormProject _formProject;
-        private readonly FormProjectBrowser _formProjectBrowser;
+        private FormProgress _formProgress;
+        private FormProject _formProject;
+        private FormProjectBrowser _formProjectBrowser;
 
         public FormApplication()
         {
             InitializeComponent();
-            _formProjectBrowser = new FormProjectBrowser();
-            _formProject = new FormProject {MdiParent = this};
-            _formProgress = new FormProgress();
         }
 
 
@@ -108,6 +105,17 @@ namespace ODBX.Forms
             {
                 Bind(_formProjectBrowser.SelectedProject);
             }
+        }
+
+        private void FormApplicationShown(object sender, EventArgs e)
+        {
+
+            Refresh();
+            _formProjectBrowser = new FormProjectBrowser();
+            _formProject = new FormProject { MdiParent = this, WindowState = FormWindowState.Maximized};
+            _formProgress = new FormProgress();
+            
+            OpenProjectBrowser(sender, e);
         }
     }
 }
