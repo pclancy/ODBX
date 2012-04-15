@@ -25,7 +25,7 @@ namespace ODBX.Forms
                 {
                     _modelObject = value;
                     controlScriptDiff1.ModelObject = value;
-                    Text = string.Format("Object Diff: {0}", value.Fullname);
+                    Text = string.Format("Object Diff: {0}", value.Name);
                 }
             }
         }

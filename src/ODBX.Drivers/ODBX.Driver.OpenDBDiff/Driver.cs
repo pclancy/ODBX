@@ -240,15 +240,15 @@ namespace ODBX.Driver.OpenDBDiff
             switch (action)
             {
                 case ScriptAction.OriginalFromSource:
-                    schemaObject = _source.Find(modelObject.Fullname);
+                    schemaObject = _source.Find(modelObject.Name);
                     return schemaObject == null ? string.Empty : schemaObject.ToSql();
 
                 case ScriptAction.OriginalFromTarget:
-                    schemaObject = _target.Find(modelObject.Fullname);
+                    schemaObject = _target.Find(modelObject.Name);
                     return schemaObject == null ? string.Empty : schemaObject.ToSql();
 
                 case ScriptAction.Merged:
-                    schemaObject = _merged.Find(modelObject.Fullname);
+                    schemaObject = _merged.Find(modelObject.Name);
                     return schemaObject == null ? string.Empty : schemaObject.ToSqlDiff().ToSQL();
             }
 

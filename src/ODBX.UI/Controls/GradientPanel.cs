@@ -6,13 +6,22 @@ namespace ODBX.Controls
 {
     public partial class GradientPanel : Panel
     {
-        public Color StartColor { get; set; }
-        public Color EndColor { get; set; }
+        public Color GradientStartColor { get; set; }
+        public Color GradientEndColor { get; set; }
         public Color LineColor { get; set; }
         public bool LineTop { get; set; }
         public bool LineBottom { get; set; }
         public bool LineLeft { get; set; }
         public bool LineRight { get; set; }
+
+        public GradientPanel()
+        {
+            this.SetStyle(ControlStyles.DoubleBuffer, true);
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            this.SetStyle(ControlStyles.UserPaint, true);
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);            
+        }
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -22,8 +31,10 @@ namespace ODBX.Controls
 
         private void PaintGradient(PaintEventArgs e)
         {
-            var gradBrush = new LinearGradientBrush(new Point(0, 0),
-                                                    new Point(Width, Height), StartColor, EndColor);
+            //var gradBrush = new LinearGradientBrush(new Point(0, 0), new Point(Width, Height),
+            //    GradientStartColor, GradientEndColor);
+
+            var gradBrush = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), GradientStartColor, GradientEndColor, LinearGradientMode.Vertical);
 
             e.Graphics.FillRectangle(gradBrush, new Rectangle(0, 0, Width, Height));
 

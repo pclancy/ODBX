@@ -58,33 +58,37 @@
             // groupList1
             // 
             this.groupList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupList1.Location = new System.Drawing.Point(3, 3);
+            this.groupList1.Location = new System.Drawing.Point(0, 0);
+            this.groupList1.Margin = new System.Windows.Forms.Padding(0);
             this.groupList1.Name = "groupList1";
-            this.groupList1.Size = new System.Drawing.Size(773, 179);
+            this.groupList1.Size = new System.Drawing.Size(779, 179);
             this.groupList1.TabIndex = 0;
             // 
             // groupList2
             // 
             this.groupList2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupList2.Location = new System.Drawing.Point(3, 188);
+            this.groupList2.Location = new System.Drawing.Point(0, 179);
+            this.groupList2.Margin = new System.Windows.Forms.Padding(0);
             this.groupList2.Name = "groupList2";
-            this.groupList2.Size = new System.Drawing.Size(773, 179);
+            this.groupList2.Size = new System.Drawing.Size(779, 179);
             this.groupList2.TabIndex = 1;
             // 
             // groupList3
             // 
             this.groupList3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupList3.Location = new System.Drawing.Point(3, 373);
+            this.groupList3.Location = new System.Drawing.Point(0, 358);
+            this.groupList3.Margin = new System.Windows.Forms.Padding(0);
             this.groupList3.Name = "groupList3";
-            this.groupList3.Size = new System.Drawing.Size(773, 34);
+            this.groupList3.Size = new System.Drawing.Size(779, 34);
             this.groupList3.TabIndex = 2;
             // 
             // groupList4
             // 
             this.groupList4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupList4.Location = new System.Drawing.Point(3, 413);
+            this.groupList4.Location = new System.Drawing.Point(0, 392);
+            this.groupList4.Margin = new System.Windows.Forms.Padding(0);
             this.groupList4.Name = "groupList4";
-            this.groupList4.Size = new System.Drawing.Size(773, 244);
+            this.groupList4.Size = new System.Drawing.Size(779, 268);
             this.groupList4.TabIndex = 3;
             // 
             // Trial

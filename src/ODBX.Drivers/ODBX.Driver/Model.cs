@@ -49,7 +49,7 @@ namespace ODBX.Driver
 
                              {
                                  Type = type,
-                                 Fullname = fullName,
+                                 Name = fullName,
                                  Guid = guid,
                                  Id = id,
                                  Difference = difference
@@ -60,10 +60,11 @@ namespace ODBX.Driver
 
     public class ModelObject
     {
-        public string Fullname { get; set; }
+        public string Name { get; set; }
         public Guid Guid { get; set; }
         public int Id { get; set; }
         public Difference Difference { get; set; }
         public string Type { get; set; }
+        public bool Include { get; set; }
     }
 }

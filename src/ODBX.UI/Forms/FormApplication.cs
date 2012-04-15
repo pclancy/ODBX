@@ -123,5 +123,10 @@ namespace ODBX.Forms
         {
             MessageBox.Show("Not Yet Implemented");
         }
+
+        private void ComboBoxGroupBySelectedIndexChanged(object sender, EventArgs e)
+        {
+            _formProject.GroupBy = ((FormProject.GroupByView)ComboBoxGroupBy.SelectedIndex);
+        }
     }
 }

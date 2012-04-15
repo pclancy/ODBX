@@ -53,7 +53,7 @@
             this.gradientPanel1.Controls.Add(this.labelTitle);
             this.gradientPanel1.Controls.Add(this.panelIcon);
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gradientPanel1.EndColor = System.Drawing.Color.WhiteSmoke;
+            this.gradientPanel1.GradientEndColor = System.Drawing.Color.WhiteSmoke;
             this.gradientPanel1.LineBottom = false;
             this.gradientPanel1.LineColor = System.Drawing.Color.Empty;
             this.gradientPanel1.LineLeft = false;
@@ -62,7 +62,7 @@
             this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(664, 55);
-            this.gradientPanel1.StartColor = System.Drawing.Color.White;
+            this.gradientPanel1.GradientStartColor = System.Drawing.Color.White;
             this.gradientPanel1.TabIndex = 4;
             // 
             // labelTitle

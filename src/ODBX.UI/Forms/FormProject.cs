@@ -1,5 +1,5 @@
 ﻿// 
-//    ODBX
+//    ODBX.UI
 // 	
 //    Copyright (c) 2011 Paul Clancy
 //  
@@ -8,8 +8,8 @@
 //  
 
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using BrightIdeasSoftware;
 using ODBX.Common;
 using ODBX.Controls;
 using ODBX.Driver;
@@ -19,31 +19,28 @@ namespace ODBX.Forms
 {
     public partial class FormProject : BaseForm
     {
+
+        public enum GroupByView
+        {
+            None = 0,
+            ObjectType = 1,
+            Difference = 2
+        }
+
         private Project _project;
+        public GroupByView GroupBy { get; set; }
 
         public FormProject()
         {
             InitializeComponent();
-
         }
 
-        private ModelObject _selectedObject;
-        public ModelObject SelectedObject
-        {
-            get { return _selectedObject; }
-            set
-            {
-                _selectedObject = value;
-            }
-        }
+        public ModelObject SelectedObject { get; set; }
 
         public Project Project
         {
             get { return _project; }
-            private set
-            {
-                _project = value;
-            }
+            private set { _project = value; }
         }
 
 
@@ -67,48 +64,51 @@ namespace ODBX.Forms
             Cursor.Current = Cursors.Default;
         }
 
-        private void ObjectListViewSelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (SelectedObject != null)
-            {
-                controlScriptDiff1.ModelObject = SelectedObject;
-                controlScriptDiff1.LeftContent = _project.Driver.GenerateScript(ScriptAction.OriginalFromSource, SelectedObject);
-                controlScriptDiff1.RightContent = _project.Driver.GenerateScript(ScriptAction.OriginalFromTarget, SelectedObject);
-                controlScriptDiff1.BottomContent = _project.Driver.GenerateScript(ScriptAction.Merged, SelectedObject);
-            }
-        }
 
         private void BuildView()
         {
-            this.SuspendLayout();
-            this.tableLayoutView.Controls.Clear();
-            this.tableLayoutView.ColumnCount = 1;
-
-            //foreach (var modelObject in Project.Model.Objects)
-            //{
+            SuspendLayout();
 
 
-            var gl1 = new GroupList();
-            gl1.Height = 30*10;
+            this.objectListGrid1.Bind(Project.Model);
 
-            this.tableLayoutView.Controls.Add(gl1);
-            this.tableLayoutView.Controls[0].Dock = DockStyle.Fill;
+            switch (GroupBy)
+            {
+                case GroupByView.None:
+                    break;
+                case GroupByView.ObjectType:
+                    break;
+                case GroupByView.Difference:
+                    break;
 
-            this.tableLayoutView.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-
-
-            this.tableLayoutView.RowCount++;
-            this.tableLayoutView.Controls.Add(new GroupList());
-            this.tableLayoutView.Controls[1].Dock = DockStyle.Fill;
-
-            this.tableLayoutView.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-            this.tableLayoutView.RowCount++;
-            //}
-
-            this.ResumeLayout();
-            //objectListView.SetObjects(_project.Model.Objects);
+            }
+            ResumeLayout();
+            Refresh();
         }
 
+        //private GroupList AddRow(string headerFormat, IList<ModelObject> objects)
+        //{
+        //    var control = new GroupList { Dock = DockStyle.Top, HeaderFormat =  headerFormat};
+        //    control.SelectionChanged += ControlOnSelectionChanged;
+        //    control.Bind(objects);
+        //    splitContainerMain.Panel1.Controls.Add(control);
+        //    return control;
+        //}
+
+        private void ObjectListGrid1SelectionChanged(object sender, ModelEventArgs args)
+        {
+            SelectedObject = args.SelectedObject;
+
+            if (SelectedObject != null)
+            {
+                controlScriptDiff1.ModelObject = SelectedObject;
+                controlScriptDiff1.LeftContent = _project.Driver.GenerateScript(ScriptAction.OriginalFromSource,
+                                                                                SelectedObject);
+                controlScriptDiff1.RightContent = _project.Driver.GenerateScript(ScriptAction.OriginalFromTarget,
+                                                                                 SelectedObject);
+                controlScriptDiff1.BottomContent = _project.Driver.GenerateScript(ScriptAction.Merged, SelectedObject);
+            }
+        }
 
     }
 }

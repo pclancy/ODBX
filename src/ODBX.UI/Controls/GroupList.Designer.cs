@@ -28,80 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewObjects = new BrightIdeasSoftware.ObjectListView();
-            this.olvColumnType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn2 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.olvColumn3 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupList));
+            this.objectListView = new ODBX.Controls.ObjectListView();
             this.gradientPanelGroupHeader = new ODBX.Controls.GradientPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxGroupIcon = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.listViewObjects)).BeginInit();
+            this.labelHeader = new System.Windows.Forms.Label();
             this.gradientPanelGroupHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroupIcon)).BeginInit();
             this.SuspendLayout();
             // 
-            // listViewObjects
+            // objectListView
             // 
-            this.listViewObjects.AllColumns.Add(this.olvColumnType);
-            this.listViewObjects.AllColumns.Add(this.olvColumn2);
-            this.listViewObjects.AllColumns.Add(this.olvColumn3);
-            this.listViewObjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewObjects.CheckBoxes = true;
-            this.listViewObjects.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.olvColumnType,
-            this.olvColumn2,
-            this.olvColumn3});
-            this.listViewObjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewObjects.FullRowSelect = true;
-            this.listViewObjects.GridLines = true;
-            this.listViewObjects.Location = new System.Drawing.Point(0, 35);
-            this.listViewObjects.Name = "listViewObjects";
-            this.listViewObjects.Size = new System.Drawing.Size(758, 165);
-            this.listViewObjects.TabIndex = 0;
-            this.listViewObjects.UseCompatibleStateImageBehavior = false;
-            this.listViewObjects.View = System.Windows.Forms.View.Details;
-            this.listViewObjects.Visible = false;
-            // 
-            // olvColumnType
-            // 
-            this.olvColumnType.Groupable = false;
-            this.olvColumnType.IsEditable = false;
-            this.olvColumnType.Sortable = false;
-            this.olvColumnType.Text = "Type";
-            this.olvColumnType.Width = 125;
-            // 
-            // olvColumn2
-            // 
-            this.olvColumn2.Width = 167;
+            this.objectListView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.objectListView.Location = new System.Drawing.Point(0, 35);
+            this.objectListView.Name = "objectListView";
+            this.objectListView.Size = new System.Drawing.Size(758, 165);
+            this.objectListView.TabIndex = 4;
+            this.objectListView.SelectionChanged += new ModelEventHandler(this.ObjectListViewSelectionChanged);
             // 
             // gradientPanelGroupHeader
             // 
-            this.gradientPanelGroupHeader.Controls.Add(this.button1);
+            this.gradientPanelGroupHeader.BackColor = System.Drawing.SystemColors.Control;
+            this.gradientPanelGroupHeader.Controls.Add(this.pictureBox1);
             this.gradientPanelGroupHeader.Controls.Add(this.pictureBoxGroupIcon);
-            this.gradientPanelGroupHeader.Controls.Add(this.label1);
+            this.gradientPanelGroupHeader.Controls.Add(this.labelHeader);
+            this.gradientPanelGroupHeader.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gradientPanelGroupHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gradientPanelGroupHeader.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gradientPanelGroupHeader.GradientEndColor = System.Drawing.Color.White;
+            this.gradientPanelGroupHeader.GradientStartColor = System.Drawing.SystemColors.ControlLight;
             this.gradientPanelGroupHeader.LineBottom = true;
             this.gradientPanelGroupHeader.LineColor = System.Drawing.Color.Gray;
             this.gradientPanelGroupHeader.LineLeft = false;
             this.gradientPanelGroupHeader.LineRight = false;
             this.gradientPanelGroupHeader.LineTop = false;
             this.gradientPanelGroupHeader.Location = new System.Drawing.Point(0, 0);
+            this.gradientPanelGroupHeader.Margin = new System.Windows.Forms.Padding(0);
             this.gradientPanelGroupHeader.Name = "gradientPanelGroupHeader";
             this.gradientPanelGroupHeader.Size = new System.Drawing.Size(758, 35);
-            this.gradientPanelGroupHeader.StartColor = System.Drawing.SystemColors.Control;
             this.gradientPanelGroupHeader.TabIndex = 3;
-            this.gradientPanelGroupHeader.Click += new System.EventHandler(this.GradientPanel1Click);
+            this.gradientPanelGroupHeader.Click += new System.EventHandler(this.GradientPanelGroupHeaderClick);
             // 
-            // button1
+            // pictureBox1
             // 
-            this.button1.Image = global::ODBX.Properties.Resources.expand;
-            this.button1.Location = new System.Drawing.Point(7, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 23);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1Click);
             // 
             // pictureBoxGroupIcon
             // 
@@ -113,30 +91,30 @@
             this.pictureBoxGroupIcon.TabIndex = 5;
             this.pictureBoxGroupIcon.TabStop = false;
             // 
-            // label1
+            // labelHeader
             // 
-            this.label1.AutoEllipsis = true;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(76, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.labelHeader.AutoEllipsis = true;
+            this.labelHeader.AutoSize = true;
+            this.labelHeader.BackColor = System.Drawing.Color.Transparent;
+            this.labelHeader.Location = new System.Drawing.Point(76, 11);
+            this.labelHeader.Name = "labelHeader";
+            this.labelHeader.Size = new System.Drawing.Size(35, 13);
+            this.labelHeader.TabIndex = 4;
+            this.labelHeader.Text = "label1";
             // 
             // GroupList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.listViewObjects);
+            this.Controls.Add(this.objectListView);
             this.Controls.Add(this.gradientPanelGroupHeader);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "GroupList";
             this.Size = new System.Drawing.Size(758, 200);
-            ((System.ComponentModel.ISupportInitialize)(this.listViewObjects)).EndInit();
             this.gradientPanelGroupHeader.ResumeLayout(false);
             this.gradientPanelGroupHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroupIcon)).EndInit();
             this.ResumeLayout(false);
 
@@ -145,12 +123,9 @@
         #endregion
 
         private GradientPanel gradientPanelGroupHeader;
-        private BrightIdeasSoftware.OLVColumn olvColumnType;
-        private BrightIdeasSoftware.OLVColumn olvColumn2;
-        private BrightIdeasSoftware.OLVColumn olvColumn3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBoxGroupIcon;
-        private System.Windows.Forms.Label label1;
-        private BrightIdeasSoftware.ObjectListView listViewObjects;
+        private System.Windows.Forms.Label labelHeader;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private ObjectListView objectListView;
     }
 }

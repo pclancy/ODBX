@@ -501,6 +501,13 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap node_tree {
+            get {
+                object obj = ResourceManager.GetObject("node_tree", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap page_white_database {
             get {
                 object obj = ResourceManager.GetObject("page_white_database", resourceCulture);

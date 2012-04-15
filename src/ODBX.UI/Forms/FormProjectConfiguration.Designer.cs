@@ -102,7 +102,7 @@ namespace ODBX.Forms
             // 
             this.gradientPanelHeader.Controls.Add(this.gradientPanelHeaderRight);
             this.gradientPanelHeader.Controls.Add(this.gradientPanelHeaderLeft);
-            this.gradientPanelHeader.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gradientPanelHeader.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gradientPanelHeader.LineBottom = true;
             this.gradientPanelHeader.LineColor = System.Drawing.Color.Gray;
             this.gradientPanelHeader.LineLeft = false;
@@ -110,7 +110,7 @@ namespace ODBX.Forms
             this.gradientPanelHeader.LineTop = true;
             resources.ApplyResources(this.gradientPanelHeader, "gradientPanelHeader");
             this.gradientPanelHeader.Name = "gradientPanelHeader";
-            this.gradientPanelHeader.StartColor = System.Drawing.Color.Empty;
+            this.gradientPanelHeader.GradientStartColor = System.Drawing.Color.Empty;
             // 
             // gradientPanelHeaderRight
             // 
@@ -118,14 +118,14 @@ namespace ODBX.Forms
             this.gradientPanelHeaderRight.Controls.Add(this.label2);
             this.gradientPanelHeaderRight.Controls.Add(this.labelDestinationDatabase);
             resources.ApplyResources(this.gradientPanelHeaderRight, "gradientPanelHeaderRight");
-            this.gradientPanelHeaderRight.EndColor = System.Drawing.Color.Empty;
+            this.gradientPanelHeaderRight.GradientEndColor = System.Drawing.Color.Empty;
             this.gradientPanelHeaderRight.LineBottom = false;
             this.gradientPanelHeaderRight.LineColor = System.Drawing.Color.Gray;
             this.gradientPanelHeaderRight.LineLeft = false;
             this.gradientPanelHeaderRight.LineRight = false;
             this.gradientPanelHeaderRight.LineTop = false;
             this.gradientPanelHeaderRight.Name = "gradientPanelHeaderRight";
-            this.gradientPanelHeaderRight.StartColor = System.Drawing.Color.Empty;
+            this.gradientPanelHeaderRight.GradientStartColor = System.Drawing.Color.Empty;
             // 
             // label2
             // 
@@ -144,14 +144,14 @@ namespace ODBX.Forms
             this.gradientPanelHeaderLeft.Controls.Add(this.labelSourceDatabase);
             this.gradientPanelHeaderLeft.Controls.Add(this.label1);
             resources.ApplyResources(this.gradientPanelHeaderLeft, "gradientPanelHeaderLeft");
-            this.gradientPanelHeaderLeft.EndColor = System.Drawing.Color.Empty;
+            this.gradientPanelHeaderLeft.GradientEndColor = System.Drawing.Color.Empty;
             this.gradientPanelHeaderLeft.LineBottom = false;
             this.gradientPanelHeaderLeft.LineColor = System.Drawing.Color.Gray;
             this.gradientPanelHeaderLeft.LineLeft = false;
             this.gradientPanelHeaderLeft.LineRight = false;
             this.gradientPanelHeaderLeft.LineTop = false;
             this.gradientPanelHeaderLeft.Name = "gradientPanelHeaderLeft";
-            this.gradientPanelHeaderLeft.StartColor = System.Drawing.Color.Empty;
+            this.gradientPanelHeaderLeft.GradientStartColor = System.Drawing.Color.Empty;
             // 
             // labelSourceDatabase
             // 
@@ -208,14 +208,14 @@ namespace ODBX.Forms
             this.gradientPanel3.Controls.Add(this.buttonResetOptions);
             this.gradientPanel3.Controls.Add(this.label6);
             resources.ApplyResources(this.gradientPanel3, "gradientPanel3");
-            this.gradientPanel3.EndColor = System.Drawing.Color.Empty;
+            this.gradientPanel3.GradientEndColor = System.Drawing.Color.Empty;
             this.gradientPanel3.LineBottom = false;
             this.gradientPanel3.LineColor = System.Drawing.Color.Empty;
             this.gradientPanel3.LineLeft = false;
             this.gradientPanel3.LineRight = false;
             this.gradientPanel3.LineTop = false;
             this.gradientPanel3.Name = "gradientPanel3";
-            this.gradientPanel3.StartColor = System.Drawing.Color.Empty;
+            this.gradientPanel3.GradientStartColor = System.Drawing.Color.Empty;
             // 
             // cboDriver
             // 

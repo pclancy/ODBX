@@ -34,6 +34,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.ButtonSynchronise = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ComboBoxGroupBy = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +57,10 @@
             this.ButtonOptions,
             this.toolStripSeparator1,
             this.ButtonRefresh,
-            this.ButtonSynchronise});
+            this.ButtonSynchronise,
+            this.toolStripSeparator2,
+            this.ComboBoxGroupBy,
+            this.toolStripLabel1});
             this.toolStripMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
@@ -110,6 +116,34 @@
             this.ButtonSynchronise.Size = new System.Drawing.Size(107, 36);
             this.ButtonSynchronise.Text = "Synchronise";
             this.ButtonSynchronise.Click += new System.EventHandler(this.ButtonSynchroniseClick);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
+            // 
+            // ComboBoxGroupBy
+            // 
+            this.ComboBoxGroupBy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ComboBoxGroupBy.AutoSize = false;
+            this.ComboBoxGroupBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxGroupBy.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.ComboBoxGroupBy.Items.AddRange(new object[] {
+            "None",
+            "Object Type",
+            "Diffference"});
+            this.ComboBoxGroupBy.Name = "ComboBoxGroupBy";
+            this.ComboBoxGroupBy.Size = new System.Drawing.Size(150, 23);
+            this.ComboBoxGroupBy.SelectedIndexChanged += new System.EventHandler(this.ComboBoxGroupBySelectedIndexChanged);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel1.Image = global::ODBX.Properties.Resources.node_tree;
+            this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(75, 36);
+            this.toolStripLabel1.Text = "Group By:";
             // 
             // menuStripMain
             // 
@@ -190,5 +224,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton ButtonRefresh;
         private System.Windows.Forms.ToolStripButton ButtonSynchronise;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripComboBox ComboBoxGroupBy;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }

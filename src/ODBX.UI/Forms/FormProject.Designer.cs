@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutView = new System.Windows.Forms.TableLayoutPanel();
+            this.objectListGrid1 = new ODBX.Controls.ObjectListGrid();
             this.controlScriptDiff1 = new ODBX.Controls.ControlScriptDiff();
             this.tableLayoutPanel1 = new ODBX.Controls.GradientTable();
             this.panelDestination = new System.Windows.Forms.Panel();
@@ -62,7 +62,8 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainerMain.Panel1.Controls.Add(this.tableLayoutView);
+            this.splitContainerMain.Panel1.AutoScroll = true;
+            this.splitContainerMain.Panel1.Controls.Add(this.objectListGrid1);
             // 
             // splitContainerMain.Panel2
             // 
@@ -71,20 +72,14 @@
             this.splitContainerMain.SplitterDistance = 185;
             this.splitContainerMain.TabIndex = 3;
             // 
-            // tableLayoutView
+            // objectListGrid1
             // 
-            this.tableLayoutView.AutoScroll = true;
-            this.tableLayoutView.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tableLayoutView.ColumnCount = 1;
-            this.tableLayoutView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutView.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutView.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutView.Name = "tableLayoutView";
-            this.tableLayoutView.RowCount = 1;
-            this.tableLayoutView.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutView.Size = new System.Drawing.Size(792, 185);
-            this.tableLayoutView.TabIndex = 0;
+            this.objectListGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.objectListGrid1.Location = new System.Drawing.Point(0, 0);
+            this.objectListGrid1.Name = "objectListGrid1";
+            this.objectListGrid1.Size = new System.Drawing.Size(792, 185);
+            this.objectListGrid1.TabIndex = 0;
+            this.objectListGrid1.SelectionChanged += new ODBX.Controls.ModelEventHandler(this.ObjectListGrid1SelectionChanged);
             // 
             // controlScriptDiff1
             // 
@@ -111,6 +106,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.EndColor = System.Drawing.Color.LemonChiffon;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(350, 50);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -267,7 +263,7 @@
         private System.Windows.Forms.Label labelTargetCatalog;
         private System.Windows.Forms.Label labelSourceCatalog;
         private Controls.ControlScriptDiff controlScriptDiff1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutView;
+        private Controls.ObjectListGrid objectListGrid1;
 
 
     }
