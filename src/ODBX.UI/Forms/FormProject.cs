@@ -17,15 +17,15 @@ using ODBX.Properties;
 
 namespace ODBX.Forms
 {
+    public enum GroupByView
+    {
+        None = 0,
+        ObjectType = 1,
+        Difference = 2
+    }
+
     public partial class FormProject : BaseForm
     {
-
-        public enum GroupByView
-        {
-            None = 0,
-            ObjectType = 1,
-            Difference = 2
-        }
 
         private Project _project;
         public GroupByView GroupBy { get; set; }
@@ -69,19 +69,8 @@ namespace ODBX.Forms
         {
             SuspendLayout();
 
+            objectListGrid1.Bind(Project.Model, GroupBy);
 
-            this.objectListGrid1.Bind(Project.Model);
-
-            switch (GroupBy)
-            {
-                case GroupByView.None:
-                    break;
-                case GroupByView.ObjectType:
-                    break;
-                case GroupByView.Difference:
-                    break;
-
-            }
             ResumeLayout();
             Refresh();
         }

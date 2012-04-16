@@ -111,11 +111,13 @@ namespace ODBX.Forms
         private void FormApplicationShown(object sender, EventArgs e)
         {
 
+
             Refresh();
             _formProjectBrowser = new FormProjectBrowser();
             _formProject = new FormProject { MdiParent = this, WindowState = FormWindowState.Maximized};
             _formProgress = new FormProgress();
-            
+
+            ComboBoxGroupBy.SelectedIndex = 0;
             OpenProjectBrowser(sender, e);
         }
 
@@ -126,7 +128,7 @@ namespace ODBX.Forms
 
         private void ComboBoxGroupBySelectedIndexChanged(object sender, EventArgs e)
         {
-            _formProject.GroupBy = ((FormProject.GroupByView)ComboBoxGroupBy.SelectedIndex);
+            _formProject.GroupBy = ((GroupByView)ComboBoxGroupBy.SelectedIndex);
         }
     }
 }

@@ -129,7 +129,7 @@
             this.ComboBoxGroupBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxGroupBy.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.ComboBoxGroupBy.Items.AddRange(new object[] {
-            "None",
+            "Nothing",
             "Object Type",
             "Diffference"});
             this.ComboBoxGroupBy.Name = "ComboBoxGroupBy";

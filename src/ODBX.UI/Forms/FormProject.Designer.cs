@@ -105,6 +105,11 @@
             this.tableLayoutPanel1.Controls.Add(this.panelSource, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.EndColor = System.Drawing.Color.LemonChiffon;
+            this.tableLayoutPanel1.LineBottom = true;
+            this.tableLayoutPanel1.LineColor = System.Drawing.SystemColors.ControlDark;
+            this.tableLayoutPanel1.LineLeft = false;
+            this.tableLayoutPanel1.LineRight = false;
+            this.tableLayoutPanel1.LineTop = false;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(350, 50);
