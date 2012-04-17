@@ -7,10 +7,6 @@ using System.Windows.Forms;
 
 namespace ODBX.Controls
 {
-    public class ObjectGrid : DataGridView
-    {
-    }
-
     [DefaultEvent("DisplayGroup")]
     public class DataGridViewGrouper : Component, IGrouper
     {

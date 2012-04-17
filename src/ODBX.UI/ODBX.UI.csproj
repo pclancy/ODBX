@@ -84,7 +84,6 @@
     <Compile Include="Controls\GradientPanel.Designer.cs">
       <DependentUpon>GradientPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ModelEventArgs.cs" />
     <Compile Include="Controls\ObjectGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -93,6 +92,9 @@
     </Compile>
     <Compile Include="Controls\ObjectListGrid.Designer.cs">
       <DependentUpon>ObjectListGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResultGrid.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Forms\FormApplication.cs">
       <SubType>Form</SubType>
@@ -145,12 +147,6 @@
     <Compile Include="Forms\FormSplash.Designer.cs">
       <DependentUpon>FormSplash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Trial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Trial.Designer.cs">
-      <DependentUpon>Trial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Strings.Designer.cs">
@@ -169,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ObjectListGrid.resx">
       <DependentUpon>ObjectListGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ResultGrid.resx">
+      <DependentUpon>ResultGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormApplication.resx">
       <DependentUpon>FormApplication.cs</DependentUpon>
@@ -194,9 +193,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSplash.resx">
       <DependentUpon>FormSplash.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Trial.resx">
-      <DependentUpon>Trial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

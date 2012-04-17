@@ -69,24 +69,16 @@ namespace ODBX.Forms
         {
             SuspendLayout();
 
-            objectListGrid1.Bind(Project.Model, GroupBy);
-
+            resultGrid.Bind(Project.Model, GroupBy);
+            
             ResumeLayout();
             Refresh();
         }
 
-        //private GroupList AddRow(string headerFormat, IList<ModelObject> objects)
-        //{
-        //    var control = new GroupList { Dock = DockStyle.Top, HeaderFormat =  headerFormat};
-        //    control.SelectionChanged += ControlOnSelectionChanged;
-        //    control.Bind(objects);
-        //    splitContainerMain.Panel1.Controls.Add(control);
-        //    return control;
-        //}
 
-        private void ObjectListGrid1SelectionChanged(object sender, ModelEventArgs args)
+        private void ResultGridSelectionChanged(object sender, EventArgs e)
         {
-            SelectedObject = args.SelectedObject;
+            SelectedObject = resultGrid.SelectedObject;
 
             if (SelectedObject != null)
             {
@@ -97,6 +89,12 @@ namespace ODBX.Forms
                                                                                  SelectedObject);
                 controlScriptDiff1.BottomContent = _project.Driver.GenerateScript(ScriptAction.Merged, SelectedObject);
             }
+
+        }
+
+        private void FormProjectShown(object sender, EventArgs e)
+        {
+            resultGrid.CollapseAll();
         }
 
     }

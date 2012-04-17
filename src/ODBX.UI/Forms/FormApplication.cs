@@ -99,7 +99,6 @@ namespace ODBX.Forms
             }
         }
 
-
         private void OpenProjectBrowser(object sender, EventArgs e)
         {
             if (_formProjectBrowser.ShowDialog() == DialogResult.OK)

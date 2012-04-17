@@ -9,6 +9,7 @@
 
 using System.Drawing;
 using System.Windows.Forms;
+using ODBX.Controls;
 
 namespace ODBX.Forms
 {
@@ -25,6 +26,7 @@ namespace ODBX.Forms
         private void ChangeFont(Control control)
         {
             control.Font = new Font(SystemFonts.DialogFont.FontFamily, control.Font.Size, control.Font.Style);
+
             if (control.HasChildren)
             {
                 foreach (Control childControl in control.Controls)

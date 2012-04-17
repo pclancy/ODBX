@@ -33,7 +33,7 @@
             this.textScriptLeft = new ScintillaNET.Scintilla();
             this.textScriptRight = new ScintillaNET.Scintilla();
             this.textScriptMerged = new ScintillaNET.Scintilla();
-            this.panelDiffToolbar = new System.Windows.Forms.Panel();
+            this.panelDiffToolbar = new ODBX.Controls.GradientPanel();
             this.buttonTearWindow = new System.Windows.Forms.Button();
             this.labelDifference = new System.Windows.Forms.Label();
             this.labelObjectRight = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             // 
             // splitContainerMain
             // 
+            this.splitContainerMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerMain.Location = new System.Drawing.Point(0, 33);
             this.splitContainerMain.Name = "splitContainerMain";
@@ -74,6 +75,7 @@
             // 
             // splitContainerLeftRight
             // 
+            this.splitContainerLeftRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainerLeftRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerLeftRight.Location = new System.Drawing.Point(0, 0);
             this.splitContainerLeftRight.Name = "splitContainerLeftRight";
@@ -91,28 +93,36 @@
             // 
             // textScriptLeft
             // 
+            this.textScriptLeft.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textScriptLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textScriptLeft.LineWrapping.VisualFlags = ScintillaNET.LineWrappingVisualFlags.End;
             this.textScriptLeft.Location = new System.Drawing.Point(0, 0);
+            this.textScriptLeft.Margins.Margin0.Width = 40;
             this.textScriptLeft.Name = "textScriptLeft";
-            this.textScriptLeft.Size = new System.Drawing.Size(400, 211);
+            this.textScriptLeft.Size = new System.Drawing.Size(398, 209);
             this.textScriptLeft.TabIndex = 0;
             this.textScriptLeft.Text = "Left";
+            this.textScriptLeft.Whitespace.Mode = ScintillaNET.WhitespaceMode.VisibleAlways;
             // 
             // textScriptRight
             // 
+            this.textScriptRight.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textScriptRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textScriptRight.Location = new System.Drawing.Point(0, 0);
+            this.textScriptRight.Margins.Margin0.Width = 40;
             this.textScriptRight.Name = "textScriptRight";
-            this.textScriptRight.Size = new System.Drawing.Size(396, 211);
+            this.textScriptRight.Size = new System.Drawing.Size(394, 209);
             this.textScriptRight.TabIndex = 0;
             this.textScriptRight.Text = "Right";
             // 
             // textScriptMerged
             // 
+            this.textScriptMerged.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textScriptMerged.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textScriptMerged.Location = new System.Drawing.Point(0, 0);
+            this.textScriptMerged.Margins.Margin0.Width = 40;
             this.textScriptMerged.Name = "textScriptMerged";
-            this.textScriptMerged.Size = new System.Drawing.Size(800, 196);
+            this.textScriptMerged.Size = new System.Drawing.Size(798, 194);
             this.textScriptMerged.TabIndex = 0;
             this.textScriptMerged.Text = "Merged";
             // 
@@ -125,6 +135,13 @@
             this.panelDiffToolbar.Controls.Add(this.checkBoxShowDiff);
             this.panelDiffToolbar.Controls.Add(this.checkBoxShowMerged);
             this.panelDiffToolbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDiffToolbar.GradientEndColor = System.Drawing.Color.Empty;
+            this.panelDiffToolbar.GradientStartColor = System.Drawing.Color.Empty;
+            this.panelDiffToolbar.LineBottom = false;
+            this.panelDiffToolbar.LineColor = System.Drawing.SystemColors.ControlDark;
+            this.panelDiffToolbar.LineLeft = false;
+            this.panelDiffToolbar.LineRight = false;
+            this.panelDiffToolbar.LineTop = true;
             this.panelDiffToolbar.Location = new System.Drawing.Point(0, 0);
             this.panelDiffToolbar.Name = "panelDiffToolbar";
             this.panelDiffToolbar.Size = new System.Drawing.Size(800, 33);
@@ -231,7 +248,7 @@
         private ScintillaNET.Scintilla textScriptLeft;
         private ScintillaNET.Scintilla textScriptRight;
         private ScintillaNET.Scintilla textScriptMerged;
-        private System.Windows.Forms.Panel panelDiffToolbar;
+        private GradientPanel panelDiffToolbar;
         private System.Windows.Forms.Button buttonTearWindow;
         private System.Windows.Forms.Label labelDifference;
         private System.Windows.Forms.Label labelObjectRight;

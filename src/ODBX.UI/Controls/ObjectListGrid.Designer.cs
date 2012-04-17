@@ -31,23 +31,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GridResults = new ODBX.Controls.ResultGrid();
             this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInclude = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.NameRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridResults)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // GridResults
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.GridResults.AllowUserToAddRows = false;
+            this.GridResults.AllowUserToDeleteRows = false;
+            this.GridResults.AllowUserToResizeColumns = false;
+            this.GridResults.AllowUserToResizeRows = false;
+            this.GridResults.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.GridResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GridResults.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -55,10 +55,10 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 24;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GridResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GridResults.ColumnHeadersHeight = 24;
+            this.GridResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.GridResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnType,
             this.ColumnName,
             this.ColumnInclude,
@@ -70,14 +70,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.GridResults.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GridResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridResults.GridColor = System.Drawing.SystemColors.Control;
+            this.GridResults.Location = new System.Drawing.Point(0, 0);
+            this.GridResults.Margin = new System.Windows.Forms.Padding(0);
+            this.GridResults.MultiSelect = false;
+            this.GridResults.Name = "GridResults";
+            this.GridResults.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -85,22 +85,19 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(788, 505);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DataGridView1RowPostPaint);
-            this.dataGridView1.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.DataGridView1RowPrePaint);
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.DataGridView1SelectionChanged);
+            this.GridResults.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.GridResults.RowHeadersVisible = false;
+            this.GridResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.GridResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridResults.ShowCellErrors = false;
+            this.GridResults.ShowEditingIcon = false;
+            this.GridResults.ShowRowErrors = false;
+            this.GridResults.Size = new System.Drawing.Size(788, 505);
+            this.GridResults.TabIndex = 0;
             // 
             // ColumnType
             // 
-            this.ColumnType.DataPropertyName = "Type";
+            this.ColumnType.DataPropertyName = "Object.Type";
             this.ColumnType.HeaderText = "Type";
             this.ColumnType.Name = "ColumnType";
             this.ColumnType.ReadOnly = true;
@@ -109,7 +106,7 @@
             // ColumnName
             // 
             this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnName.DataPropertyName = "NameLeft";
+            this.ColumnName.DataPropertyName = "SourceName";
             this.ColumnName.HeaderText = "Name";
             this.ColumnName.Name = "ColumnName";
             this.ColumnName.ReadOnly = true;
@@ -123,6 +120,7 @@
             // 
             // NameRight
             // 
+            this.NameRight.DataPropertyName = "TargetName";
             this.NameRight.HeaderText = "Name";
             this.NameRight.Name = "NameRight";
             this.NameRight.ReadOnly = true;
@@ -131,10 +129,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GridResults);
             this.Name = "ObjectListGrid";
             this.Size = new System.Drawing.Size(788, 505);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridResults)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,6 +140,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private ResultGrid GridResults;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnInclude;

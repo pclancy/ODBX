@@ -83,7 +83,6 @@
             this.ListViewProjects.Size = new System.Drawing.Size(877, 458);
             this.ListViewProjects.TabIndex = 0;
             this.ListViewProjects.UseCompatibleStateImageBehavior = false;
-            this.ListViewProjects.UseTranslucentSelection = true;
             this.ListViewProjects.View = System.Windows.Forms.View.Details;
             this.ListViewProjects.SelectedIndexChanged += new System.EventHandler(this.ListViewProjectsSelectedIndexChanged);
             this.ListViewProjects.DoubleClick += new System.EventHandler(this.ButtonAcceptClick);
