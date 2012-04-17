@@ -19,6 +19,11 @@ namespace ODBX.Controls
     {
         private ModelObject _modelObject;
 
+        public ControlScriptDiff()
+        {
+            InitializeComponent();
+        }
+
         public ModelObject ModelObject
         {
             get { return _modelObject; }
@@ -28,7 +33,7 @@ namespace ODBX.Controls
 
                 if (value == null)
                 {
-                    labelDifference.Text = labelObjectLeft.Text =  labelObjectRight.Text = string.Empty;
+                    labelDifference.Text = labelObjectLeft.Text = labelObjectRight.Text = string.Empty;
                 }
                 else
                 {
@@ -36,11 +41,6 @@ namespace ODBX.Controls
                                                          value.Difference.InternalState);
                 }
             }
-        }
-
-        public ControlScriptDiff()
-        {
-            InitializeComponent();
         }
 
         [Browsable(false)]
@@ -65,7 +65,6 @@ namespace ODBX.Controls
             get { return textScriptLeft.Text; }
             set
             {
-
                 textScriptLeft.IsReadOnly = false;
                 textScriptLeft.Text = value;
                 textScriptLeft.IsReadOnly = true;
@@ -118,6 +117,5 @@ namespace ODBX.Controls
 
             splitContainerMain.Panel1Collapsed = !checkBoxShowDiff.Checked;
         }
-
     }
 }

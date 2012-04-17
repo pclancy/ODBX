@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using ODBX.Common;
 using ODBX.Driver;
 using ODBX.Forms;
 using ODBX.Properties;
@@ -15,12 +12,12 @@ namespace ODBX.Controls
 {
     public class ResultGrid : DataGridView
     {
-        private Model _model;
         private List<GridObject> _gridBinding;
+        private Model _model;
 
         public ResultGrid()
         {
-            this.CellClick += OnCellClick;
+            CellClick += OnCellClick;
         }
 
 
@@ -78,13 +75,15 @@ namespace ODBX.Controls
                 Rows[e.RowIndex].Height = 32;
                 e.Handled = true;
                 PaintGroupRow(gridGroup, e);
-            } base.OnRowPrePaint(e);
+            }
+            base.OnRowPrePaint(e);
         }
 
         private void PaintGroupRow(GridGroup gridGroup, DataGridViewRowPrePaintEventArgs e)
         {
-            var rect = e.RowBounds;
-            var gradBrush = new LinearGradientBrush(rect, SystemColors.ControlLight, SystemColors.ControlLightLight, LinearGradientMode.Vertical);
+            Rectangle rect = e.RowBounds;
+            var gradBrush = new LinearGradientBrush(rect, SystemColors.ControlLight, SystemColors.ControlLightLight,
+                                                    LinearGradientMode.Vertical);
             e.Graphics.FillRectangle(gradBrush, rect);
             e.Graphics.DrawLine(SystemPens.ButtonShadow, rect.Left, rect.Top, rect.Width, rect.Top);
             e.Graphics.DrawLine(SystemPens.ButtonHighlight, rect.Left, rect.Top + 1, rect.Width, rect.Top + 1);
@@ -116,10 +115,14 @@ namespace ODBX.Controls
             switch (groupBy)
             {
                 case GroupByView.ObjectType:
-                    groupings = _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(modelObject => modelObject.Type).ToList();
+                    groupings =
+                        _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(modelObject => modelObject.Type)
+                            .ToList();
                     break;
                 case GroupByView.Difference:
-                    groupings = _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(modelObject => modelObject.Difference.DisplayValue).ToList();
+                    groupings =
+                        _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(
+                            modelObject => modelObject.Difference.DisplayValue).ToList();
                     break;
             }
 
@@ -130,7 +133,7 @@ namespace ODBX.Controls
                 group.Collapsed = true;
                 _gridBinding.Add(group);
 
-                foreach (var modelObject in grouping)
+                foreach (ModelObject modelObject in grouping)
                 {
                     var difference = new GridDifference
                                          {
@@ -153,6 +156,7 @@ namespace ODBX.Controls
         {
             CollapseExpandAll(true);
         }
+
         public void ExpandAll()
         {
             CollapseExpandAll(false);
@@ -162,11 +166,11 @@ namespace ODBX.Controls
         {
             SuspendLayout();
 
-            var count = Rows.Count;
-            for (var i = 0; i < count; i++)
+            int count = Rows.Count;
+            for (int i = 0; i < count; i++)
             {
                 if (IsGroupRow(i))
-                    ((GridGroup)Rows[i].DataBoundItem).Collapsed = collapsed;
+                    ((GridGroup) Rows[i].DataBoundItem).Collapsed = collapsed;
                 else
                     Rows[i].Visible = !collapsed;
             }
@@ -177,7 +181,7 @@ namespace ODBX.Controls
         {
             SuspendLayout();
 
-            var gridGroup = (GridGroup)Rows[index].DataBoundItem;
+            var gridGroup = (GridGroup) Rows[index].DataBoundItem;
             gridGroup.Collapsed = !gridGroup.Collapsed;
 
             foreach (DataGridViewRow row in GetRows(index))
@@ -199,7 +203,6 @@ namespace ODBX.Controls
 
             return Rows[rowIndex].DataBoundItem is GridGroup;
         }
-
     }
 
     public class GridGroup : GridObject
@@ -212,7 +215,6 @@ namespace ODBX.Controls
     public class GridDifference : GridObject
     {
         public ModelObject Object { get; set; }
-
     }
 
     public class GridObject
@@ -230,6 +232,4 @@ namespace ODBX.Controls
     }
 
     public delegate void ModelEventHandler(object sender, SelectionChangedEventArgs args);
-
-
 }

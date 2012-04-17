@@ -9,14 +9,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Xml.Serialization;
 using ODBX.Driver;
 
 namespace ODBX.Common
 {
-
     [Serializable]
     public class ProjectOptionDTO
     {
@@ -29,7 +26,8 @@ namespace ODBX.Common
     public class ProjectDTO
     {
         public ProjectDTO()
-        {}
+        {
+        }
 
         public ProjectDTO(Project project)
         {
@@ -41,7 +39,7 @@ namespace ODBX.Common
             Author = project.Author;
 
             Options = new List<ProjectOptionDTO>();
-            foreach (var driverOption in project.Options)
+            foreach (DriverOption driverOption in project.Options)
             {
                 Options.Add(new ProjectOptionDTO
 
@@ -52,7 +50,6 @@ namespace ODBX.Common
                                 }
                     );
             }
-
         }
 
 
@@ -67,23 +64,14 @@ namespace ODBX.Common
         public DateTime? LastSync { get; set; }
 
         public List<ProjectOptionDTO> Options { get; set; }
-        
     }
 
     public class Project
     {
-        public IDriver Driver { get; set; }
-        public IConnection Target { get; set; }
-        public IConnection Source { get; set; }
-        public IList<DriverOption> Options { get; set; }
-        public Model Model { get; set; }
-        public string FilePath { get; set; }
-        public DateTime? LastCompared { get; set; }
-        public DateTime? LastSync { get; set; }
-        public string Author { get; set; }
+        public Project()
+        {
+        }
 
-
-        public Project(){}
         public Project(ProjectDTO project, string filePath)
         {
             FilePath = filePath;
@@ -96,9 +84,9 @@ namespace ODBX.Common
 
             Options = Driver.Configuration.Options;
 
-            foreach (var projectOptionDTO in project.Options)
+            foreach (ProjectOptionDTO projectOptionDTO in project.Options)
             {
-                var match = Options.FirstOrDefault(x => x.Id == projectOptionDTO.Id);
+                DriverOption match = Options.FirstOrDefault(x => x.Id == projectOptionDTO.Id);
                 if (match != null)
                 {
                     match.ConfiguredValue = projectOptionDTO.Value;
@@ -108,14 +96,22 @@ namespace ODBX.Common
                     // todo: warn user
                 }
             }
-
         }
+
+        public IDriver Driver { get; set; }
+        public IConnection Target { get; set; }
+        public IConnection Source { get; set; }
+        public IList<DriverOption> Options { get; set; }
+        public Model Model { get; set; }
+        public string FilePath { get; set; }
+        public DateTime? LastCompared { get; set; }
+        public DateTime? LastSync { get; set; }
+        public string Author { get; set; }
+
 
         public void Refresh()
         {
             Model = Driver.BuildComparisonObjects(Source, Target);
         }
-
-
     }
 }

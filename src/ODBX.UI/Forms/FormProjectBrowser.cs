@@ -8,6 +8,7 @@
 //  
 
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using ODBX.Common;
 using ODBX.Properties;
@@ -16,14 +17,14 @@ namespace ODBX.Forms
 {
     public partial class FormProjectBrowser : BaseForm
     {
-        public Project SelectedProject { get; set; }
-
         public FormProjectBrowser()
         {
             InitializeComponent();
             comboBoxLocation.Items.Add(State.SavedProjectsFolder);
             comboBoxLocation.SelectedIndex = 0;
         }
+
+        public Project SelectedProject { get; set; }
 
         private void ButtonBrowseFolderClick(object sender, EventArgs e)
         {
@@ -111,7 +112,7 @@ namespace ODBX.Forms
         {
             Cursor.Current = Cursors.WaitCursor;
             buttonAccept.Enabled = false;
-            var projectList = State.ScanProjects(comboBoxLocation.Text);
+            List<Project> projectList = State.ScanProjects(comboBoxLocation.Text);
             ListViewProjects.SetObjects(projectList);
             Cursor.Current = Cursors.Default;
         }

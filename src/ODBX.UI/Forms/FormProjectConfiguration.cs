@@ -108,10 +108,10 @@ namespace ODBX.Forms
             {
                 if (e.Node.Tag != null)
                 {
-                    var o = Project.Options.First(x => x.Id == ((DriverOption) e.Node.Tag).Id);
+                    DriverOption o = Project.Options.First(x => x.Id == ((DriverOption) e.Node.Tag).Id);
                     var t = ((DriverOption) e.Node.Tag);
 
-                    Project.Options.First(x=>x.Id == ((DriverOption)e.Node.Tag).Id).ConfiguredValue = e.Node.Checked;
+                    Project.Options.First(x => x.Id == ((DriverOption) e.Node.Tag).Id).ConfiguredValue = e.Node.Checked;
                 }
             }
         }
@@ -137,7 +137,7 @@ namespace ODBX.Forms
                               {
                                   Driver = _drivers.First(),
                                   Target = new Connection {Authentication = AuthenticationMethod.Integrated},
-                                  Source = new Connection { Authentication = AuthenticationMethod.Integrated },
+                                  Source = new Connection {Authentication = AuthenticationMethod.Integrated},
                               };
                 Project.Options = Project.Driver.Configuration.Options;
                 ResetDriverOptions();
@@ -157,11 +157,10 @@ namespace ODBX.Forms
 
         private void ResetDriverOptions()
         {
-            foreach (var driverOption in Project.Options)
+            foreach (DriverOption driverOption in Project.Options)
             {
                 driverOption.ConfiguredValue = driverOption.DefaultValue;
             }
-
         }
 
         private void BindDriverOptions()
@@ -208,11 +207,10 @@ namespace ODBX.Forms
 
         private void ButtonSwapClick(object sender, EventArgs e)
         {
-            var sourceConfiguration = ConnectionBuilderSource.Configuration;
-            var targetConfiguration = ConnectionBuilderDestination.Configuration;
+            IConnection sourceConfiguration = ConnectionBuilderSource.Configuration;
+            IConnection targetConfiguration = ConnectionBuilderDestination.Configuration;
             ConnectionBuilderSource.Configuration = targetConfiguration;
             ConnectionBuilderDestination.Configuration = sourceConfiguration;
         }
-
     }
 }

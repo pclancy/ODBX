@@ -7,16 +7,15 @@
 //   
 //  
 
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using ODBX.Controls;
 
 namespace ODBX.Forms
 {
     public class BaseForm : Form
     {
-
-        protected override void OnLoad(System.EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             AutoScaleMode = AutoScaleMode.Dpi;

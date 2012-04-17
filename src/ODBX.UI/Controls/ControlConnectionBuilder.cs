@@ -43,7 +43,7 @@ namespace ODBX.Controls
             {
                 var config = new Connection
                                  {
-                                     Authentication = (AuthenticationMethod)cboAuthentication.SelectedIndex + 1,
+                                     Authentication = (AuthenticationMethod) cboAuthentication.SelectedIndex + 1,
                                      Catalog = cboDatabase.Text,
                                      Host = cboServer.Text,
                                      Username = txtUsername.Text,
@@ -56,7 +56,7 @@ namespace ODBX.Controls
             {
                 if (value != null)
                 {
-                    cboAuthentication.SelectedIndex = (int)value.Authentication - 1;
+                    cboAuthentication.SelectedIndex = (int) value.Authentication - 1;
                     cboDatabase.Text = value.Catalog;
                     cboServer.Text = value.Host ?? "(local)";
                     txtUsername.Text = value.Username;

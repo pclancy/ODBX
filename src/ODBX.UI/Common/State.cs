@@ -16,12 +16,12 @@ namespace ODBX.Common
 {
     public static class State
     {
-        public static string SavedProjectsFolder { get; set; }
-
         static State()
         {
             SavedProjectsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         }
+
+        public static string SavedProjectsFolder { get; set; }
 
         public static void SaveProject(Project project)
         {
@@ -33,7 +33,7 @@ namespace ODBX.Common
                                                  project.Target.Host, project.Target.Catalog);
             }
 
-            var xmlSerializer = new XmlSerializer(typeof(ProjectDTO));
+            var xmlSerializer = new XmlSerializer(typeof (ProjectDTO));
 
             using (TextWriter writeFileStream = new StreamWriter(project.FilePath))
             {
@@ -48,7 +48,7 @@ namespace ODBX.Common
             var projects = new List<Project>();
             try
             {
-                foreach (var enumerateFile in Directory.EnumerateFiles(folderPath, "*.odbx"))
+                foreach (string enumerateFile in Directory.EnumerateFiles(folderPath, "*.odbx"))
                 {
                     try
                     {
@@ -58,7 +58,6 @@ namespace ODBX.Common
                     {
                     }
                 }
-
             }
             catch
             {
@@ -72,8 +71,8 @@ namespace ODBX.Common
         {
             using (var readFileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                var xmlSerializer = new XmlSerializer(typeof(ProjectDTO));
-                var projectDTO = (ProjectDTO)xmlSerializer.Deserialize(readFileStream);
+                var xmlSerializer = new XmlSerializer(typeof (ProjectDTO));
+                var projectDTO = (ProjectDTO) xmlSerializer.Deserialize(readFileStream);
                 readFileStream.Close();
 
                 return new Project(projectDTO, filePath);

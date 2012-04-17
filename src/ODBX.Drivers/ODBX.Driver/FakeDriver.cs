@@ -69,11 +69,6 @@ namespace ODBX.Driver
             return string.Empty;
         }
 
-        public void SetOption(Guid id, bool value)
-        {
-            
-        }
-
         public string LastError { get; private set; }
 
         public string Syntax
@@ -81,12 +76,16 @@ namespace ODBX.Driver
             get { return "mssql"; }
         }
 
+        #endregion
+
+        public void SetOption(Guid id, bool value)
+        {
+        }
+
         public string GenerateScript(ModelObject modelObject)
         {
             return string.Empty;
         }
-
-        #endregion
     }
 
     public class FakeServer : IServer
@@ -136,10 +135,11 @@ namespace ODBX.Driver
 
         public IList<DriverOption> Options { get; set; }
         public IList<DriverOptionCategory> OptionCategories { get; set; }
+
+        #endregion
+
         public void SetOption(int id, bool value)
         {
         }
-
-        #endregion
     }
 }

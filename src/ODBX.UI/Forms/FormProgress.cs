@@ -61,7 +61,5 @@ namespace ODBX.Forms
             DialogResult = DialogResult.Cancel;
             Close();
         }
-
-
     }
 }

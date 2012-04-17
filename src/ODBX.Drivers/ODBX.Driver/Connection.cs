@@ -15,7 +15,6 @@ namespace ODBX.Driver
     [Serializable]
     public class Connection : IConnection
     {
-
         public Connection()
         {
         }

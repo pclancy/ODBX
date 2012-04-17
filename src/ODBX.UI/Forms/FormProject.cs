@@ -8,10 +8,8 @@
 //  
 
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using ODBX.Common;
-using ODBX.Controls;
 using ODBX.Driver;
 using ODBX.Properties;
 
@@ -26,14 +24,14 @@ namespace ODBX.Forms
 
     public partial class FormProject : BaseForm
     {
-
         private Project _project;
-        public GroupByView GroupBy { get; set; }
 
         public FormProject()
         {
             InitializeComponent();
         }
+
+        public GroupByView GroupBy { get; set; }
 
         public ModelObject SelectedObject { get; set; }
 
@@ -71,7 +69,7 @@ namespace ODBX.Forms
             SuspendLayout();
 
             resultGrid.Bind(Project.Model, GroupBy);
-            
+
             ResumeLayout();
             Refresh();
         }
@@ -90,13 +88,11 @@ namespace ODBX.Forms
                                                                                  SelectedObject);
                 controlScriptDiff1.BottomContent = _project.Driver.GenerateScript(ScriptAction.Merged, SelectedObject);
             }
-
         }
 
         private void FormProjectShown(object sender, EventArgs e)
         {
             resultGrid.CollapseAll();
         }
-
     }
 }

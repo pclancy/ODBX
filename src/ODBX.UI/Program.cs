@@ -16,6 +16,7 @@ namespace ODBX
     internal static class Program
     {
         public static FormApplication FormApplication;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

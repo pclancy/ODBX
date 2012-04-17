@@ -16,6 +16,11 @@ namespace ODBX.Forms
     {
         private ModelObject _modelObject;
 
+        public FormObjectDiff()
+        {
+            InitializeComponent();
+        }
+
         public ModelObject ModelObject
         {
             get { return _modelObject; }
@@ -30,11 +35,6 @@ namespace ODBX.Forms
             }
         }
 
-        public FormObjectDiff()
-        {
-            InitializeComponent();
-        }
-
         private void ButtonCloseClick(object sender, EventArgs e)
         {
             Close();
@@ -47,6 +47,5 @@ namespace ODBX.Forms
             controlScriptDiff1.BottomContent = bottomContent;
             controlScriptDiff1.Syntax = syntax;
         }
-
     }
 }
