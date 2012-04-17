@@ -60,6 +60,7 @@ namespace ODBX.Forms
             labelTargetCatalog.Text = _project.Target.Catalog;
 
             BuildView();
+            resultGrid.CollapseAll();
 
             Cursor.Current = Cursors.Default;
         }

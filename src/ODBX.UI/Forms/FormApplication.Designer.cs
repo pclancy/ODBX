@@ -66,7 +66,7 @@
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStripMain.Size = new System.Drawing.Size(942, 49);
+            this.toolStripMain.Size = new System.Drawing.Size(484, 49);
             this.toolStripMain.TabIndex = 1;
             this.toolStripMain.Text = "toolStrip1";
             // 
@@ -142,7 +142,7 @@
             this.toolStripLabel1.Image = global::ODBX.Properties.Resources.node_tree;
             this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(75, 36);
+            this.toolStripLabel1.Size = new System.Drawing.Size(75, 16);
             this.toolStripLabel1.Text = "Group By:";
             // 
             // menuStripMain
@@ -157,7 +157,7 @@
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStripMain.Size = new System.Drawing.Size(942, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(484, 24);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -191,13 +191,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 435);
+            this.ClientSize = new System.Drawing.Size(484, 451);
             this.Controls.Add(this.toolStripMain);
             this.Controls.Add(this.menuStripMain);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStripMain;
-            this.MinimumSize = new System.Drawing.Size(100, 100);
+            this.MinimumSize = new System.Drawing.Size(500, 100);
             this.Name = "FormApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FormApplication";
