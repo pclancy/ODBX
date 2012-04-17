@@ -194,39 +194,39 @@ namespace ODBX.Driver.OpenDBDiff
             _merged.Views.ForEach(
                 item => model.Add("View", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Users.ForEach(
-                item => model.Add("Users", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("User", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.UserTypes.ForEach(
-                item => model.Add("User Types", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("User Type", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.XmlSchemas.ForEach(
-                item => model.Add("XML Schemas", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("XML Schema", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Assemblies.ForEach(
-                item => model.Add("CLR Assemblies", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("CLR Assemblie", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.CLRFunctions.ForEach(
-                item => model.Add("CLR Functions", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("CLR Function", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.CLRProcedures.ForEach(
-                item => model.Add("CLR Procedures", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("CLR Procedure", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.DDLTriggers.ForEach(
-                item => model.Add("DDL Triggers", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("DDL Trigger", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Defaults.ForEach(
-                item => model.Add("Defaults", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Default", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.ExtendedProperties.ForEach(
-                item => model.Add("Extended Properties", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Extended Property", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.FileGroups.ForEach(
                 item => model.Add("File Groups", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Functions.ForEach(
                 item => model.Add("Functions", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.PartitionFunctions.ForEach(
-                item => model.Add("Partition Functions", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Partition Function", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.PartitionSchemes.ForEach(
-                item => model.Add("Partition Schemes", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Partition Scheme", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Procedures.ForEach(
-                item => model.Add("Stored Procedures", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Stored Procedure", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Roles.ForEach(
-                item => model.Add("Roles", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Role", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Schemas.ForEach(
-                item => model.Add("Schemas", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Schema", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
             _merged.Synonyms.ForEach(
-                item => model.Add("Synonyms", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
+                item => model.Add("Synonym", item.FullName, new Guid(item.Guid), item.Id, ResolveAction(item.Status)));
 
             OnFeedbackMessage(new FeedbackEventArgs { Message = "Comparison Complete", ProgressPercent = 100 });
             OnComparisonCompleted(EventArgs.Empty);
