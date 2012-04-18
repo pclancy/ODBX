@@ -15,6 +15,7 @@ namespace ODBX.Controls
     {
         private List<GridObject> _gridBinding;
         private Model _model;
+        private bool _isBinding;
 
         public ResultGrid()
         {
@@ -48,12 +49,15 @@ namespace ODBX.Controls
 
         protected override void OnRowPrePaint(DataGridViewRowPrePaintEventArgs e)
         {
-            if (IsGroupRow(e.RowIndex))
+            if (IsGroupRow(e.RowIndex) && !_isBinding)
             {
                 var gridGroup = Rows[e.RowIndex].DataBoundItem as GridGroup;
-                Rows[e.RowIndex].Height = 32;
-                e.Handled = true;
+
+                if (Rows[e.RowIndex].Height != 32)
+                    Rows[e.RowIndex].Height = 32;
+
                 PaintGroupRow(gridGroup, e);
+                e.Handled = true;
             }
             base.OnRowPrePaint(e);
         }
@@ -64,6 +68,7 @@ namespace ODBX.Controls
             var gradBrush = new LinearGradientBrush(rect, SystemColors.ControlLight, SystemColors.ControlLightLight,
                                                     LinearGradientMode.Vertical);
             e.Graphics.FillRectangle(gradBrush, rect);
+
             e.Graphics.DrawLine(SystemPens.ButtonShadow, rect.Left, rect.Top, rect.Width, rect.Top);
             e.Graphics.DrawLine(SystemPens.ButtonHighlight, rect.Left, rect.Top + 1, rect.Width, rect.Top + 1);
             e.Graphics.DrawLine(SystemPens.Control, rect.Left, rect.Bottom - 1, rect.Width, rect.Bottom - 1);
@@ -73,7 +78,7 @@ namespace ODBX.Controls
             e.Graphics.DrawString(gridGroup.HeaderText, RowsDefaultCellStyle.Font, Brushes.Black, layoutRectangle);
 
             e.Graphics.DrawImage(gridGroup.Collapsed ? Resources.expand : Resources.collapse, rect.Left + 5,
-                                 rect.Bottom - 26, 16, 16);
+                                 rect.Top +5, 16, 16);
         }
 
         protected override void SetSelectedRowCore(int rowIndex, bool selected)
@@ -85,6 +90,7 @@ namespace ODBX.Controls
         public void Bind(Model model, GroupByView groupBy)
         {
             SuspendLayout();
+            _isBinding = true;
 
             DataSource = null;
             Rows.Clear();
@@ -138,6 +144,8 @@ namespace ODBX.Controls
             DataSource = _gridBinding;
 
             CollapseExpandAll(true);
+            _isBinding = false;
+
             ResumeLayout();
         }
 

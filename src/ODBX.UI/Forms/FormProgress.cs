@@ -11,6 +11,7 @@ using System;
 using System.Windows.Forms;
 using ODBX.Common;
 using ODBX.Driver;
+using ODBX.Properties;
 
 namespace ODBX.Forms
 {
@@ -42,6 +43,7 @@ namespace ODBX.Forms
 
         private void FormProgressShown(object sender, EventArgs e)
         {
+            labelOperation.Text = Strings.MessagePreparing;
             buttonAccept.Enabled = false;
             buttonCancel.Enabled = true;
             Refresh();

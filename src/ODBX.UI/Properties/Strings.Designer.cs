@@ -104,5 +104,14 @@ namespace ODBX.Properties {
                 return ResourceManager.GetString("ErrorNoDriversFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preparing....
+        /// </summary>
+        internal static string MessagePreparing {
+            get {
+                return ResourceManager.GetString("MessagePreparing", resourceCulture);
+            }
+        }
     }
 }

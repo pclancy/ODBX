@@ -132,4 +132,7 @@
   <data name="ErrorNoDriveOptionsFound">
     <value xml:space="preserve">No driver options found</value>
   </data>
+  <data name="MessagePreparing">
+    <value xml:space="preserve">Preparing...</value>
+  </data>
 </root>
