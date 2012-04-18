@@ -34,6 +34,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.resultGrid = new ODBX.Controls.ResultGrid();
+            this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSourceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInclude = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnTargetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.controlScriptDiff1 = new ODBX.Controls.ControlScriptDiff();
             this.tableLayoutPanel1 = new ODBX.Controls.GradientTable();
             this.panelDestination = new System.Windows.Forms.Panel();
@@ -45,10 +49,6 @@
             this.labelSourceCatalog = new System.Windows.Forms.Label();
             this.labelSourceConnection = new System.Windows.Forms.Label();
             this.panelSourceIcon = new System.Windows.Forms.PictureBox();
-            this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSourceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInclude = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnTargetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -113,6 +113,53 @@
             this.resultGrid.TabIndex = 0;
             this.resultGrid.SelectionChanged += new System.EventHandler(this.ResultGridSelectionChanged);
             // 
+            // ColumnType
+            // 
+            this.ColumnType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnType.DataPropertyName = "Type";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ColumnType.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnType.FillWeight = 30F;
+            this.ColumnType.HeaderText = "Type";
+            this.ColumnType.Name = "ColumnType";
+            this.ColumnType.ReadOnly = true;
+            this.ColumnType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ColumnSourceName
+            // 
+            this.ColumnSourceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnSourceName.DataPropertyName = "SourceName";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSourceName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnSourceName.FillWeight = 70F;
+            this.ColumnSourceName.HeaderText = "Name";
+            this.ColumnSourceName.Name = "ColumnSourceName";
+            this.ColumnSourceName.ReadOnly = true;
+            this.ColumnSourceName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ColumnInclude
+            // 
+            this.ColumnInclude.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnInclude.DataPropertyName = "Include";
+            this.ColumnInclude.FalseValue = "false";
+            this.ColumnInclude.HeaderText = "Include";
+            this.ColumnInclude.Name = "ColumnInclude";
+            this.ColumnInclude.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnInclude.TrueValue = "true";
+            this.ColumnInclude.Width = 84;
+            // 
+            // ColumnTargetName
+            // 
+            this.ColumnTargetName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTargetName.DataPropertyName = "TargetName";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ColumnTargetName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnTargetName.FillWeight = 100.096F;
+            this.ColumnTargetName.HeaderText = "Name";
+            this.ColumnTargetName.Name = "ColumnTargetName";
+            this.ColumnTargetName.ReadOnly = true;
+            this.ColumnTargetName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // controlScriptDiff1
             // 
             this.controlScriptDiff1.BottomContent = "";
@@ -136,7 +183,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panelDirection, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelSource, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.EndColor = System.Drawing.Color.LemonChiffon;
+            this.tableLayoutPanel1.EndColor = System.Drawing.Color.YellowGreen;
             this.tableLayoutPanel1.LineBottom = false;
             this.tableLayoutPanel1.LineColor = System.Drawing.SystemColors.ControlLight;
             this.tableLayoutPanel1.LineLeft = false;
@@ -204,9 +251,10 @@
             this.panelDirection.BackColor = System.Drawing.Color.Transparent;
             this.panelDirection.BackgroundImage = global::ODBX.Properties.Resources.big_arrow_right;
             this.panelDirection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelDirection.Location = new System.Drawing.Point(392, 3);
+            this.panelDirection.Location = new System.Drawing.Point(389, 0);
+            this.panelDirection.Margin = new System.Windows.Forms.Padding(0);
             this.panelDirection.Name = "panelDirection";
-            this.panelDirection.Size = new System.Drawing.Size(75, 43);
+            this.panelDirection.Size = new System.Drawing.Size(82, 55);
             this.panelDirection.TabIndex = 2;
             // 
             // panelSource
@@ -257,53 +305,6 @@
             this.panelSourceIcon.Size = new System.Drawing.Size(37, 99);
             this.panelSourceIcon.TabIndex = 0;
             this.panelSourceIcon.TabStop = false;
-            // 
-            // ColumnType
-            // 
-            this.ColumnType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnType.DataPropertyName = "Type";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.ColumnType.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnType.FillWeight = 30F;
-            this.ColumnType.HeaderText = "Type";
-            this.ColumnType.Name = "ColumnType";
-            this.ColumnType.ReadOnly = true;
-            this.ColumnType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ColumnSourceName
-            // 
-            this.ColumnSourceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnSourceName.DataPropertyName = "SourceName";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSourceName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnSourceName.FillWeight = 70F;
-            this.ColumnSourceName.HeaderText = "Name";
-            this.ColumnSourceName.Name = "ColumnSourceName";
-            this.ColumnSourceName.ReadOnly = true;
-            this.ColumnSourceName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ColumnInclude
-            // 
-            this.ColumnInclude.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColumnInclude.DataPropertyName = "Include";
-            this.ColumnInclude.FalseValue = "false";
-            this.ColumnInclude.HeaderText = "Include";
-            this.ColumnInclude.Name = "ColumnInclude";
-            this.ColumnInclude.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnInclude.TrueValue = "true";
-            this.ColumnInclude.Width = 84;
-            // 
-            // ColumnTargetName
-            // 
-            this.ColumnTargetName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnTargetName.DataPropertyName = "TargetName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.ColumnTargetName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnTargetName.FillWeight = 100.096F;
-            this.ColumnTargetName.HeaderText = "Name";
-            this.ColumnTargetName.Name = "ColumnTargetName";
-            this.ColumnTargetName.ReadOnly = true;
-            this.ColumnTargetName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // FormProject
             // 

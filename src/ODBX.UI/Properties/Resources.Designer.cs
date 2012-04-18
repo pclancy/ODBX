@@ -207,13 +207,6 @@ namespace ODBX.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap big_arrow_left {
-            get {
-                object obj = ResourceManager.GetObject("big_arrow_left", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap big_arrow_right {
             get {
                 object obj = ResourceManager.GetObject("big_arrow_right", resourceCulture);

@@ -29,6 +29,12 @@ namespace ODBX.Forms
         public FormProject()
         {
             InitializeComponent();
+
+            resultGrid.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            resultGrid.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            resultGrid.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            resultGrid.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            
         }
 
         public GroupByView GroupBy { get; set; }
@@ -64,8 +70,11 @@ namespace ODBX.Forms
         }
 
 
-        private void BuildView()
+        public void BuildView()
         {
+            if (Project == null)
+                return;
+
             SuspendLayout();
 
             resultGrid.Bind(Project.Model, GroupBy);
@@ -94,5 +103,6 @@ namespace ODBX.Forms
         {
             resultGrid.CollapseAll();
         }
+
     }
 }

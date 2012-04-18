@@ -363,12 +363,6 @@
     <None Include="Resources\database_test.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\big-arrow-left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\big-arrow-right.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ODBX.Drivers\ODBX.Driver.OpenDBDiff\ODBX.Driver.OpenDBDiff.csproj">
       <Project>{282EA14F-23CD-461E-BEE6-7CC25495A576}</Project>
       <Name>ODBX.Driver.OpenDBDiff</Name>
@@ -440,6 +434,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\node-tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tango_red_go_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\big_arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-diff.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action-db-status.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_app.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

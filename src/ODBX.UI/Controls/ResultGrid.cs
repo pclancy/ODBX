@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using ODBX.Driver;
@@ -34,28 +35,6 @@ namespace ODBX.Controls
                 return null;
             }
         }
-
-        //if (selectedObject is GridDifference)
-        //                {
-        //                    OnSelectionChanged(new SelectionChangedEventArgs
-        //                                           {
-        //                                               SelectedObject = ((GridDifference) selectedObject).Object
-
-        //                                           });
-        //                }
-        //                else
-        //                {
-        //                    OnSelectionChanged(new SelectionChangedEventArgs
-        //                                           {
-        //                                               SelectedObject = null
-
-        //                                           });
-        //                    SelectedRows[0].Selected = false;
-        //                }
-        //            }
-        //        }
-        //    }
-
 
         private void OnCellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -105,12 +84,15 @@ namespace ODBX.Controls
 
         public void Bind(Model model, GroupByView groupBy)
         {
+            SuspendLayout();
+
+            DataSource = null;
+            Rows.Clear();
+
             _model = model;
             _gridBinding = new List<GridObject>();
 
-            var groupings = new List<IGrouping<string, ModelObject>>();
-            groupBy = GroupByView.Difference;
-
+            List<IGrouping<string, ModelObject>> groupings;
 
             switch (groupBy)
             {
@@ -123,6 +105,10 @@ namespace ODBX.Controls
                     groupings =
                         _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(
                             modelObject => modelObject.Difference.DisplayValue).ToList();
+                   break;
+                default:
+                   groupings =
+                       _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(x=>"All").ToList();
                     break;
             }
 
@@ -150,6 +136,9 @@ namespace ODBX.Controls
 
             AutoGenerateColumns = false;
             DataSource = _gridBinding;
+
+            CollapseExpandAll(true);
+            ResumeLayout();
         }
 
         public void CollapseAll()

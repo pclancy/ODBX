@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormObjectDiff));
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -88,9 +89,9 @@
             this.Controls.Add(this.controlScriptDiff1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "FormObjectDiff";
-            this.ShowIcon = false;
             this.Text = "FormObjectDiff";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

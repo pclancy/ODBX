@@ -125,7 +125,10 @@ namespace ODBX.Forms
 
         private void ComboBoxGroupBySelectedIndexChanged(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             _formProject.GroupBy = ((GroupByView) ComboBoxGroupBy.SelectedIndex);
+            _formProject.BuildView();
+            Cursor.Current = Cursors.Default;
         }
     }
 }
