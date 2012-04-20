@@ -22,6 +22,34 @@ namespace ODBX.Controls
             CellClick += OnCellClick;
         }
 
+        protected override void OnCellMouseMove(DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Cursor = IsGroupRow(e.RowIndex) ? Cursors.Hand : Cursors.Default;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
+
+            base.OnCellMouseMove(e);
+        }
+
+        protected override void OnCellMouseLeave(DataGridViewCellEventArgs e)
+        {
+            Cursor = Cursors.Default;
+            base.OnCellMouseLeave(e);
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+           Cursor = Cursors.Default;
+
+            base.OnMouseLeave(e);
+        }
+
+
 
         public ModelObject SelectedObject
         {
@@ -74,11 +102,14 @@ namespace ODBX.Controls
             e.Graphics.DrawLine(SystemPens.Control, rect.Left, rect.Bottom - 1, rect.Width, rect.Bottom - 1);
 
 
-            var layoutRectangle = new Rectangle(rect.Left + 25, rect.Top + 8, rect.Width - 35, rect.Height - 10);
+            var layoutRectangle = new Rectangle(rect.Left + 25, rect.Top + 9, rect.Width - 35, rect.Height - 10);
             e.Graphics.DrawString(gridGroup.HeaderText, RowsDefaultCellStyle.Font, Brushes.Black, layoutRectangle);
 
             e.Graphics.DrawImage(gridGroup.Collapsed ? Resources.expand : Resources.collapse, rect.Left + 5,
-                                 rect.Top +5, 16, 16);
+                                 rect.Top + 7, 16, 16);
+
+
+
         }
 
         protected override void SetSelectedRowCore(int rowIndex, bool selected)
@@ -111,10 +142,10 @@ namespace ODBX.Controls
                     groupings =
                         _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(
                             modelObject => modelObject.Difference.DisplayValue).ToList();
-                   break;
+                    break;
                 default:
-                   groupings =
-                       _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(x=>"All").ToList();
+                    groupings =
+                        _model.Objects.OrderBy(x => x.Type).ThenBy(x => x.Name).GroupBy(x => "All").ToList();
                     break;
             }
 
@@ -133,7 +164,8 @@ namespace ODBX.Controls
                                              Object = modelObject,
                                              SourceName = modelObject.Name,
                                              TargetName = modelObject.Name,
-                                             Type = modelObject.Type
+                                             Type = modelObject.Type,
+                                             Action = modelObject.Difference.Action.ToString()
                                          };
 
                     _gridBinding.Add(difference);
@@ -167,7 +199,7 @@ namespace ODBX.Controls
             for (int i = 0; i < count; i++)
             {
                 if (IsGroupRow(i))
-                    ((GridGroup) Rows[i].DataBoundItem).Collapsed = collapsed;
+                    ((GridGroup)Rows[i].DataBoundItem).Collapsed = collapsed;
                 else
                     Rows[i].Visible = !collapsed;
             }
@@ -178,7 +210,7 @@ namespace ODBX.Controls
         {
             SuspendLayout();
 
-            var gridGroup = (GridGroup) Rows[index].DataBoundItem;
+            var gridGroup = (GridGroup)Rows[index].DataBoundItem;
             gridGroup.Collapsed = !gridGroup.Collapsed;
 
             foreach (DataGridViewRow row in GetRows(index))
@@ -221,6 +253,8 @@ namespace ODBX.Controls
         public bool Include { get; set; }
 
         public string Type { get; set; }
+        public string Action { get; set; }
+
     }
 
     public class SelectionChangedEventArgs : EventArgs

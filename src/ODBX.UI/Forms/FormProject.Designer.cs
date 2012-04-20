@@ -38,6 +38,7 @@
             this.ColumnSourceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInclude = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnTargetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.controlScriptDiff1 = new ODBX.Controls.ControlScriptDiff();
             this.tableLayoutPanel1 = new ODBX.Controls.GradientTable();
             this.panelDestination = new System.Windows.Forms.Panel();
@@ -88,6 +89,7 @@
             // 
             this.resultGrid.AllowUserToAddRows = false;
             this.resultGrid.AllowUserToDeleteRows = false;
+            this.resultGrid.AllowUserToResizeColumns = false;
             this.resultGrid.AllowUserToResizeRows = false;
             this.resultGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.resultGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -98,11 +100,13 @@
             this.ColumnType,
             this.ColumnSourceName,
             this.ColumnInclude,
-            this.ColumnTargetName});
+            this.ColumnTargetName,
+            this.ColumnAction});
             this.resultGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultGrid.GridColor = System.Drawing.SystemColors.Control;
             this.resultGrid.Location = new System.Drawing.Point(0, 0);
             this.resultGrid.Margin = new System.Windows.Forms.Padding(0);
+            this.resultGrid.MultiSelect = false;
             this.resultGrid.Name = "resultGrid";
             this.resultGrid.RowHeadersVisible = false;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,6 +115,8 @@
             this.resultGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.resultGrid.Size = new System.Drawing.Size(858, 248);
             this.resultGrid.TabIndex = 0;
+            this.resultGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ResultGridCellFormatting);
+            this.resultGrid.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.ResultGridCellPainting);
             this.resultGrid.SelectionChanged += new System.EventHandler(this.ResultGridSelectionChanged);
             // 
             // ColumnType
@@ -154,11 +160,19 @@
             this.ColumnTargetName.DataPropertyName = "TargetName";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.ColumnTargetName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnTargetName.FillWeight = 100.096F;
+            this.ColumnTargetName.FillWeight = 70F;
             this.ColumnTargetName.HeaderText = "Name";
             this.ColumnTargetName.Name = "ColumnTargetName";
             this.ColumnTargetName.ReadOnly = true;
             this.ColumnTargetName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ColumnAction
+            // 
+            this.ColumnAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnAction.DataPropertyName = "Action";
+            this.ColumnAction.FillWeight = 30F;
+            this.ColumnAction.HeaderText = "Action";
+            this.ColumnAction.Name = "ColumnAction";
             // 
             // controlScriptDiff1
             // 
@@ -239,7 +253,7 @@
             // 
             this.panelDestinationIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelDestinationIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelDestinationIcon.Image = global::ODBX.Properties.Resources.database;
+            this.panelDestinationIcon.Image = global::ODBX.Properties.Resources.database_lightning;
             this.panelDestinationIcon.Location = new System.Drawing.Point(5, 5);
             this.panelDestinationIcon.Name = "panelDestinationIcon";
             this.panelDestinationIcon.Size = new System.Drawing.Size(37, 99);
@@ -249,7 +263,7 @@
             // panelDirection
             // 
             this.panelDirection.BackColor = System.Drawing.Color.Transparent;
-            this.panelDirection.BackgroundImage = global::ODBX.Properties.Resources.big_arrow_right;
+            this.panelDirection.BackgroundImage = global::ODBX.Properties.Resources.arrow_switch;
             this.panelDirection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelDirection.Location = new System.Drawing.Point(389, 0);
             this.panelDirection.Margin = new System.Windows.Forms.Padding(0);
@@ -355,6 +369,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSourceName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnInclude;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTargetName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAction;
 
 
     }

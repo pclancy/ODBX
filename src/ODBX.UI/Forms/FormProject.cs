@@ -8,10 +8,14 @@
 //  
 
 using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using ODBX.Common;
+using ODBX.Controls;
 using ODBX.Driver;
 using ODBX.Properties;
+using Action = ODBX.Driver.Action;
 
 namespace ODBX.Forms
 {
@@ -34,7 +38,7 @@ namespace ODBX.Forms
             resultGrid.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
             resultGrid.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             resultGrid.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            
+
         }
 
         public GroupByView GroupBy { get; set; }
@@ -102,6 +106,68 @@ namespace ODBX.Forms
         private void FormProjectShown(object sender, EventArgs e)
         {
             resultGrid.CollapseAll();
+        }
+
+        private void ResultGridCellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            var item = this.resultGrid.Rows[e.RowIndex].DataBoundItem as GridDifference;
+
+            if (item == null)
+                return;
+
+            switch (item.Object.Difference.Action)
+            {
+                case Action.Drop:
+                    if (resultGrid.Columns[e.ColumnIndex].Name == "ColumnAction" || resultGrid.Columns[e.ColumnIndex].Name == "ColumnTargetName")
+                        e.CellStyle.ForeColor = Color.Red;
+                    break;
+                case Action.Rebuild:
+                    if (resultGrid.Columns[e.ColumnIndex].Name == "ColumnAction" || resultGrid.Columns[e.ColumnIndex].Name == "ColumnTargetName")
+                        e.CellStyle.ForeColor = Color.DarkOrange;
+                    break;
+                case Action.Update:
+                case Action.Alter:
+                    if (resultGrid.Columns[e.ColumnIndex].Name == "ColumnAction" || resultGrid.Columns[e.ColumnIndex].Name == "ColumnTargetName")
+                        e.CellStyle.ForeColor = Color.DarkBlue;
+                    break;
+
+                case Action.Create:
+                    if (resultGrid.Columns[e.ColumnIndex].Name == "ColumnAction" || resultGrid.Columns[e.ColumnIndex].Name == "ColumnTargetName")
+                        e.CellStyle.ForeColor = Color.DarkGreen;
+                    break;
+
+                case Action.None:
+                    e.CellStyle.ForeColor = Color.LightGray;
+                    if (resultGrid.Columns[e.ColumnIndex].Name == "ColumnInclude")
+                    {
+                        var cell = resultGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        cell.ReadOnly = true;
+                    }
+                    break;
+            }
+
+        }
+
+        private void ResultGridCellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex == 2 && e.RowIndex > 0)
+            {
+                var item = this.resultGrid.Rows[e.RowIndex].DataBoundItem as GridDifference;
+
+                if (item == null)
+                    return;
+                if (item.Object.Difference.Action == Action.None)
+                {
+                    e.Handled = true;
+                    var rect = e.CellBounds;
+                    using (var hb = new HatchBrush(HatchStyle.BackwardDiagonal, Color.WhiteSmoke, Color.White))
+                    {
+                        e.Graphics.FillRectangle(hb, rect);
+                    }
+                    e.Paint(rect, DataGridViewPaintParts.Border);
+                }
+            }
         }
 
     }

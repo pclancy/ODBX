@@ -111,6 +111,7 @@
             this.gradientPanel2.Controls.Add(this.buttonCancel);
             this.gradientPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gradientPanel2.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.gradientPanel2.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gradientPanel2.LineBottom = false;
             this.gradientPanel2.LineColor = System.Drawing.Color.DarkGray;
             this.gradientPanel2.LineLeft = false;
@@ -119,7 +120,6 @@
             this.gradientPanel2.Location = new System.Drawing.Point(0, 155);
             this.gradientPanel2.Name = "gradientPanel2";
             this.gradientPanel2.Size = new System.Drawing.Size(565, 53);
-            this.gradientPanel2.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gradientPanel2.TabIndex = 21;
             // 
             // checkBoxAutoClose

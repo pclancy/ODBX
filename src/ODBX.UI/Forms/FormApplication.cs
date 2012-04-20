@@ -114,7 +114,7 @@ namespace ODBX.Forms
             _formProject = new FormProject {MdiParent = this, WindowState = FormWindowState.Maximized};
             _formProgress = new FormProgress();
 
-            ComboBoxGroupBy.SelectedIndex = 0;
+            ComboBoxGroupBy.SelectedIndex = 2;
             OpenProjectBrowser(sender, e);
         }
 
