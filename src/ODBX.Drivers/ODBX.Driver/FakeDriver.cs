@@ -69,6 +69,11 @@ namespace ODBX.Driver
             return string.Empty;
         }
 
+        public string GenerateScript(IList<ModelObject> objects)
+        {
+            return string.Empty;
+        }
+
         public string LastError { get; private set; }
 
         public string Syntax

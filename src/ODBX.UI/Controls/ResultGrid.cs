@@ -5,13 +5,15 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using ODBX.Driver;
 using ODBX.Forms;
 using ODBX.Properties;
+using Action = ODBX.Driver.Action;
 
 namespace ODBX.Controls
 {
-    public class ResultGrid : DataGridView
+    public sealed class ResultGrid : DataGridView
     {
         private List<GridObject> _gridBinding;
         private Model _model;
@@ -20,6 +22,7 @@ namespace ODBX.Controls
         public ResultGrid()
         {
             CellClick += OnCellClick;
+            DoubleBuffered = true;
         }
 
         protected override void OnCellMouseMove(DataGridViewCellMouseEventArgs e)
@@ -44,11 +47,10 @@ namespace ODBX.Controls
 
         protected override void OnMouseLeave(EventArgs e)
         {
-           Cursor = Cursors.Default;
+            Cursor = Cursors.Default;
 
             base.OnMouseLeave(e);
         }
-
 
 
         public ModelObject SelectedObject
@@ -69,6 +71,7 @@ namespace ODBX.Controls
         {
             if (IsGroupRow(e.RowIndex))
             {
+
                 SuspendLayout();
                 ToggleGroup(e.RowIndex);
                 ResumeLayout();
@@ -109,7 +112,16 @@ namespace ODBX.Controls
                                  rect.Top + 7, 16, 16);
 
 
+            //var buttonPosition =  new Point((layoutRectangle.X + layoutRectangle.Width) - 150, layoutRectangle.Y);
 
+            //e.Graphics.DrawImage(Resources.select_all, buttonPosition);
+            //buttonPosition.Offset(18, 0);
+            //e.Graphics.DrawString("All", RowsDefaultCellStyle.Font, Brushes.Black, buttonPosition);
+
+            //buttonPosition.Offset(64, 0);
+            //e.Graphics.DrawImage(Resources.select_none, buttonPosition);
+            //buttonPosition.Offset(18, 0);
+            //e.Graphics.DrawString("None", RowsDefaultCellStyle.Font, Brushes.Black, buttonPosition);
         }
 
         protected override void SetSelectedRowCore(int rowIndex, bool selected)
@@ -118,8 +130,30 @@ namespace ODBX.Controls
                 base.SetSelectedRowCore(rowIndex, selected);
         }
 
+
+        public IList<ModelObject> GetSelectedObjects()
+        {
+            var list = new List<ModelObject>();
+            foreach (DataGridViewRow row in Rows)
+            {
+                var difference = row.DataBoundItem as GridDifference;
+                if (difference != null)
+                {
+                    if (difference.Include)
+                    {
+                        list.Add(difference.Object);
+                    }
+                }
+
+            }
+
+            return list;
+        }
+
         public void Bind(Model model, GroupByView groupBy)
         {
+            var currentSelection = GetSelectedObjects();
+
             SuspendLayout();
             _isBinding = true;
 
@@ -158,9 +192,12 @@ namespace ODBX.Controls
 
                 foreach (ModelObject modelObject in grouping)
                 {
+                    var o = modelObject;
+                    var currentValue = currentSelection.FirstOrDefault(x => x.Id == o.Id);
+
                     var difference = new GridDifference
                                          {
-                                             Include = true,
+                                             Include = currentValue == null ? modelObject.Difference.Action != Action.None : currentValue.Include,
                                              Object = modelObject,
                                              SourceName = modelObject.Name,
                                              TargetName = modelObject.Name,
@@ -221,7 +258,7 @@ namespace ODBX.Controls
 
         private IEnumerable<DataGridViewRow> GetRows(int index)
         {
-            while (!IsGroupRow(++index) && index < _model.Objects.Count)
+            while (!IsGroupRow(++index) && index < Rows.Count)
                 yield return Rows[index];
         }
 

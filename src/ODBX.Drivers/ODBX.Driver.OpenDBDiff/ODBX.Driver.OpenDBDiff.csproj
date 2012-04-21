@@ -34,8 +34,9 @@
     <Reference Include="DBDiff.Schema">
       <HintPath>depends\DBDiff.Schema.dll</HintPath>
     </Reference>
-    <Reference Include="DBDiff.Schema.SQLServer">
-      <HintPath>depends\DBDiff.Schema.SQLServer.dll</HintPath>
+    <Reference Include="DBDiff.Schema.SQLServer, Version=0.8.9.5, Culture=neutral, PublicKeyToken=ff28b8ff00eef53a, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DBDiff.Schema.SQLServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

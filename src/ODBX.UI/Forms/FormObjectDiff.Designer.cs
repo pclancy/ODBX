@@ -41,7 +41,7 @@
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonClose.Location = new System.Drawing.Point(716, 15);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 24);
+            this.buttonClose.Size = new System.Drawing.Size(75, 25);
             this.buttonClose.TabIndex = 1;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -60,11 +60,11 @@
             // buttonSave
             // 
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(634, 15);
+            this.buttonSave.Location = new System.Drawing.Point(12, 14);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 24);
+            this.buttonSave.Size = new System.Drawing.Size(103, 25);
             this.buttonSave.TabIndex = 0;
-            this.buttonSave.Text = "Save...";
+            this.buttonSave.Text = "Save Script...";
             this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // controlScriptDiff1

@@ -8,6 +8,7 @@
 //  
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -170,5 +171,16 @@ namespace ODBX.Forms
             }
         }
 
+
+
+        private void ResultGridCurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            resultGrid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+        public IList<ModelObject> GetSelectedObjects()
+        {
+            return resultGrid.GetSelectedObjects();
+        }
     }
 }

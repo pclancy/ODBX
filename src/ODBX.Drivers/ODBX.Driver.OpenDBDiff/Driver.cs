@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using DBDiff.Schema;
 using DBDiff.Schema.Model;
 using DBDiff.Schema.SQLServer.Generates.Generates;
@@ -312,6 +313,27 @@ namespace ODBX.Driver.OpenDBDiff
             }
 
             return string.Empty;
+        }
+
+        public string GenerateScript(IList<ModelObject> objects)
+        {
+            var schemaList = new List<ISchemaBase>();
+            foreach (var modelObject in objects)
+            {
+                var schemaObject = _merged.Find(modelObject.Name);
+                if (schemaObject != null)
+                    schemaList.Add(schemaObject);
+
+            }
+
+
+            var script = new StringBuilder();
+            foreach (var schemaBase in schemaList)
+            {
+                script.Append(schemaBase.ToSqlDiff().ToSQL());
+            }
+
+            return script.ToString();
         }
 
 

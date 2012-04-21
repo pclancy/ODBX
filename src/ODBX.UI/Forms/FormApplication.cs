@@ -8,6 +8,7 @@
 //  
 
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using ODBX.Common;
 using ODBX.Properties;
@@ -120,7 +121,10 @@ namespace ODBX.Forms
 
         private void ButtonSynchroniseClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Not Yet Implemented");
+            var formSynchronise = new FormSynchronise();
+
+            formSynchronise.Bind(_formProject.Project, _formProject.GetSelectedObjects());
+            formSynchronise.ShowDialog(this);
         }
 
         private void ComboBoxGroupBySelectedIndexChanged(object sender, EventArgs e)

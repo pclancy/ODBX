@@ -557,6 +557,20 @@ namespace ODBX.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap select_all {
+            get {
+                object obj = ResourceManager.GetObject("select_all", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap select_none {
+            get {
+                object obj = ResourceManager.GetObject("select_none", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap server_database {
             get {
                 object obj = ResourceManager.GetObject("server_database", resourceCulture);

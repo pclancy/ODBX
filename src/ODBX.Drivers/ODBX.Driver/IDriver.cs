@@ -8,6 +8,7 @@
 //  
 
 using System;
+using System.Collections.Generic;
 using ODBX.Driver.Servers;
 
 namespace ODBX.Driver
@@ -47,6 +48,7 @@ namespace ODBX.Driver
 
         Model BuildComparisonObjects(IConnection sourceConnection, IConnection targetConnection);
         string GenerateScript(ScriptAction action, ModelObject modelObject);
+        string GenerateScript(IList<ModelObject> objects);
     }
 
     public class FeedbackEventArgs : EventArgs
