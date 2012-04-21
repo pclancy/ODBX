@@ -9,9 +9,11 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ODBX.Driver;
 using ODBX.Forms;
+using ScintillaNET;
 
 namespace ODBX.Controls
 {
@@ -22,6 +24,16 @@ namespace ODBX.Controls
         public ControlScriptDiff()
         {
             InitializeComponent();
+
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            textScriptLeft.ApplySettings();
+            textScriptMerged.ApplySettings();
+            textScriptRight.ApplySettings();
+
+            base.OnLoad(e);
         }
 
         public ModelObject ModelObject
@@ -117,5 +129,6 @@ namespace ODBX.Controls
 
             splitContainerMain.Panel1Collapsed = !checkBoxShowDiff.Checked;
         }
+
     }
 }

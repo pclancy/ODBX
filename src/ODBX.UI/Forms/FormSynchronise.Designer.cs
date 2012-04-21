@@ -1,4 +1,6 @@
-﻿namespace ODBX.Forms
+﻿using ODBX.Controls;
+
+namespace ODBX.Forms
 {
     partial class FormSynchronise
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textScript = new ScintillaNET.Scintilla();
+            this.textScript = new ScriptViewer();
             this.gradientPanel2 = new ODBX.Controls.GradientPanel();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonAccept = new System.Windows.Forms.Button();
@@ -49,10 +51,7 @@
             this.textScript.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textScript.IsReadOnly = true;
             this.textScript.Location = new System.Drawing.Point(0, 75);
-            this.textScript.Margins.Margin0.IsClickable = true;
-            this.textScript.Margins.Margin0.IsFoldMargin = true;
-            this.textScript.Margins.Margin0.IsMarkerMargin = true;
-            this.textScript.Margins.Margin0.Width = 50;
+
             this.textScript.Name = "textScript";
             this.textScript.Size = new System.Drawing.Size(818, 343);
             this.textScript.TabIndex = 2;
@@ -192,7 +191,7 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonAccept;
         private System.Windows.Forms.Button buttonCancel;
-        private ScintillaNET.Scintilla textScript;
+        private ScriptViewer textScript;
         private System.Windows.Forms.Label labelHeaderAction;
         private System.Windows.Forms.Label labelHeader;
         private System.Windows.Forms.PictureBox pictureBox1;

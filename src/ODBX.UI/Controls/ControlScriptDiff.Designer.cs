@@ -30,9 +30,9 @@
         {
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.splitContainerLeftRight = new System.Windows.Forms.SplitContainer();
-            this.textScriptLeft = new ScintillaNET.Scintilla();
-            this.textScriptRight = new ScintillaNET.Scintilla();
-            this.textScriptMerged = new ScintillaNET.Scintilla();
+            this.textScriptLeft = new ODBX.Controls.ScriptViewer();
+            this.textScriptRight = new ODBX.Controls.ScriptViewer();
+            this.textScriptMerged = new ODBX.Controls.ScriptViewer();
             this.panelDiffToolbar = new ODBX.Controls.GradientPanel();
             this.buttonTearWindow = new System.Windows.Forms.Button();
             this.labelDifference = new System.Windows.Forms.Label();
@@ -95,21 +95,17 @@
             // 
             this.textScriptLeft.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textScriptLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textScriptLeft.LineWrapping.VisualFlags = ScintillaNET.LineWrappingVisualFlags.End;
             this.textScriptLeft.Location = new System.Drawing.Point(0, 0);
-            this.textScriptLeft.Margins.Margin0.Width = 40;
             this.textScriptLeft.Name = "textScriptLeft";
             this.textScriptLeft.Size = new System.Drawing.Size(398, 209);
             this.textScriptLeft.TabIndex = 0;
             this.textScriptLeft.Text = "Left";
-            this.textScriptLeft.Whitespace.Mode = ScintillaNET.WhitespaceMode.VisibleAlways;
             // 
             // textScriptRight
             // 
             this.textScriptRight.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textScriptRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textScriptRight.Location = new System.Drawing.Point(0, 0);
-            this.textScriptRight.Margins.Margin0.Width = 40;
             this.textScriptRight.Name = "textScriptRight";
             this.textScriptRight.Size = new System.Drawing.Size(394, 209);
             this.textScriptRight.TabIndex = 0;
@@ -120,7 +116,6 @@
             this.textScriptMerged.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textScriptMerged.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textScriptMerged.Location = new System.Drawing.Point(0, 0);
-            this.textScriptMerged.Margins.Margin0.Width = 40;
             this.textScriptMerged.Name = "textScriptMerged";
             this.textScriptMerged.Size = new System.Drawing.Size(798, 194);
             this.textScriptMerged.TabIndex = 0;
@@ -245,9 +240,9 @@
 
         private System.Windows.Forms.SplitContainer splitContainerMain;
         private System.Windows.Forms.SplitContainer splitContainerLeftRight;
-        private ScintillaNET.Scintilla textScriptLeft;
-        private ScintillaNET.Scintilla textScriptRight;
-        private ScintillaNET.Scintilla textScriptMerged;
+        private ScriptViewer textScriptLeft;
+        private ScriptViewer textScriptRight;
+        private ScriptViewer textScriptMerged;
         private GradientPanel panelDiffToolbar;
         private System.Windows.Forms.Button buttonTearWindow;
         private System.Windows.Forms.Label labelDifference;

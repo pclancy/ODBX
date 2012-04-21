@@ -83,6 +83,9 @@
     <Compile Include="Controls\ResultGrid.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\ScriptViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\FormApplication.cs">
       <SubType>Form</SubType>
     </Compile>
